@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bgr_bottom_nav">#D9D9D9</color>
+    <color name="item_selected_bottom_nav">#F95569</color>
+    <color name="item_not_select_bottom_nav">@android:color/black</color>
+</resources>
