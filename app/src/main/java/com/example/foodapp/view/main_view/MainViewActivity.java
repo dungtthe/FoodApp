@@ -2,6 +2,7 @@ package com.example.foodapp.view.main_view;
 import com.example.foodapp.*;
 import com.example.foodapp.view.main_view.cart.CartFragment;
 import com.example.foodapp.view.main_view.home.HomeFragment;
+import com.example.foodapp.view.main_view.home.fragment_product_list;
 import com.example.foodapp.view.main_view.information.InformationFragment;
 import com.example.foodapp.view.main_view.setting.SettingFragment;
 import com.example.foodapp.view.main_view.support.SupportFragment;
@@ -46,7 +47,10 @@ public class MainViewActivity extends AppCompatActivity {
                 Fragment fragmentDestination = null;
                 switch (item.getItemId()){
                     case R.id.action_home:
-                        fragmentDestination = new HomeFragment();
+                     //   fragmentDestination = new HomeFragment();
+
+                        fragmentDestination = new fragment_product_list();
+
                         break;
                     case R.id.action_info:
                         fragmentDestination = new InformationFragment();
