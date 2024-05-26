@@ -2,13 +2,22 @@ package com.example.foodapp.view.main_view.cart;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.foodapp.view.main_view.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +25,10 @@ import com.example.foodapp.view.main_view.R;
  * create an instance of this fragment.
  */
 public class CartFragment extends Fragment {
+
+    private RecyclerView rcvListItem;
+    private Button btnSelectAll;
+    private Button btnPurchase;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,14 +43,6 @@ public class CartFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CartFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static CartFragment newInstance(String param1, String param2) {
         CartFragment fragment = new CartFragment();
@@ -51,16 +56,54 @@ public class CartFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+    }
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
+
+        // Ánh xạ các View từ XML
+        rcvListItem = view.findViewById(R.id.rcvListItem);
+        btnSelectAll = view.findViewById(R.id.btnSelectAll);
+        btnPurchase = view.findViewById(R.id.btnPurchase);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(),1);
+        rcvListItem.setLayoutManager(gridLayoutManager);
+        ProductAdapter adapter = new ProductAdapter(getListItem());
+        rcvListItem.setAdapter(adapter);
+        // Thiết lập sự kiện OnClickListener cho các Button
+        btnSelectAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hành động khi btnSelectAll được nhấn
+                // Code xử lý sự kiện khi btnSelectAll được nhấn
+            }
+        });
+
+        btnPurchase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hành động khi btnPurchase được nhấn
+                // Code xử lý sự kiện khi btnPurchase được nhấn
+            }
+        });
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+    private List<Product> getListItem() {
+        List<Product> listProduct = new ArrayList<>();
+        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
+        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
+        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
+        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
+        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
+        return listProduct;
     }
 }
