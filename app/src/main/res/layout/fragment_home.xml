@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeFragment"
+    tools:context="com.example.foodapp.view.main_view.home.HomeFragment"
     android:background="#51874c">
 
     <TextView

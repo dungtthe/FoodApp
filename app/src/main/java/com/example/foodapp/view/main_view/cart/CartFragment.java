@@ -58,9 +58,11 @@ public class CartFragment extends Fragment {
         }
 
     }
+
     private RecyclerView rcvListItem;
     private Button btnSelectAll;
     private Button btnPurchase;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -71,7 +73,7 @@ public class CartFragment extends Fragment {
         btnSelectAll = view.findViewById(R.id.btnSelectAll);
         btnPurchase = view.findViewById(R.id.btnPurchase);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
         ProductAdapter adapter = new ProductAdapter(getListItem());
         rcvListItem.setAdapter(adapter);
@@ -97,11 +99,11 @@ public class CartFragment extends Fragment {
 
     private List<Product> getListItem() {
         List<Product> listProduct = new ArrayList<>();
-        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
-        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
-        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
-        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
-        listProduct.add(new Product("CoCa",20000,R.drawable.coca,2));
+        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
+        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
+        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
+        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
+        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
         return listProduct;
     }
 }

@@ -44,9 +44,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
         holder.imgProduct.setImageResource(product.getIdImage());
         holder.txtTenProduct.setText(product.getTenSP());
-        holder.txtGiaProduct.setText(product.getGiaSP());
-        holder.txtSoLuongProduct.setText(product.getSoLuong());
-        holder.txtTongGiaProduct.setText(product.getTongGiaMatHang());
+        holder.txtGiaProduct.setText(product.getGiaSP()+"");
+        holder.txtSoLuongProduct.setText(product.getSoLuong()+"");
+        holder.txtTongGiaProduct.setText(product.getTongGiaMatHang()+"");
 
 
 

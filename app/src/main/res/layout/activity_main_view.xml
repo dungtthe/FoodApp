@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainViewActivity">
+    tools:context="com.example.foodapp.view.main_view.MainViewActivity">
 
     <FrameLayout
         android:id="@+id/frame_contain"

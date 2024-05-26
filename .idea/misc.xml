@@ -7,7 +7,8 @@
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.175" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.175" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_main_view.xml" value="0.1" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_cart.xml" value="0.264" />
+        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_cart.xml" value="0.2" />
+        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_home.xml" value="0.21052631578947367" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_information.xml" value="0.536" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_cart.xml" value="0.264" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/menu/menu_bottom_nav.xml" value="0.20701754385964913" />
@@ -27,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>
