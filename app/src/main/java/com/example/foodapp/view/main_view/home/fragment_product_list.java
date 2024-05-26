@@ -1,17 +1,16 @@
 package com.example.foodapp.view.main_view.home;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.foodapp.R;
 import com.example.foodapp.model.DTO.Product;
+import com.example.foodapp.view.main_view.R;
 
 import java.util.ArrayList;
 import java.util.List;

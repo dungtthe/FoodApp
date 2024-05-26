@@ -1,7 +1,5 @@
 package com.example.foodapp.view.main_view.home;
 
-import com.example.foodapp.R;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.model.DTO.Product;
+import com.example.foodapp.view.main_view.R;
 
 import java.util.List;
 
