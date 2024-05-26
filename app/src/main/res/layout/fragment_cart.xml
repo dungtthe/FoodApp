@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF8F7B"
     tools:context="com.example.foodapp.view.main_view.cart.CartFragment">
-
+    <!-- title of fragment -->
     <TextView
         android:id="@+id/txtGioHang"
         android:layout_width="wrap_content"
@@ -15,12 +16,13 @@
         android:fontFamily="@font/inter_bold"
         android:gravity="center"
         android:text="Giỏ hàng(5)"
+        android:textColor="@color/white"
         android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <!--  scroll item  -->
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -40,33 +42,37 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvListItem"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
-
+    <!--group button-->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <!--button selectAll-->
         <Button
             android:id="@+id/btnSelectAll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="Chọn tất cả" />
-
+        <!--button purchase-->
         <Button
             android:id="@+id/btnPurchase"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/custom_btnpurchase"
+            android:textColor="@color/white"
             android:text="Mua Hàng" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
