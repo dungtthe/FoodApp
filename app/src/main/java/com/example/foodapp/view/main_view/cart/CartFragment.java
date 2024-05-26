@@ -1,18 +1,16 @@
 package com.example.foodapp.view.main_view.cart;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ListView;
 
 import com.example.foodapp.view.main_view.R;
 
@@ -26,9 +24,6 @@ import java.util.List;
  */
 public class CartFragment extends Fragment {
 
-    private RecyclerView rcvListItem;
-    private Button btnSelectAll;
-    private Button btnPurchase;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +58,9 @@ public class CartFragment extends Fragment {
         }
 
     }
+    private RecyclerView rcvListItem;
+    private Button btnSelectAll;
+    private Button btnPurchase;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -73,7 +71,7 @@ public class CartFragment extends Fragment {
         btnSelectAll = view.findViewById(R.id.btnSelectAll);
         btnPurchase = view.findViewById(R.id.btnPurchase);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(),1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1);
         rcvListItem.setLayoutManager(gridLayoutManager);
         ProductAdapter adapter = new ProductAdapter(getListItem());
         rcvListItem.setAdapter(adapter);
