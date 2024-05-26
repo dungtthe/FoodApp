@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodapp.R;
 import com.example.foodapp.model.DTO.Product;
-import com.example.foodapp.view.main_view.R;
 
 import java.util.ArrayList;
 import java.util.List;

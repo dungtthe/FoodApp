@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.foodapp.view.main_view.R;
+import com.example.foodapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
