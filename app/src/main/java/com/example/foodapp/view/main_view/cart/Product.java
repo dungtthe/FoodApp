@@ -5,7 +5,6 @@ public class Product {
     private int giaSP;
     private int idImage;
     private int soLuong;
-    private int tongGiaMatHang;
 
     public Product(String tenSP, int giaSP, int idImage, int soLuong) {
         this.tenSP = tenSP;
@@ -47,6 +46,6 @@ public class Product {
     }
 
     public int getTongGiaMatHang() {
-        return tongGiaMatHang*soLuong;
+        return giaSP*soLuong;
     }
 }
