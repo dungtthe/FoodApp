@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/bogoc_main_information.xml" value="0.1625" />
+        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnhome_btndonmua.xml" value="0.19" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnoder.xml" value="0.19" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnpurchase.xml" value="0.19" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnselectall.xml" value="0.19" />
@@ -13,12 +14,13 @@
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_layout_contentofcontent.xml" value="0.19" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.175" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.175" />
+        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/rounded_view_content_corners_information.xml" value="0.19" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_main_view.xml" value="0.1" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_notify.xml" value="0.21052631578947367" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_purchase.xml" value="0.264" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_cart.xml" value="0.2" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_home.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_information.xml" value="0.4" />
+        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_information.xml" value="0.264" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_cart.xml" value="0.264" />
         <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/menu/menu_bottom_nav.xml" value="0.20701754385964913" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.1796875" />
