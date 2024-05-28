@@ -4,17 +4,403 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.main_view.home.HomeFragment"
-    android:background="#51874c">
+    android:background="#FFA07A"
+    tools:context=".view.main_view.information.InformationFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trang chủ"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- Header with orange background -->
+    <View
+        android:id="@+id/view_header"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:background="#FFA07A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Content View -->
+    <ScrollView
+        android:id="@+id/view_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_view_content_corners_information"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Section Title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Món ngon hôm nay"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xem tất cả"
+                    android:textSize="14sp"
+                    android:textColor="#FF6347" />
+            </LinearLayout>
+
+            <!-- Item Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Item 1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/pepsi" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bánh mì"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:paddingTop="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20.000 VND"
+                            android:textSize="14sp"
+                            android:textColor="#FF6347"
+                            android:paddingTop="4dp" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp">
+
+                            <TextView
+                                android:id="@+id/text_quantity_1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Số lượng: 7"
+                                android:textSize="14sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/icon_cart_1" />
+
+                            <!-- Cart Icon -->
+                            <ImageView
+                                android:id="@+id/icon_cart_1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_baseline_add_circle_24"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginEnd="8dp" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Item 2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/pepsi" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bánh mì"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:paddingTop="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20.000 VND"
+                            android:textSize="14sp"
+                            android:textColor="#FF6347"
+                            android:paddingTop="4dp" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp">
+
+                            <TextView
+                                android:id="@+id/text_quantity_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Số lượng: 7"
+                                android:textSize="14sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/icon_cart_2" />
+
+                            <!-- Cart Icon -->
+                            <ImageView
+                                android:id="@+id/icon_cart_2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_baseline_add_circle_24"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginEnd="8dp" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Category Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh mục sản phẩm"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:paddingBottom="8dp" />
+
+                <!-- First row of categories -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <!-- Category 1 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/card_background_for_home"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/pepsi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pizza"
+                            android:textSize="14sp"
+                            android:textColor="#000000"
+                            android:paddingTop="4dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <!-- Category 2 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/card_background_for_home"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/pepsi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Burger"
+                            android:textSize="14sp"
+                            android:textColor="#000000"
+                            android:paddingTop="4dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Second row of categories -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Category 3 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/card_background_for_home"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/pepsi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coca"
+                            android:textSize="14sp"
+                            android:textColor="#000000"
+                            android:paddingTop="4dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <!-- Category 4 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/card_background_for_home"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/pepsi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pepsi"
+                            android:textSize="14sp"
+                            android:textColor="#000000"
+                            android:paddingTop="4dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Header Content Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view_header">
+
+        <!-- Search Icon -->
+        <FrameLayout
+            android:id="@+id/location_icon_container"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/rounded_square_background_for_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Location Icon -->
+            <ImageView
+                android:id="@+id/icon_location"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_location_on_24_for_home" />
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/search_edit_text"
+            android:layout_width="270dp"
+            android:layout_height="44dp"
+            android:background="@drawable/search_background_for_home"
+            android:hint="Tìm kiếm món ăn"
+            android:paddingStart="8dp"
+            android:paddingEnd="40dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/location_icon_container"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/icon_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_search_40_for_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/search_edit_text"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
