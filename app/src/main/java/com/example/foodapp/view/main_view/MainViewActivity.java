@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,12 +37,14 @@ public class MainViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_view);
 
 
-        try {
-            Connection connection = DatabaseHelper.getConnection();
-            ThamSoDA.initializeParameters(connection);
-            connection.close();
-        } catch (SQLException | ClassNotFoundException e) {
-        }
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ThamSoDA.updateParameters();
+            }
+        });
+        thread.start();
+
 
         //chỉnh màu thanh trạng thái
         setUpMauChoThanhTrangThai();
