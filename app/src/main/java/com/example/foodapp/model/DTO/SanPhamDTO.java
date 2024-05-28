@@ -26,7 +26,7 @@ public class SanPhamDTO {
         this.hinhAnh = hinhAnh;
         this.daXoa = daXoa;
 
-        giaBan= (int)ThamSoDTO.heSoBan*giaNhap;
+        giaBan= (int)(ThamSoDTO.heSoBan*giaNhap);
     }
 
     // Getter và Setter cho các thuộc tính
@@ -60,7 +60,7 @@ public class SanPhamDTO {
 
     public void setGiaNhap(int giaNhap) {
         this.giaNhap = giaNhap;
-        giaBan= (int)ThamSoDTO.heSoBan*giaNhap;
+        giaBan= (int)(ThamSoDTO.heSoBan*giaNhap);
     }
 
     public int getSoLuongTon() {
