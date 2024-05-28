@@ -14,6 +14,9 @@
         android:theme="@style/my_themes"
         tools:targetApi="31">
         <activity
+            android:name=".SingupActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.start.Login"
             android:exported="false" />
         <activity
