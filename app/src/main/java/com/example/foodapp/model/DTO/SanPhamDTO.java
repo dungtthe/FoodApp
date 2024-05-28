@@ -2,11 +2,14 @@ package com.example.foodapp.model.DTO;
 
 import android.graphics.Bitmap;
 
+import com.example.foodapp.model.DA.ThamSoDA;
+
 public class SanPhamDTO {
     private int id;
     private String tenSP;
     private int loai;
     private int giaNhap;
+    private int giaBan;
     private int soLuongTon;
     private Bitmap hinhAnh;
     private boolean daXoa;
@@ -22,6 +25,8 @@ public class SanPhamDTO {
         this.soLuongTon = soLuongTon;
         this.hinhAnh = hinhAnh;
         this.daXoa = daXoa;
+
+        giaBan= (int)ThamSoDTO.heSoBan*giaNhap;
     }
 
     // Getter và Setter cho các thuộc tính
@@ -55,6 +60,7 @@ public class SanPhamDTO {
 
     public void setGiaNhap(int giaNhap) {
         this.giaNhap = giaNhap;
+        giaBan= (int)ThamSoDTO.heSoBan*giaNhap;
     }
 
     public int getSoLuongTon() {
@@ -79,5 +85,13 @@ public class SanPhamDTO {
 
     public void setDaXoa(boolean daXoa) {
         this.daXoa = daXoa;
+    }
+
+    public int getGiaBan() {
+        return giaBan;
+    }
+
+    public void setGiaBan(int giaBan) {
+        this.giaBan = giaBan;
     }
 }
