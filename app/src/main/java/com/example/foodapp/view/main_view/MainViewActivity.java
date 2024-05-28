@@ -35,12 +35,14 @@ public class MainViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_view);
 
 
-        try {
-            Connection connection = DatabaseHelper.getConnection();
-            ThamSoDA.initializeParameters(connection);
-            connection.close();
-        } catch (SQLException | ClassNotFoundException e) {
-        }
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ThamSoDA.updateParameters();
+            }
+        });
+        thread.start();
+
 
         //chỉnh màu thanh trạng thái
         setUpMauChoThanhTrangThai();
