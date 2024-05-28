@@ -18,10 +18,10 @@ import java.util.List;
 
 public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.SanPhamViewHolder> {
 
-    private List<SanPhamDTO> productList;
+    private List<SanPhamDTO> sanphamList;
 
-    public SanPhamAdapter(List<SanPhamDTO> productList) {
-        this.productList = productList;
+    public SanPhamAdapter(List<SanPhamDTO> sanphamList) {
+        this.sanphamList = sanphamList;
     }
 
     @NonNull
@@ -33,36 +33,35 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.SanPhamV
 
     @Override
     public void onBindViewHolder(@NonNull SanPhamViewHolder holder, int position) {
-        SanPhamDTO product = productList.get(position);
-        holder.productName.setText(product.getTenSP());
-        holder.productType.setText("Loại: " + product.getLoai());
-        holder.productQuantity.setText("Số lượng: " + product.getSoLuongTon());
-        holder.productPrice.setText(product.getGiaNhap() + " VND");
-
-        if (product.getHinhAnh() != null) {
-            holder.productImage.setImageBitmap(product.getHinhAnh());
+        SanPhamDTO sanpham = sanphamList.get(position);
+        holder.sanphamName.setText(sanpham.getTenSP());
+        holder.sanphamType.setText("Loại: " + sanpham.getLoai());
+        holder.sanphamQuantity.setText("Số lượng: " + sanpham.getSoLuongTon());
+        holder.sanphamPrice.setText( MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
+        if (sanpham.getHinhAnh() != null) {
+            holder.sanphamImage.setImageBitmap(sanpham.getHinhAnh());
         } else {
-            holder.productImage.setImageResource(R.drawable.img_default_for_product);
+            holder.sanphamImage.setImageResource(R.drawable.img_default_for_product);
         }
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return sanphamList.size();
     }
 
     static class SanPhamViewHolder extends RecyclerView.ViewHolder {
-        ImageView productImage;
-        TextView productName, productType, productQuantity, productPrice;
+        ImageView sanphamImage;
+        TextView sanphamName, sanphamType, sanphamQuantity, sanphamPrice;
         ImageButton favoriteButton, addToCartButton;
 
         public SanPhamViewHolder(@NonNull View itemView) {
             super(itemView);
-            productImage = itemView.findViewById(R.id.product_image);
-            productName = itemView.findViewById(R.id.product_name);
-            productType = itemView.findViewById(R.id.product_type);
-            productQuantity = itemView.findViewById(R.id.product_quantity);
-            productPrice = itemView.findViewById(R.id.product_price);
+            sanphamImage = itemView.findViewById(R.id.product_image);
+            sanphamName = itemView.findViewById(R.id.product_name);
+            sanphamType = itemView.findViewById(R.id.product_type);
+            sanphamQuantity = itemView.findViewById(R.id.product_quantity);
+            sanphamPrice = itemView.findViewById(R.id.product_price);
             favoriteButton = itemView.findViewById(R.id.favorite_button);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
         }
