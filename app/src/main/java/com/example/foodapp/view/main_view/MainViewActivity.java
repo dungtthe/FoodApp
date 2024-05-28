@@ -1,5 +1,7 @@
 package com.example.foodapp.view.main_view;
 import com.example.foodapp.*;
+import com.example.foodapp.model.DA.DatabaseHelper;
+import com.example.foodapp.model.DA.ThamSoDA;
 import com.example.foodapp.view.main_view.cart.CartFragment;
 import com.example.foodapp.view.main_view.home.HomeFragment;
 import com.example.foodapp.view.main_view.information.InformationFragment;
@@ -19,6 +21,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class MainViewActivity extends AppCompatActivity {
 
 
@@ -29,6 +34,13 @@ public class MainViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view);
 
+
+        try {
+            Connection connection = DatabaseHelper.getConnection();
+            ThamSoDA.initializeParameters(connection);
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+        }
 
         //chỉnh màu thanh trạng thái
         setUpMauChoThanhTrangThai();
