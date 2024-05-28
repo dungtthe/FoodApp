@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <!-- title of fragment -->
+        <!-- title of notify -->
         <TextView
             android:id="@+id/txtPay"
             android:layout_width="wrap_content"
@@ -108,7 +108,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constr_ContentOfContent"
                     android:layout_width="match_parent"
-                    android:layout_height="666dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/custom_layout_contentofcontent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -162,12 +162,13 @@
                         app:layout_constraintTop_toBottomOf="@+id/btnHome" />
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvListItemNotify"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="130dp"
+                        android:layout_marginTop="50dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textView2"
-                        app:layout_constraintTop_toBottomOf="@+id/txtMoTa" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

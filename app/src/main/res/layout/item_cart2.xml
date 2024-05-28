@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/product_name"
             android:text="Loại: Đồ ăn"
-            android:textSize="14sp"
-            android:textColor="#777" />
+            android:textColor="#777"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/product_quantity"
@@ -45,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/product_type"
             android:text="Số lượng: 7"
-            android:textSize="14sp"
-            android:textColor="#777" />
+            android:textColor="#777"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/product_price"
@@ -72,14 +72,14 @@
 
         <ImageButton
             android:id="@+id/add_to_cart_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_below="@id/favorite_button"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_baseline_add_circle_24"
-            />
+            android:scaleType="centerInside"
+            android:src="@drawable/iconadd" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
