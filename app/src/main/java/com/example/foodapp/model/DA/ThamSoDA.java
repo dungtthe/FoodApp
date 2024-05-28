@@ -1,5 +1,7 @@
 package com.example.foodapp.model.DA;
 
+import android.util.Log;
+
 import com.example.foodapp.model.DTO.ThamSoDTO;
 
 import java.sql.Connection;
@@ -9,28 +11,49 @@ import java.sql.SQLException;
 
 public class ThamSoDA {
 
+    public static void updateParameters() {
 
-    public static void initializeParameters(Connection connection) throws SQLException {
-        String query = "SELECT HeSoBan, PhiShip FROM ThamSo LIMIT 1";
+        Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try {
+            connection = DatabaseHelper.getConnection();
+            String query = "SELECT HeSoBan, PhiShip FROM ThamSo WHERE ThamSoID = 1";
             statement = connection.prepareStatement(query);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 ThamSoDTO.heSoBan = resultSet.getDouble("HeSoBan");
                 ThamSoDTO.phiShip = resultSet.getInt("PhiShip");
             }
+        } catch (SQLException | ClassNotFoundException e) {
+
+
         } finally {
             if (resultSet != null) {
-                resultSet.close();
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+
+                }
             }
             if (statement != null) {
-                statement.close();
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                }
             }
         }
     }
 
 
 }
+
+
