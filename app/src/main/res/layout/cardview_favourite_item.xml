@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/cardview"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banhmi" />
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Bánh mì"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_name"
+            android:layout_marginTop="3dp"
+            android:text="Giá: "
+            android:textColor="#777"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/product_price_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/product_price"
+            android:text="20.000 VND"
+            android:textColor="#000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/favorite_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/product_image"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="74dp"
+            android:layout_marginRight="60dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/add_to_cart_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/product_image"
+            android:layout_alignEnd="@+id/product_image"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="5dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/shop_icon" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

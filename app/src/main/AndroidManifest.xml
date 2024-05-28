@@ -13,8 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/my_themes"
         tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".view.main_view.setting.ThemDiaChi"-->
+<!--            android:exported="false" />-->
+        <!-- <activity -->
+        <!-- android:name=".view.main_view.setting.activity_payment_history" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.main_view.setting.activity_favourite_items" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.main_view.diachi" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".activity_favourite" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".activity_changepassword" -->
+        <!-- android:exported="false" /> -->
         <activity
-            android:name=".view.main_view.MainViewActivity"
+            android:name=".view.main_view.setting.activity_payment_history"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
