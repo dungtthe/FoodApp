@@ -17,9 +17,9 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginEnd="10dp"
             android:background="?android:attr/selectableItemBackground"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,37 +40,37 @@
             tools:srcCompat="@drawable/voucher_onsales" />
 
         <TextView
-            android:id="@+id/tv_TenHienThi"
+            android:id="@+id/txtMenhGia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Giảm giá tối đa: 40.000 VND"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/img_HinhAnh"
             app:layout_constraintTop_toTopOf="@+id/img_HinhAnh" />
 
         <TextView
-            android:id="@+id/tv_Gia"
+            android:id="@+id/txtMoTa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Đơn tối thiểu: 100.000 VND"
             android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="@+id/tv_TenHienThi"
-            app:layout_constraintTop_toBottomOf="@+id/tv_TenHienThi" />
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtHanSD"
+            app:layout_constraintStart_toStartOf="@+id/txtMenhGia"
+            app:layout_constraintTop_toBottomOf="@+id/txtMenhGia" />
 
         <TextView
             android:textColor="@color/black"
-            android:textSize="14sp"
-            android:id="@+id/textView3"
+            android:textSize="13sp"
+            android:id="@+id/txtHanSD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hạn sử dụng: 29/5/2024"
             app:layout_constraintBottom_toBottomOf="@+id/img_HinhAnh"
-            app:layout_constraintStart_toStartOf="@+id/tv_Gia" />
+            app:layout_constraintStart_toStartOf="@+id/txtMoTa" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodapp.view.main_view.R;
+import com.example.foodapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
