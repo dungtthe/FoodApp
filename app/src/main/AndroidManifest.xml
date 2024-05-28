@@ -16,20 +16,14 @@
         <activity
             android:name=".view.start.Login"
             android:exported="false" >
-
         </activity>
-
         <activity
             android:name=".view.start.ForgetPassword"
             android:exported="false" >
-
         </activity>
-
-
         <activity
             android:name=".view.start.WelcomActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
