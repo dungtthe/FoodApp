@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/drawable/bogoc_main_information.xml" value="0.185" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/drawable/button_background_detailproduct_home.xml" value="0.185" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/drawable/button_themvaogiohang.xml" value="0.184" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/drawable/card_background_for_home.xml" value="0.185" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/drawable/ic_shop.xml" value="0.11200000000000002" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/drawable/nut_tang_giam_detailproduct.xml" value="0.184" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_detail_san_pham_for_home.xml" value="0.264" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_forget_password.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_singup.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_welcom.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/drawable/circle_shape_avatar.xml" value="0.234" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/drawable/label_changepass.xml" value="0.185" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/drawable/rounded_above_textview.xml" value="0.2065" />
@@ -24,25 +36,13 @@
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/layout/fragment_favourite.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/layout/fragment_favourite_list.xml" value="0.2359375" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/layout/fragment_setting.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/button_background_detailproduct_home.xml" value="0.198" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/card_background_for_home.xml" value="0.1575" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/category_background_for_home.xml" value="0.2055" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/ic_baseline_search_24_for_home.xml" value="0.1575" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/ic_baseline_search_40_for_home.xml" value="0.197" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/rounded_button_background_cart_detail_product_home.xml" value="0.198" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/rounded_corners_detailproduct_home.xml" value="0.198" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/rounded_square_background_for_home.xml" value="0.1245" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/search_background_for_home.xml" value="0.177" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_detail_san_pham_for_home.xml" value="0.5" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_welcom.xml" value="0.33" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_cart.xml" value="0.1796875" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_detail_san_pham.xml" value="0.33" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.20985401459854014" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_info.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_information.xml" value="0.1796875" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_sanpham_list.xml" value="0.12222222222222222" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_setting.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_support.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/menu/menu_bottom_nav.xml" value="0.1" />
