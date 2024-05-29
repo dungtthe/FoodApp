@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.R;
+import com.example.foodapp.model.DTO.SanPhamDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,7 @@ public class CartFragment extends Fragment {
     private RecyclerView rcvListItem;
     private Button btnSelectAll;
     private Button btnPurchase;
+    private List<SanPhamDTO> sanPhamList;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -75,8 +77,16 @@ public class CartFragment extends Fragment {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
+
+//        sanPhamList = new ArrayList<>();
+//        // Load sản phẩm từ cơ sở dữ liệu
+//        SanPhamDA sanPhamDA = new SanPhamDA(this, getContext());
+//        sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
+
         ProductAdapter adapter = new ProductAdapter(getListItem());
         rcvListItem.setAdapter(adapter);
+
+
         // Thiết lập sự kiện OnClickListener cho các Button
         btnSelectAll.setOnClickListener(new View.OnClickListener() {
             @Override
