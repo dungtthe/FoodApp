@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".setting.SettingFragment"
+    tools:context=".view.main_view.setting.SettingFragment"
     android:background="#855799">
 
     <TextView
