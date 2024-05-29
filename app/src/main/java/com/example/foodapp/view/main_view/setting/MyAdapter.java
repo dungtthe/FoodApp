@@ -11,14 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.R;
+import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.model.DTO.favourite_product;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private List<favourite_product> listItem;
+    private List<SanPhamDTO> listItem;
 
-    public MyAdapter(List<favourite_product> listItem){
+    public MyAdapter(List<SanPhamDTO> listItem){
         this.listItem = listItem;
     }
     @NonNull
@@ -35,10 +36,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     // onBindViewHolder là 1 vòng for for(int position = 0; position< listItem.Size(),position++)
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-            favourite_product favourite_item=listItem.get(position);
+        SanPhamDTO favourite_item=listItem.get(position);
 //            holder.imageView.setImageResource(favourite_item.getImageId());
-            holder.productname.setText(favourite_item.getName());
-            holder.productprice.setText(favourite_item.getPrice() + " VND");
+            holder.productname.setText(favourite_item.getTenSP());
+            holder.productprice.setText(favourite_item.getGiaBan() + " VND");
 
     }
 
