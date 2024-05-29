@@ -30,7 +30,7 @@ public class KhachHangDTO {
     public String getsDT() {
         return sDT;
     }
-    public void setsDT(String hoTen) {
+    public void setsDT(String sDT) {
         this.sDT = sDT;
     }
 
@@ -69,5 +69,19 @@ public class KhachHangDTO {
         this.hinhAnh = hinhAnh;
     }
 
+    public KhachHangDTO()
+    {
+
+    }
+
+    //Thêm 1 user
+    public KhachHangDTO(String hoTen, String sDT, String eMail, String tenTk, String matKhau ) {
+        this.hoTen = hoTen;
+        this.sDT = sDT;
+        this.eMail = eMail;
+        this.tenTaiKhoan = tenTk;
+        this.matKhau = matKhau;
+        this.daXoa = false;
+    }
 
 }
