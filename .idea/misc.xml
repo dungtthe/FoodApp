@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_forget_password.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_singup.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/DoAn_FoodApp/app/src/main/res/layout/activity_welcom.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/drawable/circle_shape_avatar.xml" value="0.234" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/drawable/label_changepass.xml" value="0.185" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/MinhBranch/app/src/main/res/drawable/rounded_above_textview.xml" value="0.2065" />

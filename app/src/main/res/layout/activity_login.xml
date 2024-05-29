@@ -42,7 +42,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtTenDangNhap"
+            android:id="@+id/edtTenDangNhapLog"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="32dp"
@@ -56,7 +56,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/edtPassword"
+            android:id="@+id/edtPasswordLog"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="32dp"
@@ -68,7 +68,7 @@
             android:textSize="17sp" />
 
         <Button
-            android:id="@+id/btnDangNhap"
+            android:id="@+id/btnDangNhapLog"
             android:layout_width="295dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -85,7 +85,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnQuenMK"
+                android:id="@+id/btnDangKyLog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -99,7 +99,7 @@
                 app:backgroundTint="@null" />
 
             <Button
-                android:id="@+id/btnDangKi"
+                android:id="@+id/btnQMKLog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

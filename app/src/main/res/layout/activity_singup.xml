@@ -45,7 +45,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtHoTen"
+            android:id="@+id/edtHoTenDki"
             android:background="@drawable/edittext_dangnhap"
             android:textSize="17sp"
             android:layout_marginLeft="32dp"
@@ -58,7 +58,7 @@
             android:ems="10"
             android:inputType="textPersonName" />
         <EditText
-            android:id="@+id/edtSDT"
+            android:id="@+id/edtSDTDki"
             android:background="@drawable/edittext_dangnhap"
             android:textSize="17sp"
             android:layout_margin="32dp"
@@ -69,7 +69,7 @@
             android:ems="10"
             android:inputType="number" />
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtEmailDki"
             android:background="@drawable/edittext_dangnhap"
             android:textSize="17sp"
             android:layout_marginLeft="32dp"
@@ -81,7 +81,7 @@
             android:ems="10"
             android:inputType="textPersonName" />
         <EditText
-            android:id="@+id/edtTenDangNhap"
+            android:id="@+id/edtTenDangNhapDki"
             android:background="@drawable/edittext_dangnhap"
             android:textSize="17sp"
             android:layout_marginLeft="32dp"
@@ -94,7 +94,7 @@
             android:ems="10"
             android:inputType="textPersonName" />
         <EditText
-            android:id="@+id/edtMK1"
+            android:id="@+id/edtMK1Dki"
             android:background="@drawable/edittext_dangnhap"
             android:textSize="17sp"
             android:layout_marginLeft="32dp"
@@ -107,7 +107,7 @@
             android:ems="10"
             android:inputType="textPassword" />
         <EditText
-            android:id="@+id/edtMK2"
+            android:id="@+id/edtMK2Dki"
             android:background="@drawable/edittext_dangnhap"
             android:textSize="17sp"
             android:layout_marginLeft="32dp"
@@ -120,7 +120,7 @@
             android:ems="10"
             android:inputType="textPassword" />
         <Button
-            android:id="@+id/btnDangKi"
+            android:id="@+id/btnDangKyDki"
             android:layout_width="295dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
@@ -140,7 +140,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDangNhap"
+                android:id="@+id/btnDangNhapDki"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background = "@drawable/button_dangnhap"
@@ -154,7 +154,7 @@
                 android:text="Đăng nhập" />
 
             <Button
-                android:id="@+id/btnQuenMK"
+                android:id="@+id/btnQuenMKDki"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"

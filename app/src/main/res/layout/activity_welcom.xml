@@ -68,13 +68,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:background="@drawable/button_dangnhap"
+        android:id="@+id/btnbatdau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:width="200dp"
-        android:text="Đăng nhập"
+        android:background="@drawable/button_dangnhap"
+        android:text="Bắt đầu"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
