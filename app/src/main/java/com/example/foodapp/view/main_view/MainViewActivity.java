@@ -2,6 +2,8 @@ package com.example.foodapp.view.main_view;
 import com.example.foodapp.*;
 import com.example.foodapp.model.DA.DatabaseHelper;
 import com.example.foodapp.model.DA.ThamSoDA;
+import com.example.foodapp.model.DA.VoucherDA;
+import com.example.foodapp.model.DTO.VoucherDTO;
 import com.example.foodapp.view.main_view.cart.CartFragment;
 import com.example.foodapp.view.main_view.home.HomeFragment;
 import com.example.foodapp.view.main_view.information.InformationFragment;
@@ -16,13 +18,16 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MainViewActivity extends AppCompatActivity {
 
@@ -93,5 +98,7 @@ public class MainViewActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.black));
         }
     }
+
+
 
 }
