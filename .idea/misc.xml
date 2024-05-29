@@ -6,11 +6,14 @@
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/drawable/circle_shape_avatar.xml" value="0.1775" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/drawable/rounded_edittext_changepass.xml" value="0.1775" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/drawable/rounded_view_content_corners_setting.xml" value="0.1105" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/drawable/search_background_for_home.xml" value="0.108" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_comment.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_comment_list.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_favourite_items.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_sanpham_list.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/cardview_comment.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/cardview_favourite_item.xml" value="0.1" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/cardview_sanpham.xml" value="0.4" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/fragment_setting.xml" value="0.264" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_cart.xml" value="0.1796875" />
