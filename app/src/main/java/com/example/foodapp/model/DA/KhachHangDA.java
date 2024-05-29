@@ -1,17 +1,21 @@
 package com.example.foodapp.model.DA;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.foodapp.model.DTO.KhachHangDTO;
-
+import java.io.ByteArrayInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.example.foodapp.R;
 public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
     private String query;
     private DatabaseCallback callback;
@@ -23,46 +27,62 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
         this.context = context;
     }
 
+    @Override
     protected List<KhachHangDTO> doInBackground(Object... params) {
-        List<KhachHangDTO> result = new ArrayList<>();
         query = (String) params[0];
+        List<QueryParameter> queryParameters = new ArrayList<>();
+
+        for (int i = 1; i < params.length; i++) {
+            if (params[i] instanceof QueryParameter) {
+                queryParameters.add((QueryParameter) params[i]);
+            }
+        }
+
+        List<KhachHangDTO> khachHangDTOList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try {
+
             connection = DatabaseHelper.getConnection();
+
             statement = connection.prepareStatement(query);
 
-            if (query.toLowerCase().startsWith("select")) {
-                String tenTaiKhoan = (String) params[1];
-                statement.setString(1, tenTaiKhoan);
-                resultSet = statement.executeQuery();
 
+
+            QueryParameter.setStatementParameters(statement, queryParameters);
+
+            if (query.trim().toUpperCase().startsWith("SELECT")) {
+                resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    KhachHangDTO khachHang = new KhachHangDTO();
-                    khachHang.setHoTen(resultSet.getString("HoTen"));
-                    khachHang.setsDT(resultSet.getString("SoDienThoai"));
-                    khachHang.setMail(resultSet.getString("Email"));
-                    khachHang.settenTaiKhoan(resultSet.getString("TenTaiKhoan"));
-                    khachHang.setMatKhau(resultSet.getString("MatKhau"));
-                    result.add(khachHang);
+                    KhachHangDTO khachHangDTO = new KhachHangDTO();
+                    khachHangDTO.setId(resultSet.getInt("ID"));
+                    khachHangDTO.setHoTen(resultSet.getString("HoTen"));
+                    khachHangDTO.setsDT(resultSet.getString("SoDienThoai"));
+                    khachHangDTO.setMail(resultSet.getString("Email"));
+                    khachHangDTO.settenTaiKhoan(resultSet.getString("TenTaiKhoan"));
+                    khachHangDTO.setMatKhau(resultSet.getString("MatKhau"));
+                    khachHangDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
+                    byte[] imgBytes = resultSet.getBytes("HinhAnh");
+                    if (imgBytes != null) {
+                        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imgBytes);
+                        Bitmap bitmap = BitmapFactory.decodeStream(byteArrayInputStream);
+                        khachHangDTO.setHinhAnh(bitmap);
+                    } else {
+                        Bitmap defaultBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.img_default_for_product);
+                        khachHangDTO.setHinhAnh(defaultBitmap);
+                    }
+                    khachHangDTOList.add(khachHangDTO);
                 }
-                isSuccess = true;
-            } else if (query.toLowerCase().startsWith("insert")) {
-                KhachHangDTO khachHangDTO = (KhachHangDTO) params[1];
-                statement.setString(1, khachHangDTO.getHoTen());
-                statement.setString(2, khachHangDTO.getsDT());
-                statement.setString(3, khachHangDTO.getMail());
-                statement.setString(4, khachHangDTO.gettenTaiKhoan());
-                statement.setString(5, khachHangDTO.getMatKhau());
-                statement.setBoolean(6, false); // Mặc định DaXoa là false
+                isSuccess = !khachHangDTOList.isEmpty();
+            } else {
                 isSuccess = statement.executeUpdate() > 0;
             }
 
         } catch (ClassNotFoundException | SQLException e) {
+            isSuccess=false;
             e.printStackTrace();
-            isSuccess = false;
         } finally {
             try {
                 if (resultSet != null) {
@@ -75,15 +95,20 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
                     connection.close();
                 }
             } catch (SQLException e) {
+                isSuccess=false;
                 e.printStackTrace();
             }
         }
-        return result;
+
+        return khachHangDTOList;
     }
 
     @Override
     protected void onPostExecute(List<KhachHangDTO> result) {
         if (callback != null) {
+            if (!isSuccess) {
+                Toast.makeText(context, "Có lỗi xảy ra!", Toast.LENGTH_SHORT).show();
+            }
             callback.onQueryExecuted(query, result, isSuccess);
         }
     }
