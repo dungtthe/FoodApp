@@ -19,7 +19,8 @@ public class activity_PurchaseOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_order);
-        //anh xa view
+
+        // Ánh xạ view
         tablayout = findViewById(R.id.tabLayout);
         viewpager = findViewById(R.id.ViewPager);
 
@@ -42,6 +43,9 @@ public class activity_PurchaseOrder extends AppCompatActivity {
                     case 3:
                         tab.setText("Đã hủy");
                         break;
+                    default:
+                        tab.setText("Chờ xác nhận");
+                        break;
                 }
             }
         }).attach();
@@ -50,21 +54,42 @@ public class activity_PurchaseOrder extends AppCompatActivity {
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                TextView tabTextView = (TextView) tab.view.getChildAt(1);
-                tabTextView.setTextColor(getResources().getColor(R.color.colorSelectedTabText));
+                updateTabColors();
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                TextView tabTextView = (TextView) tab.view.getChildAt(1);
-                tabTextView.setTextColor(getResources().getColor(R.color.colorUnselectedTabText));
+                updateTabColors();
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                // Do nothing
+                updateTabColors();
             }
         });
 
+        viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                updateTabColors();
+            }
+        });
+
+        // Đảm bảo cập nhật màu tab khi activity được load
+        updateTabColors();
+    }
+
+    private void updateTabColors() {
+        for (int i = 0; i < tablayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tablayout.getTabAt(i);
+            if (tab != null) {
+                TextView tabTextView = (TextView) tab.view.getChildAt(1);
+                if (tab.isSelected()) {
+                    tabTextView.setTextColor(getResources().getColor(R.color.colorSelectedTabText));
+                } else {
+                    tabTextView.setTextColor(getResources().getColor(R.color.colorUnselectedTabText));
+                }
+            }
+        }
     }
 }

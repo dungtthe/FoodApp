@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cart.activity_notify">
+    tools:context=".view.main_view.cart.activity_notify">
     <!--  header of notify  -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ViewHeaderNotify"
