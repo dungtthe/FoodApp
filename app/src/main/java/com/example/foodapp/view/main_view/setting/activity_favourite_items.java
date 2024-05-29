@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.model.DA.SanPhamDA;
 import com.example.foodapp.model.DTO.SanPhamDTO;
-import com.example.foodapp.model.DTO.favourite_product;
+
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.foodapp.R;
 
@@ -23,7 +22,7 @@ public class activity_favourite_items extends AppCompatActivity {
         // Required empty public constructor
     }
     private RecyclerView recyclerView;
-    private MyAdapter sanPhamAdapter;
+    private SanPhamThich_Adapter sanPhamAdapter;
     private List<SanPhamDTO> sanPhamList;
 
     @Override
@@ -50,8 +49,9 @@ public class activity_favourite_items extends AppCompatActivity {
 
         sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
 
-        sanPhamAdapter = new MyAdapter(sanPhamList);
+        sanPhamAdapter = new SanPhamThich_Adapter(sanPhamList);
         recyclerView.setAdapter(sanPhamAdapter);
+
 
 
 

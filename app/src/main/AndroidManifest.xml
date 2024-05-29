@@ -24,10 +24,10 @@
         <!-- <activity -->
         <!-- android:name=".view.main_view.setting.activity_payment_history" -->
         <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".view.main_view.setting.activity_favourite_items" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
+         <activity
+         android:name=".view.main_view.setting.activity_favourite_items"
+         android:exported="false" />
+<!--         <activity -->
         <!-- android:name=".view.main_view.diachi" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
@@ -37,7 +37,7 @@
         <!-- android:name=".activity_changepassword" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".view.main_view.setting.activity_favourite_items"
+            android:name=".view.main_view.MainViewActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

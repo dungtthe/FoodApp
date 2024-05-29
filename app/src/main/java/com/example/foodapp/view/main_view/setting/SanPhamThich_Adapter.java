@@ -6,20 +6,21 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.R;
 import com.example.foodapp.model.DTO.SanPhamDTO;
-import com.example.foodapp.model.DTO.favourite_product;
+
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class SanPhamThich_Adapter extends RecyclerView.Adapter<SanPhamThich_Adapter.MyViewHolder> {
     private List<SanPhamDTO> listItem;
 
-    public MyAdapter(List<SanPhamDTO> listItem){
+    public SanPhamThich_Adapter(List<SanPhamDTO> listItem){
         this.listItem = listItem;
     }
     @NonNull
@@ -38,8 +39,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         SanPhamDTO favourite_item=listItem.get(position);
 //            holder.imageView.setImageResource(favourite_item.getImageId());
-            holder.productname.setText(favourite_item.getTenSP());
-            holder.productprice.setText(favourite_item.getGiaBan() + " VND");
+        holder.productname.setText(favourite_item.getTenSP());
+        holder.productprice.setText(favourite_item.getGiaBan() + " VND");
 
     }
 
@@ -48,15 +49,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private ImageView productimage;
         private TextView productname;
         private TextView productprice;
-        ImageButton favoriteButton, addToCartButton;
+        ImageButton cancelButton, addToCartButton;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardview);
             productimage= itemView.findViewById(R.id.product_image);
             productname = itemView.findViewById(R.id.product_name);
             productprice = itemView.findViewById(R.id.product_price_number);
-            favoriteButton = itemView.findViewById(R.id.favorite_button);
+            cancelButton = itemView.findViewById(R.id.cancel_button);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
+            // Xử lý sự kiện click của cancelButton
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Xử lý sự kiện khi nhấn nút "cancel_button"
+                    Toast.makeText(view.getContext(), "Nút 'cancel_button' đã được nhấn", Toast.LENGTH_SHORT).show();
+                    // Thêm các xử lý khác tại đây
+                }
+            });
         }
     }
 
