@@ -3,6 +3,7 @@ import com.example.foodapp.*;
 import com.example.foodapp.model.DA.DatabaseHelper;
 import com.example.foodapp.model.DA.ThamSoDA;
 import com.example.foodapp.view.main_view.cart.CartFragment;
+import com.example.foodapp.view.main_view.home.DetailSanPhamFragment;
 import com.example.foodapp.view.main_view.home.HomeFragment;
 import com.example.foodapp.view.main_view.home.fragment_sanpham_list;
 import com.example.foodapp.view.main_view.information.InformationFragment;
@@ -62,9 +63,11 @@ public class MainViewActivity extends AppCompatActivity {
                 Fragment fragmentDestination = null;
                 switch (item.getItemId()){
                     case R.id.action_home:
-                        fragmentDestination = new HomeFragment();
+                       // fragmentDestination = new HomeFragment();
 
                         //fragmentDestination = new fragment_sanpham_list();
+
+                        fragmentDestination =new DetailSanPhamFragment();
 
                         break;
                     case R.id.action_info:

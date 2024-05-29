@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.foodapp">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -17,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/my_themes"
         tools:targetApi="31">
+        <activity
+            android:name=".Detail_SanPham_For_Home_Activity"
+            android:exported="false" />
         <activity
             android:name=".view.main_view.MainViewActivity"
             android:exported="true">
