@@ -2,6 +2,7 @@ package com.example.foodapp.view.start;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +12,11 @@ import android.widget.Toast;
 
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.KhachHangDA;
+import com.example.foodapp.model.DA.QueryParameter;
 import com.example.foodapp.model.DTO.KhachHangDTO;
+import com.example.foodapp.view.main_view.MainViewActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SingupActivity extends AppCompatActivity {
@@ -20,8 +24,7 @@ public class SingupActivity extends AppCompatActivity {
     Button btnDangKy, btnDangNhap, btnQuenMK;
     EditText edtHoTen, edtSDT, edtEmail, edtTenDangNhap, edtMatKhau, edtMatKhau2;
 
-    // Biến thành viên để lưu trữ thông tin người dùng nhập vào
-    private String hoTen, sDT, eMail, tenDangNhap, matKhau;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +63,11 @@ public class SingupActivity extends AppCompatActivity {
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hoTen = edtHoTen.getText().toString().trim();
-                sDT = edtSDT.getText().toString().trim();
-                eMail = edtEmail.getText().toString().trim();
-                tenDangNhap = edtTenDangNhap.getText().toString().trim();
-                matKhau = edtMatKhau.getText().toString().trim();
+                String hoTen = edtHoTen.getText().toString().trim();
+                String sDT = edtSDT.getText().toString().trim();
+                String eMail = edtEmail.getText().toString().trim();
+                String tenDangNhap = edtTenDangNhap.getText().toString().trim();
+                String matKhau = edtMatKhau.getText().toString().trim();
                 String matKhau2 = edtMatKhau2.getText().toString().trim();
                 Boolean daxoa = false;
 
@@ -91,54 +94,75 @@ public class SingupActivity extends AppCompatActivity {
                 }
 
                 // Kiểm tra xem tên đăng nhập đã tồn tại chưa
-                checkUsernameExists();
+                checkUsernameExists(tenDangNhap, hoTen, sDT, eMail, matKhau, false, SingupActivity.this);
             }
         });
     }
 
     // Phương thức kiểm tra tên đăng nhập có tồn tại hay không
-    private void checkUsernameExists() {
-        new KhachHangDA(new KhachHangDA.DatabaseCallback() {
+    private void checkUsernameExists(String username, String hoTen, String sDT, String eMail, String matKhau, Boolean daxoa, Context context) {
+        String query = "SELECT COUNT(*) AS count FROM KhachHang WHERE TenTaiKhoan = ?";
+        List<QueryParameter> parameters = new ArrayList<>();
+        parameters.add(new QueryParameter(1, username));
+
+        Object[] params = new Object[parameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < parameters.size(); i++) {
+            params[i + 1] = parameters.get(i);
+        }
+
+        KhachHangDA khachHangDA = new KhachHangDA(new KhachHangDA.DatabaseCallback() {
             @Override
             public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
-                if (isSuccess) {
-                    if (result != null && result.size() > 0) {
-                        // Tên đăng nhập đã tồn tại, hiển thị thông báo cho người dùng
-                        Toast.makeText(SingupActivity.this, "Tên đăng nhập đã tồn tại, vui lòng chọn tên khác", Toast.LENGTH_SHORT).show();
+                if (isSuccess && !result.isEmpty()) {
+                    int count = Integer.parseInt(result.get(0).getHoTen());
+                    if (count > 0) {
+                        Toast.makeText(context, "Tên đăng nhập đã tồn tại, vui lòng chọn tên khác", Toast.LENGTH_SHORT).show();
+                        edtTenDangNhap.requestFocus();
+                        edtTenDangNhap.selectAll();
                     } else {
-                        // Tên đăng nhập chưa tồn tại, tiến hành đăng ký
-                        registerCustomer();
+                        registerCustomer(hoTen, sDT, eMail, username, matKhau,daxoa, context);
                     }
                 } else {
-                    // Xử lý lỗi khi thực hiện truy vấn
-                    Toast.makeText(SingupActivity.this, "Đã xảy ra lỗi khi kiểm tra tên đăng nhập", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Có lỗi xảy ra, vui lòng thử lại", Toast.LENGTH_SHORT).show();
                 }
             }
-        }, SingupActivity.this).execute(
-                "SELECT * FROM KhachHang WHERE TenTaiKhoan = ?",
-                tenDangNhap
-        );
+        }, context);
+
+        khachHangDA.execute(params);
     }
 
-    // Phương thức thực hiện đăng ký khách hàng
-    private void registerCustomer() {
-        // Tạo đối tượng KhachHangDTO từ các thông tin đã nhập
-        final KhachHangDTO khachHang = new KhachHangDTO(hoTen, sDT, eMail, tenDangNhap, matKhau);
 
-        // Thực hiện truy vấn SQL để thêm khách hàng mới vào cơ sở dữ liệu
-        new KhachHangDA(new KhachHangDA.DatabaseCallback() {
+    // Phương thức thực hiện đăng ký khách hàng
+    private void registerCustomer(String hoTen, String sDT, String eMail, String tenDangNhap, String matKhau, Boolean daxoa, Context context) {
+        String query = "INSERT INTO KhachHang (HoTen, SoDienThoai, EMail, DaXoa, TenTaiKhoan, MatKhau) VALUES (?, ?, ?, ?, ?, ?)";
+        List<QueryParameter> parameters = new ArrayList<>();
+        parameters.add(new QueryParameter(1, hoTen));
+        parameters.add(new QueryParameter(2, sDT));
+        parameters.add(new QueryParameter(3, eMail));
+        parameters.add(new QueryParameter(4, daxoa));
+        parameters.add(new QueryParameter(5, tenDangNhap));
+        parameters.add(new QueryParameter(6, matKhau));
+
+        Object[] params = new Object[parameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < parameters.size(); i++) {
+            params[i + 1] = parameters.get(i);
+        }
+
+        KhachHangDA khachHangDA = new KhachHangDA(new KhachHangDA.DatabaseCallback() {
             @Override
             public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
                 if (isSuccess) {
-                    Toast.makeText(SingupActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SingupActivity.this, Login.class);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(SingupActivity.this, "Đăng ký thất bại, vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Có lỗi xảy ra, vui lòng thử lại", Toast.LENGTH_SHORT).show();
                 }
             }
-        }, SingupActivity.this).execute(
-                "INSERT INTO KhachHang (HoTen, SDT, EMail, TenTaiKhoan, MatKhau, DaXoa) VALUES (?, ?, ?, ?, ?, ?)",
-                khachHang
-        );
+        }, context);
+        khachHangDA.execute(params);
     }
 }
 
