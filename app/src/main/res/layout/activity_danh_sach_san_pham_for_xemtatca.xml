@@ -20,12 +20,13 @@
         android:id="@+id/view_content"
         android:layout_width="0dp"
         android:layout_height="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_view_content_corners_setting"
         app:layout_constraintBottom_toTopOf="@+id/recycler_view_danhSachSanPhamForXemTatCa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_header" />
+        app:layout_constraintTop_toBottomOf="@id/view_line" />
     <TextView
         android:id="@+id/tv_LoaiSanPham"
         android:layout_width="wrap_content"
