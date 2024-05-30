@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.R;
+import com.example.foodapp.model.DA.SanPhamThichDA;
 import com.example.foodapp.model.DTO.SanPhamDTO;
+import com.example.foodapp.view.main_view.MainViewActivity;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
 import  com.example.foodapp.R;
 import java.util.List;
@@ -45,14 +47,29 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.productQuantity.setText(String.valueOf(sanpham.getSoLuongTon()));
         holder.productPrice.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
 
+        if (sanpham.isDaThich()) {
+            holder.favouriteButton.setImageResource(R.drawable.ic_favorite_red); // Icon trái tim màu đỏ
+        } else {
+            holder.favouriteButton.setImageResource(R.drawable.icon_favourite); // Icon trái tim bình thường
+        }
+
         holder.favouriteButton.setOnClickListener(v -> {
-            Toast.makeText(v.getContext(), "Added to favourites", Toast.LENGTH_SHORT).show();
+            sanpham.setDaThich(!sanpham.isDaThich());
+            if (sanpham.isDaThich()) {
+                SanPhamThichDA.likeSanpham(v.getContext(), MainViewActivity.userCur.getId(), sanpham.getId());
+            } else {
+                SanPhamThichDA.removeLikeSanpham(v.getContext(), MainViewActivity.userCur.getId(), sanpham.getId());
+            }
+            notifyItemChanged(position);
         });
 
         holder.addToCartButton.setOnClickListener(v -> {
             Toast.makeText(v.getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
         });
     }
+
+
+
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;

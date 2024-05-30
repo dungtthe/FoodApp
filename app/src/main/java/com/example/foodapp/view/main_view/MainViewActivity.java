@@ -4,6 +4,7 @@ import com.example.foodapp.model.DA.DatabaseHelper;
 import com.example.foodapp.model.DA.SanPhamThichDA;
 import com.example.foodapp.model.DA.ThamSoDA;
 import com.example.foodapp.model.DA.VoucherDA;
+import com.example.foodapp.model.DTO.KhachHangDTO;
 import com.example.foodapp.model.DTO.VoucherDTO;
 import com.example.foodapp.view.main_view.cart.CartFragment;
 import com.example.foodapp.view.main_view.home.DetailSanPhamFragment;
@@ -34,6 +35,8 @@ import java.util.List;
 
 public class MainViewActivity extends AppCompatActivity {
 
+
+    public static KhachHangDTO userCur= new KhachHangDTO(1,"Nguyễn Văn A","a","a","a","a");
 
 
     private FrameLayout frameLayoutFirst;
