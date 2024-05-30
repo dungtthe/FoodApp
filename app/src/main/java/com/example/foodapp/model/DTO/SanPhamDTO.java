@@ -13,10 +13,13 @@ public class SanPhamDTO {
     private int soLuongTon;
     private Bitmap hinhAnh;
     private boolean daXoa;
+    private String moTa;
 
     public SanPhamDTO() {
     }
 
+
+    //không có mô tả
     public SanPhamDTO(int id, String tenSP, int loai, int giaNhap, int soLuongTon, Bitmap hinhAnh, boolean daXoa) {
         this.id = id;
         this.tenSP = tenSP;
@@ -26,10 +29,34 @@ public class SanPhamDTO {
         this.hinhAnh = hinhAnh;
         this.daXoa = daXoa;
 
-        giaBan= (int)(ThamSoDTO.heSoBan*giaNhap);
+        giaBan = (int) (ThamSoDTO.heSoBan * giaNhap);
+    }
+
+
+    //có mô tả
+    public SanPhamDTO(int id, String tenSP, int loai, int giaNhap, int soLuongTon, Bitmap hinhAnh, boolean daXoa, String moTa) {
+        this.id = id;
+        this.tenSP = tenSP;
+        this.loai = loai;
+        this.giaNhap = giaNhap;
+        this.soLuongTon = soLuongTon;
+        this.hinhAnh = hinhAnh;
+        this.daXoa = daXoa;
+        this.moTa = moTa;
+
+        giaBan = (int) (ThamSoDTO.heSoBan * giaNhap);
     }
 
     // Getter và Setter cho các thuộc tính
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
+
     public int getId() {
         return id;
     }
@@ -60,7 +87,7 @@ public class SanPhamDTO {
 
     public void setGiaNhap(int giaNhap) {
         this.giaNhap = giaNhap;
-        giaBan= (int)(ThamSoDTO.heSoBan*giaNhap);
+        giaBan = (int) (ThamSoDTO.heSoBan * giaNhap);
     }
 
     public int getSoLuongTon() {
