@@ -1,11 +1,14 @@
 package com.example.foodapp.view.main_view.home;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -35,6 +38,12 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_sach_san_pham_for_xemtatca);
 
+
+        //toàn màn hình
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
 
 
@@ -100,7 +109,7 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
 
 
 
-    public  void getAllSanPhamThich(Context context, int khachHangId, List<SanPhamDTO> allSanPhamList) {
+    public void getAllSanPhamThich(Context context, int khachHangId, List<SanPhamDTO> allSanPhamList) {
         SanPhamThichDA sanPhamThichDA = new SanPhamThichDA(new SanPhamThichDA.DatabaseCallback() {
             @Override
             public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
@@ -117,7 +126,6 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
                     // Cập nhật lại adapter để hiển thị
                      sanPhamAdapter.notifyDataSetChanged();
                 } else {
-                    Toast.makeText(context, "Có lỗi xảy ra!", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -130,4 +138,27 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+
+            try {
+                int sanPhamId = data.getIntExtra("sanPhamId", -1);
+                boolean daThich = data.getBooleanExtra("daThich", false);
+
+                // Cập nhật sản phẩm bị thay đổi trong danh sách
+                for (int i = 0; i < sanPhamList.size(); i++) {
+                    SanPhamDTO sanPham = sanPhamList.get(i);
+                    if (sanPham.getId() == sanPhamId) {
+                        sanPham.setDaThich(daThich);
+                        sanPhamAdapter.notifyItemChanged(i);
+                        break;
+                    }
+                }
+            }
+            catch (Exception e){
+            }
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,7 +54,7 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
             Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
             intent.putExtra("sanPhamId", sanpham.getId());
             intent.putExtra("daThich", sanpham.isDaThich());
-            v.getContext().startActivity(intent);
+            ((Activity) v.getContext()).startActivityForResult(intent, 1);
 
         });
 
@@ -101,4 +102,7 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button_for_xemtatca);
         }
     }
+
+
+
 }
