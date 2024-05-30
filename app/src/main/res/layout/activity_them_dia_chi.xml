@@ -87,13 +87,13 @@ tools:context=".view.main_view.setting.ThemDiaChi">
     </LinearLayout>
 
     <EditText
-        android:id="@+id/et_HoTen"
+        android:id="@+id/edtHoTenThemDiaChi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:hint="Họ và tên"
         android:textSize="16dp"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         android:padding="20dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
@@ -104,7 +104,7 @@ tools:context=".view.main_view.setting.ThemDiaChi">
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/et_SoDienThoai"
+        android:id="@+id/edtSDTThemDiaChi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -113,7 +113,7 @@ tools:context=".view.main_view.setting.ThemDiaChi">
         android:background="@drawable/rounded_below_textview"
         android:hint="Số điện thoại"
         android:textSize="16dp"
-        android:inputType="phone"
+        android:inputType="number"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@ tools:context=".view.main_view.setting.ThemDiaChi">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_SoDienThoai">
+        app:layout_constraintTop_toBottomOf="@+id/edtSDTThemDiaChi">
 
         <ImageView
             android:layout_width="24dp"
@@ -147,13 +147,13 @@ tools:context=".view.main_view.setting.ThemDiaChi">
 
     </LinearLayout>
     <EditText
-        android:id="@+id/et_Tinh"
+        android:id="@+id/edtTinhThemDiaChi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:hint="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã"
         android:textSize="16dp"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         android:padding="20dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
@@ -164,7 +164,7 @@ tools:context=".view.main_view.setting.ThemDiaChi">
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_2" />
 
     <EditText
-        android:id="@+id/et_SoNha"
+        android:id="@+id/edtSoNhaThemDiaChi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -173,96 +173,44 @@ tools:context=".view.main_view.setting.ThemDiaChi">
         android:background="@drawable/rounded_below_textview"
         android:hint="Tên đường, Tòa nhà, Số nhà"
         android:textSize="16dp"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_2" />
-    <LinearLayout
-        android:id="@+id/linearLayout_3"
-        android:layout_width="323dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="10dp"
 
-        android:gravity="center_vertical"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_SoNha">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/setting_icon" />
-
-        <TextView
-            android:id="@+id/tv_CaiDat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="Cài đặt"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_3">
-
-        <RadioButton
-            android:id="@+id/radioButton_NhaRieng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:text="Nhà riêng" />
-
-        <RadioButton
-            android:id="@+id/radioButton_VanPhong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Văn phòng" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout_5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_4">
+        app:layout_constraintTop_toBottomOf="@+id/edtSoNha"
+        app:layout_constraintVertical_bias="0.643">
 
         <CheckBox
-            android:id="@+id/checkBox_DatLamDiaChiMacDinh"
+            android:id="@+id/chkDatDiaChiMacDinh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:text="Đặt làm địa chỉ mặc định" />
+            android:text="Đặt làm địa chỉ mặc định"
+            android:textSize="20dp" />
+
+
+        <Button
+            android:id="@+id/btnThemDiaChi"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/rounded_button_hoanthanh"
+            android:text="Hoàn Thành"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_HoanThanh"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Hoàn Thành"
-        android:background="@drawable/rounded_button_hoanthanh"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
