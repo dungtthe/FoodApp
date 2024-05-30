@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
 
     private String mParam1;
     private String mParam2;
-    private Handler mHandler;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -58,27 +57,13 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        // Khởi tạo Handler
-        mHandler = new Handler(Looper.getMainLooper());
 
-        // Post Runnable để ẩn thanh navigation bar sau 3 giây
-        mHandler.postDelayed(this::hideNavigationBar, 3000);
     }
-    private void hideNavigationBar() {
-        // Lấy activity hiện tại
-        Activity activity = requireActivity();
 
-        // Ẩn thanh navigation
-        if (activity.getWindow() != null) {
-            activity.getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-    }
     private RecyclerView recyclerViewmonngon;
-    private RecyclerView recyclerViewdanhmuc;
+    //private RecyclerView recyclerViewdanhmuc;
     private monngonhomnay_Adapter monngonhomnayAdapter;
-    private DanhMucSanPham_Adapter danhMucSanPhamAdapter;
+    //private DanhMucSanPham_Adapter danhMucSanPhamAdapter;
     private List<SanPhamDTO> sanPhamList;
 
     @Override
@@ -89,8 +74,8 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         recyclerViewmonngon = view.findViewById(R.id.recycler_view_monngonhomnay);
         recyclerViewmonngon.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        recyclerViewdanhmuc = view.findViewById(R.id.recycler_view_danhmucsp);
-        recyclerViewdanhmuc.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        //recyclerViewdanhmuc = view.findViewById(R.id.recycler_view_danhmucsp);
+        //recyclerViewdanhmuc.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         sanPhamList = new ArrayList<>();
 
@@ -104,13 +89,8 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         recyclerViewmonngon.setAdapter(monngonhomnayAdapter);
 
         //
-        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
-        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
-        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
-        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
-        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
-        danhMucSanPhamAdapter = new DanhMucSanPham_Adapter(sanPhamList);
-        recyclerViewdanhmuc.setAdapter(danhMucSanPhamAdapter);
+//        danhMucSanPhamAdapter = new DanhMucSanPham_Adapter(sanPhamList);
+//        recyclerViewdanhmuc.setAdapter(danhMucSanPhamAdapter);
 
         return view;
     }
@@ -165,7 +145,7 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             sanPhamList.clear();
             sanPhamList.addAll(result);
             monngonhomnayAdapter.notifyDataSetChanged();
-//            danhMucSanPhamAdapter.notifyDataSetChanged();
+            //danhMucSanPhamAdapter.notifyDataSetChanged();
         }
     }
 }
