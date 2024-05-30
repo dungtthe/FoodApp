@@ -52,7 +52,7 @@ public class SettingFragment extends Fragment {
         mHandler = new Handler(Looper.getMainLooper());
 
         // Post Runnable để ẩn thanh navigation bar sau 3 giây
-        mHandler.postDelayed(this::hideNavigationBar, 3000);
+        mHandler.postDelayed(this::hideNavigationBar, 000);
     }
 
     @Override
