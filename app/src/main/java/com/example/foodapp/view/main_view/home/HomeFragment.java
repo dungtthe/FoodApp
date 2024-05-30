@@ -58,23 +58,9 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        // Khởi tạo Handler
-        mHandler = new Handler(Looper.getMainLooper());
 
-        // Post Runnable để ẩn thanh navigation bar sau 3 giây
-        mHandler.postDelayed(this::hideNavigationBar, 3000);
     }
-    private void hideNavigationBar() {
-        // Lấy activity hiện tại
-        Activity activity = requireActivity();
 
-        // Ẩn thanh navigation
-        if (activity.getWindow() != null) {
-            activity.getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-    }
     private RecyclerView recyclerViewmonngon;
     private RecyclerView recyclerViewdanhmuc;
     private monngonhomnay_Adapter monngonhomnayAdapter;
