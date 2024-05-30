@@ -124,6 +124,7 @@ public class CartFragment extends Fragment {
 
                     if(adapter!=null){
                         adapter.notifyDataSetChanged();
+                        adapter.updateSelectedPositionsAfterDeletion();
                     }
 
                 }

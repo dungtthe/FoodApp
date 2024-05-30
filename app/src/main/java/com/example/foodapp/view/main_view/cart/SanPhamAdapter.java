@@ -148,4 +148,16 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ProductV
             btnTangSL = itemView.findViewById(R.id.btn_TangSoLuong);
         }
     }
+
+    public void updateSelectedPositionsAfterDeletion() {
+        Set<Integer> newSelectedPositions = new HashSet<>();
+        for (int i = 0; i < listProduct.size(); i++) {
+            if (DataCurrent.danhSachSanPhamCoTrongHoaDon.contains(listProduct.get(i))) {
+                newSelectedPositions.add(i);
+            }
+        }
+        selectedPositions = newSelectedPositions;
+        notifyDataSetChanged();
+    }
+
 }
