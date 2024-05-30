@@ -12,7 +12,7 @@ public class SanPhamDTO {
     private Bitmap hinhAnh;
     private boolean daXoa;
     private String moTa;
-
+    private boolean daThich;
     public SanPhamDTO() {
     }
 
@@ -119,5 +119,13 @@ public class SanPhamDTO {
 
     public void setGiaBan(int giaBan) {
         this.giaBan = giaBan;
+    }
+
+    public boolean isDaThich() {
+        return daThich;
+    }
+
+    public void setDaThich(boolean daThich) {
+        this.daThich = daThich;
     }
 }
