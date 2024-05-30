@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/FoodApp/app/src/main/res/layout/activity_forget_password.xml" value="0.25" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_cart.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.20985401459854014" />

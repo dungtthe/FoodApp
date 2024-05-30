@@ -44,64 +44,58 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
         ResultSet resultSet = null;
 
         try {
-
             connection = DatabaseHelper.getConnection();
-
             statement = connection.prepareStatement(query);
-
-
-
             QueryParameter.setStatementParameters(statement, queryParameters);
 
             if (query.trim().toUpperCase().startsWith("SELECT")) {
                 resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    KhachHangDTO khachHangDTO = new KhachHangDTO();
-                    khachHangDTO.setId(resultSet.getInt("ID"));
-                    khachHangDTO.setHoTen(resultSet.getString("HoTen"));
-                    khachHangDTO.setsDT(resultSet.getString("SoDienThoai"));
-                    khachHangDTO.setMail(resultSet.getString("Email"));
-                    khachHangDTO.settenTaiKhoan(resultSet.getString("TenTaiKhoan"));
-                    khachHangDTO.setMatKhau(resultSet.getString("MatKhau"));
-                    khachHangDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
-                    byte[] imgBytes = resultSet.getBytes("HinhAnh");
-                    if (imgBytes != null) {
-                        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imgBytes);
-                        Bitmap bitmap = BitmapFactory.decodeStream(byteArrayInputStream);
-                        khachHangDTO.setHinhAnh(bitmap);
+                    if (query.contains("COUNT(*)")) {
+                        KhachHangDTO khachHangDTO = new KhachHangDTO();
+                        khachHangDTO.setHoTen(resultSet.getString("count"));
+                        khachHangDTOList.add(khachHangDTO);
                     } else {
-                        Bitmap defaultBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.img_default_for_product);
-                        khachHangDTO.setHinhAnh(defaultBitmap);
+                        KhachHangDTO khachHangDTO = new KhachHangDTO();
+                        khachHangDTO.setId(resultSet.getInt("ID"));
+                        khachHangDTO.setHoTen(resultSet.getString("HoTen"));
+                        khachHangDTO.setsDT(resultSet.getString("SoDienThoai"));
+                        khachHangDTO.setMail(resultSet.getString("Email"));
+                        khachHangDTO.settenTaiKhoan(resultSet.getString("TenTaiKhoan"));
+                        khachHangDTO.setMatKhau(resultSet.getString("MatKhau"));
+                        khachHangDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
+                        byte[] imgBytes = resultSet.getBytes("HinhAnh");
+                        if (imgBytes != null) {
+                            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imgBytes);
+                            Bitmap bitmap = BitmapFactory.decodeStream(byteArrayInputStream);
+                            khachHangDTO.setHinhAnh(bitmap);
+                        } else {
+                            Bitmap defaultBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.img_default_for_product);
+                            khachHangDTO.setHinhAnh(defaultBitmap);
+                        }
+                        khachHangDTOList.add(khachHangDTO);
                     }
-                    khachHangDTOList.add(khachHangDTO);
                 }
                 isSuccess = !khachHangDTOList.isEmpty();
             } else {
                 isSuccess = statement.executeUpdate() > 0;
             }
-
         } catch (ClassNotFoundException | SQLException e) {
-            isSuccess=false;
+            isSuccess = false;
             e.printStackTrace();
         } finally {
             try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
             } catch (SQLException e) {
-                isSuccess=false;
+                isSuccess = false;
                 e.printStackTrace();
             }
         }
-
         return khachHangDTOList;
     }
+
 
     @Override
     protected void onPostExecute(List<KhachHangDTO> result) {
