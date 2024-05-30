@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,13 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.productName.setText(sanpham.getTenSP());
         holder.productQuantity.setText(String.valueOf(sanpham.getSoLuongTon()));
         holder.productPrice.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
+
+        holder.imageView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
+            intent.putExtra("sanPhamId", sanpham.getId());
+            v.getContext().startActivity(intent);
+
+        });
 
         if (sanpham.isDaThich()) {
             holder.favouriteButton.setImageResource(R.drawable.ic_favorite_red); // Icon trái tim màu đỏ
