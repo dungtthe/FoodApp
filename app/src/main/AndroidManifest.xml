@@ -38,7 +38,7 @@
         <!-- android:name=".activity_changepassword" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".view.main_view.home.sanpham_list"
+            android:name=".view.main_view.MainViewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
