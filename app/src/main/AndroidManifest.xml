@@ -37,15 +37,18 @@
         <!-- <activity -->
         <!-- android:name=".activity_favourite" -->
         <!-- android:exported="false" /> -->
-<!--         <activity-->
-<!--         android:name=".view.main_view.setting.activity_changepassword"-->
-<!--         android:exported="false" />-->
-<!--        <activity android:name=".view.main_view.home.DanhSachSanPham_ForXemTatCa_Activity">-->
-<!--            android:exported="true"-->
-<!--        </activity>-->
-<!--        <activity-->
-<!--            android:name=".view.main_view.home.SanPhamListTimKiemActivity"-->
-<!--            android:exported="true" />-->
+        <!-- <activity -->
+        <!-- android:name=".activity_changepassword" -->
+        <!-- android:exported="false" /> -->
+        <activity android:name=".view.main_view.home.Detail_SanPham_For_Home_Activity">
+            android:exported="true"
+        </activity>
+        <activity android:name=".view.main_view.home.DanhSachSanPham_ForXemTatCa_Activity">
+            android:exported="true"
+        </activity>
+        <activity
+            android:name=".view.main_view.home.SanPhamListTimKiemActivity"
+            android:exported="true" />
         <activity
             android:name=".view.start.Login"
             android:exported="false" >

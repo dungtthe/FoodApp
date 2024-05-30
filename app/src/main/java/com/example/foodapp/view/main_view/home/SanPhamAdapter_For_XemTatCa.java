@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.SanPhamThichDA;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.view.main_view.MainViewActivity;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
@@ -47,6 +49,14 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.productQuantity.setText(String.valueOf(sanpham.getSoLuongTon()));
         holder.productPrice.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
 
+        holder.imageView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
+            intent.putExtra("sanPhamId", sanpham.getId());
+            intent.putExtra("daThich", sanpham.isDaThich());
+            v.getContext().startActivity(intent);
+
+        });
+
         if (sanpham.isDaThich()) {
             holder.favouriteButton.setImageResource(R.drawable.ic_favorite_red); // Icon trái tim màu đỏ
         } else {
@@ -56,9 +66,9 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.favouriteButton.setOnClickListener(v -> {
             sanpham.setDaThich(!sanpham.isDaThich());
             if (sanpham.isDaThich()) {
-                SanPhamThichDA.likeSanpham(v.getContext(), MainViewActivity.userCur.getId(), sanpham.getId());
+                SanPhamThichDA.likeSanpham(v.getContext(), DataCurrent.khachHangDTOCur.getId(), sanpham.getId());
             } else {
-                SanPhamThichDA.removeLikeSanpham(v.getContext(), MainViewActivity.userCur.getId(), sanpham.getId());
+                SanPhamThichDA.removeLikeSanpham(v.getContext(), DataCurrent.khachHangDTOCur.getId(), sanpham.getId());
             }
             notifyItemChanged(position);
         });

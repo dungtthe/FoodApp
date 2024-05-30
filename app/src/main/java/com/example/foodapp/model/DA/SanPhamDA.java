@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.foodapp.model.DTO.SanPhamDTO;
 
@@ -91,6 +92,7 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
             }
 
         } catch (ClassNotFoundException | SQLException e) {
+            Log.d("DTT",e.getMessage());
             e.printStackTrace();
         } finally {
             try {

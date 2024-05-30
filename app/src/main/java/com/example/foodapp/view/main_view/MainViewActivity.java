@@ -36,7 +36,6 @@ import java.util.List;
 public class MainViewActivity extends AppCompatActivity {
 
 
-    public static KhachHangDTO userCur= new KhachHangDTO(1,"Nguyễn Văn A","a","a","a","a");
 
 
     private FrameLayout frameLayoutFirst;

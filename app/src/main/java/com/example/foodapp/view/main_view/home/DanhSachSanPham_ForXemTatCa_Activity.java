@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.QueryParameter;
 import com.example.foodapp.model.DA.SanPhamDA;
+import com.example.foodapp.model.DA.SanPhamThichDA;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.view.main_view.MainViewActivity;
 
@@ -65,12 +67,8 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
 
 
     public void danhSachSanPham_ForXemTatCa(Context context) {
-        String query = "SELECT sp.*, (CASE WHEN spt.ID IS NOT NULL THEN TRUE ELSE FALSE END) AS daThich " +
-                "FROM SanPham sp LEFT JOIN SanPhamThich spt ON sp.ID = spt.SanPham_id AND spt.KhachHang_id = ? " +
-                "WHERE sp.DaXoa = ?";
+        String query = "SELECT * FROM SanPham WHERE DaXoa = false";
         List<QueryParameter> parameters = new ArrayList<>();
-        parameters.add(new QueryParameter(1, MainViewActivity.userCur.getId()));
-        parameters.add(new QueryParameter(2, false));
 
         Object[] params = new Object[parameters.size() + 1];
         params[0] = query;
@@ -84,6 +82,10 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
                 if (isSuccess && !result.isEmpty()) {
                     sanPhamList.clear();
                     sanPhamList.addAll(result);
+
+                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
+                    getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
+
                     sanPhamAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(context, "Có lỗi xảy ra!", Toast.LENGTH_SHORT).show();
@@ -95,5 +97,37 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
         sanPhamAdapter = new SanPhamAdapter_For_XemTatCa(sanPhamList);
         recyclerView.setAdapter(sanPhamAdapter);
     }
+
+
+
+    public  void getAllSanPhamThich(Context context, int khachHangId, List<SanPhamDTO> allSanPhamList) {
+        SanPhamThichDA sanPhamThichDA = new SanPhamThichDA(new SanPhamThichDA.DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
+                if (isSuccess) {
+                    // Thiết lập thuộc tính daThich cho các sản phẩm yêu thích
+                    for (SanPhamDTO likedProduct : result) {
+                        for (SanPhamDTO product : allSanPhamList) {
+                            if (product.getId() == likedProduct.getId()) {
+                                product.setDaThich(true);
+                                break;
+                            }
+                        }
+                    }
+                    // Cập nhật lại adapter để hiển thị
+                     sanPhamAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(context, "Có lỗi xảy ra!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onModifyExecuted(String query, Boolean result, boolean isSuccess) {
+            }
+        }, context, SanPhamThichDA.ActionType.GET_LIKED_PRODUCTS);
+
+        sanPhamThichDA.execute(khachHangId);
+    }
+
 
 }
