@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,9 +71,9 @@ public class CartFragment extends Fragment {
     private Button btnPurchase;
     private List<SanPhamDTO> sanPhamList;
     private Boolean isSelectAll = false;
-    private Boolean isMuaHang = false;
+    private Boolean isMuaHang = true;
     private Boolean isSua = false;
-    private TextView txtCart,EditCart;
+    private TextView txtCart, EditCart;
 
 
     @Override
@@ -107,56 +108,126 @@ public class CartFragment extends Fragment {
             }
         });
 
+//        btnPurchase.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                // isMuaHang=!isMuaHang;
+//
+//                if (!isSua) {
+//                    isMuaHang = true;
+//                } else {
+//                    isMuaHang = false;
+//                }
+//
+//                if (isMuaHang) {
+//
+//                    if (DataCurrent.danhSachSanPhamCoTrongHoaDon.size() == 0) {
+//                        Toast.makeText(getContext(), "Vui lòng chọn ít nhất một sản phẩm!", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//
+//                    Intent myIntent = new Intent(getActivity(), activity_purchase.class);
+//                    startActivity(myIntent);
+//                } else {
+//
+//                    //nhấn nút xóa thì vào đây
+//                    for (SanPhamDTO item : DataCurrent.danhSachSanPhamCoTrongHoaDon) {
+//
+//
+//
+//                        if (DataCurrent.getDanhSachSanPhamCoTrongGioHang().contains(item)) {
+//                            DataCurrent.getDanhSachSanPhamCoTrongGioHang().remove(item);
+//                            Log.d("DTT",DataCurrent.danhSachSanPhamCoTrongHoaDon.size()+"");
+//                        }
+//                    }
+//
+//                    if (adapter != null) {
+//                        adapter.updateSelectedPositionsAfterDeletion();
+//                        adapter.notifyDataSetChanged();
+//                    }
+//                    isMuaHang = !isMuaHang;
+//
+//                }
+//
+//
+//            }
+//        });
+
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isMuaHang=!isMuaHang;
-                if(!isMuaHang){
-                    Intent myIntent = new Intent(getActivity(),activity_purchase.class);
-                    startActivity(myIntent);
-                }else{
-
-                    Log.d("DTT","vao");
-                    //nhấn nút xóa thì vào đây
-                    for (SanPhamDTO item:DataCurrent.danhSachSanPhamCoTrongHoaDon) {
-                        DataCurrent.getDanhSachSanPhamCoTrongGioHang().remove(item);
-                    }
-
-                    if(adapter!=null){
-                        adapter.notifyDataSetChanged();
-                        adapter.updateSelectedPositionsAfterDeletion();
-                    }
-
+                if (!isSua) {
+                    isMuaHang = true;
+                } else {
+                    isMuaHang = false;
                 }
 
+                if (isMuaHang) {
+                    if (DataCurrent.danhSachSanPhamCoTrongHoaDon.size() == 0) {
+                        Toast.makeText(getContext(), "Vui lòng chọn ít nhất một sản phẩm!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    Intent myIntent = new Intent(getActivity(), activity_purchase.class);
+                    startActivity(myIntent);
+                } else {
+                    // Nhấn nút xóa thì vào đây
+                    List<SanPhamDTO> itemsToDelete = new ArrayList<>(DataCurrent.danhSachSanPhamCoTrongHoaDon);
+
+                    for (SanPhamDTO item : itemsToDelete) {
+                        if (DataCurrent.getDanhSachSanPhamCoTrongGioHang().contains(item)) {
+                            DataCurrent.getDanhSachSanPhamCoTrongGioHang().remove(item);
+                        }
+                    }
+
+                    // Xóa danh sách các sản phẩm đã chọn sau khi xóa các sản phẩm khỏi giỏ hàng
+                    DataCurrent.danhSachSanPhamCoTrongHoaDon.clear();
+
+                    if (adapter != null) {
+                        adapter.updateSelectedPositionsAfterDeletion();
+                        adapter.notifyDataSetChanged();
+                    }
+                }
             }
         });
+
+
+
+        loadUIForIsSua();
         EditCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isSua=!isSua;
-                if(isSua){
-                    btnPurchase.setText("Xóa");
+                isSua = !isSua;
 
-
-                    EditCart.setText("Xong");
-                }else{
-                    btnPurchase.setText("Mua hàng");
-                    EditCart.setText("Sửa");
-                }
-
+                loadUIForIsSua();
             }
         });
         return view;
     }
 
-    SanPhamAdapter adapter=null;
+
+    private void loadUIForIsSua() {
+        if (isSua) {
+            btnPurchase.setText("Xóa");
+            EditCart.setText("Xong");
+
+        } else {
+            btnPurchase.setText("Mua hàng");
+            EditCart.setText("Sửa");
+
+        }
+    }
+
+    SanPhamAdapter adapter = null;
+
     private void loadData(Context context) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
         sanPhamList = new ArrayList<>();
-         adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
-        txtCart.setText("Giỏ hàng("+DataCurrent.danhSachSanPhamCoTrongGioHang.size()+")");
+        adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
+        txtCart.setText("Giỏ hàng(" + DataCurrent.danhSachSanPhamCoTrongGioHang.size() + ")");
         rcvListItem.setAdapter(adapter);
     }
 }

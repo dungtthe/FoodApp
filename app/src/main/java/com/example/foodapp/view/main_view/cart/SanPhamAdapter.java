@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.cart;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ProductV
                     if(DataCurrent.danhSachSanPhamCoTrongHoaDon.contains(listProduct.get(position))){
                         DataCurrent.danhSachSanPhamCoTrongHoaDon.remove(listProduct.get(position));
                     }
+
                 } else {
                     selectedPositions.add(position);
                     if(!DataCurrent.danhSachSanPhamCoTrongHoaDon.contains(listProduct.get(position))){

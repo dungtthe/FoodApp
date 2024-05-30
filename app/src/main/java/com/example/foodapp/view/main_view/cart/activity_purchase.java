@@ -21,7 +21,7 @@ public class activity_purchase extends AppCompatActivity {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
-        SanPhamAdapter adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
+        SanPhamAdapter adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongHoaDon);
         rcvListItem.setAdapter(adapter);
     }
 
