@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.SanPhamThichDA;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.view.main_view.MainViewActivity;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
@@ -64,9 +65,9 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.favouriteButton.setOnClickListener(v -> {
             sanpham.setDaThich(!sanpham.isDaThich());
             if (sanpham.isDaThich()) {
-                SanPhamThichDA.likeSanpham(v.getContext(), MainViewActivity.userCur.getId(), sanpham.getId());
+                SanPhamThichDA.likeSanpham(v.getContext(), DataCurrent.khachHangDTOCur.getId(), sanpham.getId());
             } else {
-                SanPhamThichDA.removeLikeSanpham(v.getContext(), MainViewActivity.userCur.getId(), sanpham.getId());
+                SanPhamThichDA.removeLikeSanpham(v.getContext(), DataCurrent.khachHangDTOCur.getId(), sanpham.getId());
             }
             notifyItemChanged(position);
         });
