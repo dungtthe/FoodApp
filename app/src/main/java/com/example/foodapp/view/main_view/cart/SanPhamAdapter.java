@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.R;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 
 import java.util.HashSet;
@@ -58,10 +59,18 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ProductV
                 // Cập nhật trạng thái chọn của item
                 if (selectedPositions.contains(position)) {
                     selectedPositions.remove(position);
+                    if(DataCurrent.danhSachSanPhamCoTrongHoaDon.contains(listProduct.get(position))){
+                        DataCurrent.danhSachSanPhamCoTrongHoaDon.remove(listProduct.get(position));
+                    }
                 } else {
                     selectedPositions.add(position);
+                    if(!DataCurrent.danhSachSanPhamCoTrongHoaDon.contains(listProduct.get(position))){
+                        DataCurrent.danhSachSanPhamCoTrongHoaDon.add(listProduct.get(position));
+                    }
                 }
                 notifyDataSetChanged(); // Thông báo thay đổi để cập nhật giao diện
+
+
             }
         });
 
@@ -99,7 +108,20 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ProductV
         }
         return 0;
     }
+    // Phương thức để chọn tất cả các mục
+    public void selectAll() {
+        for (int i = 0; i < listProduct.size(); i++) {
+            selectedPositions.add(i);
+        }
+        notifyDataSetChanged();
+    }
 
+
+    // Phương thức để bỏ chọn tất cả các mục
+    public void deselectAll() {
+        selectedPositions.clear();
+        notifyDataSetChanged();
+    }
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         //khai bao nhung tp co trong layout item
         private ImageView imgProduct;

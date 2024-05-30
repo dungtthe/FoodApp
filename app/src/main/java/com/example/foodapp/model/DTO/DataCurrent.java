@@ -8,6 +8,8 @@ public class DataCurrent {
 
 
     public static List<SanPhamDTO> danhSachSanPhamCoTrongGioHang;
+    public static List<SanPhamDTO> danhSachSanPhamCoTrongHoaDon;
+
 
 
 

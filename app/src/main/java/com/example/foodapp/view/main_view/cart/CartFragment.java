@@ -3,10 +3,12 @@ package com.example.foodapp.view.main_view.cart;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,7 +69,10 @@ public class CartFragment extends Fragment {
     private Button btnSelectAll;
     private Button btnPurchase;
     private List<SanPhamDTO> sanPhamList;
-    private Boolean DaXoa=false;
+    private Boolean isSelectAll = false;
+    private Boolean isMuaHang = false;
+    private Boolean isSua = false;
+    private TextView txtCart,EditCart;
 
 
     @Override
@@ -79,6 +84,8 @@ public class CartFragment extends Fragment {
         rcvListItem = view.findViewById(R.id.rcvListItem);
         btnSelectAll = view.findViewById(R.id.btnSelectAll);
         btnPurchase = view.findViewById(R.id.btnPurchase);
+        txtCart = view.findViewById(R.id.txtCart);
+        EditCart = view.findViewById(R.id.EditCart);
 
         //load dữ liệu vào màn hình giỏ hàng
         loadData(getContext());
@@ -86,28 +93,69 @@ public class CartFragment extends Fragment {
         btnSelectAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hành động khi btnSelectAll được nhấn
-                // Code xử lý sự kiện khi btnSelectAll được nhấn
+                SanPhamAdapter adapter = (SanPhamAdapter) rcvListItem.getAdapter();
+                if (adapter != null) {
+                    if (isSelectAll) {
+                        adapter.deselectAll();
+                        btnSelectAll.setText("Chọn tất cả");
+                    } else {
+                        adapter.selectAll();
+                        btnSelectAll.setText("Bỏ chọn tất cả");
+                    }
+                    isSelectAll = !isSelectAll;
+                }
             }
         });
 
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(getActivity(),activity_purchase.class);
-                startActivity(myIntent);
+                isMuaHang=!isMuaHang;
+                if(!isMuaHang){
+                    Intent myIntent = new Intent(getActivity(),activity_purchase.class);
+                    startActivity(myIntent);
+                }else{
+
+                    Log.d("DTT","vao");
+                    //nhấn nút xóa thì vào đây
+                    for (SanPhamDTO item:DataCurrent.danhSachSanPhamCoTrongHoaDon) {
+                        DataCurrent.getDanhSachSanPhamCoTrongGioHang().remove(item);
+                    }
+
+                    if(adapter!=null){
+                        adapter.notifyDataSetChanged();
+                    }
+
+                }
+
             }
         });
+        EditCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isSua=!isSua;
+                if(isSua){
+                    btnPurchase.setText("Xóa");
 
+
+                    EditCart.setText("Xong");
+                }else{
+                    btnPurchase.setText("Mua hàng");
+                    EditCart.setText("Sửa");
+                }
+
+            }
+        });
         return view;
     }
 
+    SanPhamAdapter adapter=null;
     private void loadData(Context context) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
         sanPhamList = new ArrayList<>();
-
-        SanPhamAdapter adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
+         adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
+        txtCart.setText("Giỏ hàng("+DataCurrent.danhSachSanPhamCoTrongGioHang.size()+")");
         rcvListItem.setAdapter(adapter);
     }
 }
