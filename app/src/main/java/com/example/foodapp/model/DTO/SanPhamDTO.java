@@ -2,8 +2,6 @@ package com.example.foodapp.model.DTO;
 
 import android.graphics.Bitmap;
 
-import com.example.foodapp.model.DA.ThamSoDA;
-
 public class SanPhamDTO {
     private int id;
     private String tenSP;
@@ -76,6 +74,7 @@ public class SanPhamDTO {
     public int getLoai() {
         return loai;
     }
+
 
     public void setLoai(int loai) {
         this.loai = loai;

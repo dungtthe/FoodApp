@@ -1,10 +1,12 @@
 package com.example.foodapp.view.main_view.cart;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.R;
+import com.example.foodapp.model.DA.QueryParameter;
+import com.example.foodapp.model.DA.SanPhamDA;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 
 import java.util.ArrayList;
@@ -64,6 +68,7 @@ public class CartFragment extends Fragment {
     private Button btnSelectAll;
     private Button btnPurchase;
     private List<SanPhamDTO> sanPhamList;
+    private Boolean DaXoa=false;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -76,18 +81,7 @@ public class CartFragment extends Fragment {
         btnPurchase = view.findViewById(R.id.btnPurchase);
 
         //load dữ liệu vào màn hình giỏ hàng
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
-        rcvListItem.setLayoutManager(gridLayoutManager);
-
-        sanPhamList = new ArrayList<>();
-//        // Load sản phẩm từ cơ sở dữ liệu
-//        SanPhamDA sanPhamDA = new SanPhamDA(, getContext());
-//        sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
-
-        ProductAdapter adapter = new ProductAdapter(getListItem());
-        rcvListItem.setAdapter(adapter);
-
-
+        loadData(getContext());
         // Thiết lập sự kiện OnClickListener cho các Button
         btnSelectAll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,13 +102,34 @@ public class CartFragment extends Fragment {
         return view;
     }
 
-    private List<Product> getListItem() {
-        List<Product> listProduct = new ArrayList<>();
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        return listProduct;
+    private void loadData(Context context) {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
+        rcvListItem.setLayoutManager(gridLayoutManager);
+        sanPhamList = new ArrayList<>();
+
+        // Load sản phẩm từ cơ sở dữ liệu
+        String query = "SELECT * FROM SanPham WHERE DaXoa = FALSE";
+        List<QueryParameter> parameters = new ArrayList<>();
+        parameters.add(new QueryParameter(1,DaXoa));
+        Object[] params = new Object[parameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < parameters.size(); i++) {
+            params[i + 1] = parameters.get(i);
+        }
+        SanPhamDA sanPhamDA = new SanPhamDA(new SanPhamDA.DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
+                if (isSuccess && !result.isEmpty()) {
+                    sanPhamList.clear();
+                    sanPhamList.addAll(result);
+                }else{
+                    Toast.makeText(context,"Load data không thành công",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, context);
+        sanPhamDA.execute(params);
+
+        SanPhamAdapter adapter = new SanPhamAdapter(sanPhamList);
+        rcvListItem.setAdapter(adapter);
     }
 }
