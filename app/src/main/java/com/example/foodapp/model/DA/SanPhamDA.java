@@ -4,16 +4,18 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+
 import com.example.foodapp.model.DTO.SanPhamDTO;
+
 import java.io.ByteArrayInputStream;
-import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import com.example.foodapp.R;
+import java.util.List;
 
+import com.example.foodapp.R;
 
 public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
 
@@ -26,6 +28,7 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
         this.callback = callback;
         this.context = context;
     }
+
     public String getTenSanPham(int sanPhamId) {
         String query = "SELECT TenSP FROM SanPham WHERE ID = ?";
         List<QueryParameter> queryParameters = new ArrayList<>();
@@ -37,7 +40,6 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
         }
         return null;
     }
-
 
     @Override
     protected List<SanPhamDTO> doInBackground(Object... params) {
@@ -72,12 +74,13 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
                     sanPhamDTO.setSoLuongTon(resultSet.getInt("SoLuongTon"));
                     sanPhamDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
                     sanPhamDTO.setMoTa(resultSet.getString("MoTa"));
+                    sanPhamDTO.setDaThich(resultSet.getBoolean("daThich"));
                     byte[] imgBytes = resultSet.getBytes("HinhAnh");
                     if (imgBytes != null) {
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imgBytes);
                         Bitmap bitmap = BitmapFactory.decodeStream(byteArrayInputStream);
                         sanPhamDTO.setHinhAnh(bitmap);
-                    }else {
+                    } else {
                         Bitmap defaultBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.img_default_for_product);
                         sanPhamDTO.setHinhAnh(defaultBitmap);
                     }
@@ -116,8 +119,8 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
         }
     }
 
+
     public interface DatabaseCallback {
         void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess);
     }
-
 }
