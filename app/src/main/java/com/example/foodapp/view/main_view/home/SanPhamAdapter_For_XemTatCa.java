@@ -75,7 +75,38 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         });
 
         holder.addToCartButton.setOnClickListener(v -> {
-            Toast.makeText(v.getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+            if(sanpham.getSoLuongTon()==0){
+                Toast.makeText(v.getContext(), "Sản phẩm đã hết", Toast.LENGTH_SHORT).show();
+            }
+            else{
+
+                if(DataCurrent.isCoTrongGioHang(sanpham.getId())){
+                    Toast.makeText(v.getContext(), "Sản phẩm đã có trong giỏ hàng!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                SanPhamDTO sanPhamDTO= new SanPhamDTO();
+                sanPhamDTO.setId(sanpham.getId());
+                sanPhamDTO.setTenSP(sanpham.getTenSP());
+                sanPhamDTO.setLoai(sanpham.getLoai());
+                sanPhamDTO.setGiaBan(sanpham.getGiaBan());
+                sanPhamDTO.setSoLuongTon(1);//đây hiểu là số lượng mua nhé
+                sanPhamDTO.setHinhAnh(sanpham.getHinhAnh());
+                sanPhamDTO.setDaXoa(sanpham.isDaXoa());
+                sanPhamDTO.setMoTa(sanpham.getMoTa());
+                sanPhamDTO.setDaThich(sanpham.isDaThich());
+
+                DataCurrent.danhSachSanPhamCoTrongGioHang.add(sanPhamDTO);
+                Toast.makeText(v.getContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
+            }
+
+
+
         });
     }
 

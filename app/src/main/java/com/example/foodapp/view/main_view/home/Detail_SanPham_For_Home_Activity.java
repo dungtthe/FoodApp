@@ -242,6 +242,12 @@ public class Detail_SanPham_For_Home_Activity extends AppCompatActivity {
                     } catch (Exception e) {
                     }
 
+
+                    if(DataCurrent.isCoTrongGioHang(sanPhamCur.getId())){
+                        Toast.makeText(v.getContext(), "Sản phẩm đã có trong giỏ hàng!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     SanPhamDTO sanPhamDTO= new SanPhamDTO();
                     sanPhamDTO.setId(sanPhamCur.getId());
                     sanPhamDTO.setTenSP(sanPhamCur.getTenSP());
