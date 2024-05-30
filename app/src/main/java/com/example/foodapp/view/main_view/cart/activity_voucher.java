@@ -43,6 +43,7 @@ public class activity_voucher extends AppCompatActivity {
         rcvListItemVoucherGiamGia = findViewById(R.id.rcvListVoucherGiamGia);
 
         //xử lý listItemVoucherGiamGia
+        //load dữ liệu từ database
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         rcvListItemVoucherGiamGia.setLayoutManager(gridLayoutManager);
         VoucherAdapter adapter = new VoucherAdapter(getListItemVoucherGiamGia());

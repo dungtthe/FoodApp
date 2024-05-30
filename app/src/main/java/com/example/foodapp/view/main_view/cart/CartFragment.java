@@ -75,12 +75,13 @@ public class CartFragment extends Fragment {
         btnSelectAll = view.findViewById(R.id.btnSelectAll);
         btnPurchase = view.findViewById(R.id.btnPurchase);
 
+        //load dữ liệu vào màn hình giỏ hàng
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
 
-//        sanPhamList = new ArrayList<>();
+        sanPhamList = new ArrayList<>();
 //        // Load sản phẩm từ cơ sở dữ liệu
-//        SanPhamDA sanPhamDA = new SanPhamDA(this, getContext());
+//        SanPhamDA sanPhamDA = new SanPhamDA(, getContext());
 //        sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
 
         ProductAdapter adapter = new ProductAdapter(getListItem());
