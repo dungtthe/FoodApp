@@ -16,10 +16,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.SanPhamDA;
 import com.example.foodapp.model.DTO.SanPhamDTO;
+import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +105,14 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if( searchEditText.getText().toString()==null || searchEditText.getText().toString().equals("")|| MotSoPhuongThucBoTro.isAllWhitespace(searchEditText.getText().toString())){
+
+                    Toast.makeText(v.getContext(), "Vui lòng nhập thông tin tìm kiếm!", Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+
                 String query = searchEditText.getText().toString();
                 Intent intent = new Intent(getActivity(), SanPhamListTimKiemActivity.class);
                 intent.putExtra("search_query", query);

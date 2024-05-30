@@ -95,6 +95,9 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
                     // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
                     getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
 
+                    sanPhamAdapter = new SanPhamAdapter_For_XemTatCa(sanPhamList);
+                    recyclerView.setAdapter(sanPhamAdapter);
+
                     sanPhamAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(context, "Có lỗi xảy ra!", Toast.LENGTH_SHORT).show();
@@ -103,8 +106,8 @@ public class DanhSachSanPham_ForXemTatCa_Activity extends AppCompatActivity {
         }, context);
 
         sanPhamDA.execute(params);
-        sanPhamAdapter = new SanPhamAdapter_For_XemTatCa(sanPhamList);
-        recyclerView.setAdapter(sanPhamAdapter);
+//        sanPhamAdapter = new SanPhamAdapter_For_XemTatCa(sanPhamList);
+//        recyclerView.setAdapter(sanPhamAdapter);
     }
 
 
