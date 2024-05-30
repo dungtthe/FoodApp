@@ -107,31 +107,7 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
         }
     }
 
-    public void changePassword(String tenTaiKhoan, String currentPassword, String newPassword) {
-        String query = "UPDATE KhachHang SET MatKhau = ? WHERE TenTaiKhoan = ? AND MatKhau = ?";
 
-        List<QueryParameter> queryParameters = new ArrayList<>();
-
-        queryParameters.add(new QueryParameter(1, newPassword));
-        queryParameters.add(new QueryParameter(2, tenTaiKhoan));
-        queryParameters.add(new QueryParameter(3, currentPassword));
-        Object[] params = new Object[queryParameters.size() + 1];
-        params[0] = query;
-        for (int i = 0; i < queryParameters.size(); i++) {
-            params[i + 1] = queryParameters.get(i);
-        }
-
-        new KhachHangDA(new DatabaseCallback() {
-            @Override
-            public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
-                if (isSuccess) {
-                    Toast.makeText(context, "Đổi mật khẩu thành công!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Đổi mật khẩu thất bại!"+tenTaiKhoan, Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, context).execute(query, queryParameters.toArray());
-    }
 
     public interface DatabaseCallback {
         void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess);
