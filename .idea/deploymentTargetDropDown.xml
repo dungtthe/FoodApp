@@ -7,11 +7,11 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\DELL\.android\avd\FoodAppForFragment_API_27.avd" />
+            <value value="C:\Users\Admin\.android\avd\FoodAppDevice_API_27.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2024-05-23T06:04:34.679368200Z" />
+    <timeTargetWasSelectedWithDropDown value="2024-05-28T13:05:16.499008100Z" />
   </component>
 </project>
