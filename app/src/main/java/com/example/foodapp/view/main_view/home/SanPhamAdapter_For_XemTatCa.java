@@ -52,6 +52,7 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.imageView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
             intent.putExtra("sanPhamId", sanpham.getId());
+            intent.putExtra("daThich", sanpham.isDaThich());
             v.getContext().startActivity(intent);
 
         });

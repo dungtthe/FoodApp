@@ -55,12 +55,13 @@ public class Detail_SanPham_For_Home_Activity extends AppCompatActivity {
 
 
         int sanPhamId = getIntent().getIntExtra("sanPhamId", -1);
-
+        daThich = getIntent().getBooleanExtra("daThich", false);
         if (sanPhamId != -1) {
             loadProductDetails(sanPhamId);
         }
     }
 
+    boolean daThich=false;
     private void loadProductDetails(int sanPhamId) {
 
 
@@ -90,6 +91,7 @@ public class Detail_SanPham_For_Home_Activity extends AppCompatActivity {
                     productQuantityTextView.setText(1+"");
                     totalAmountTextView.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanPhamDTO.getGiaBan()));
 
+                    sanPhamDTO.setDaThich(daThich);
                     if(sanPhamDTO.isDaThich()){
                         img_traitim_forDetailSanPham.setImageResource(R.drawable.ic_favorite_red);
                     }
