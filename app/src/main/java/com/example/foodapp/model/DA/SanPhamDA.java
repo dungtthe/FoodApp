@@ -26,7 +26,17 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
         this.callback = callback;
         this.context = context;
     }
+    public String getTenSanPham(int sanPhamId) {
+        String query = "SELECT TenSP FROM SanPham WHERE ID = ?";
+        List<QueryParameter> queryParameters = new ArrayList<>();
+        queryParameters.add(new QueryParameter(1, sanPhamId));
 
+        List<SanPhamDTO> sanPhamDTOList = doInBackground(query, queryParameters.toArray());
+        if (!sanPhamDTOList.isEmpty()) {
+            return sanPhamDTOList.get(0).getTenSP();
+        }
+        return null;
+    }
 
 
     @Override
