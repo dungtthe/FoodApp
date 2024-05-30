@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,16 +11,20 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.SanPhamDA;
 import com.example.foodapp.model.DTO.SanPhamDTO;
+import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +36,7 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
 
     private String mParam1;
     private String mParam2;
+    private Handler mHandler;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -52,6 +58,7 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     private RecyclerView recyclerViewmonngon;
@@ -82,6 +89,12 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         recyclerViewmonngon.setLayoutManager(layoutManager);
         recyclerViewmonngon.setAdapter(monngonhomnayAdapter);
 
+        //
+        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
+        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
+        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
+        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
+        sanPhamList.add(new SanPhamDTO(3,R.drawable.banhmi));
         danhMucSanPhamAdapter = new DanhMucSanPham_Adapter(sanPhamList);
         recyclerViewdanhmuc.setAdapter(danhMucSanPhamAdapter);
 
@@ -103,6 +116,14 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if( searchEditText.getText().toString()==null || searchEditText.getText().toString().equals("")|| MotSoPhuongThucBoTro.isAllWhitespace(searchEditText.getText().toString())){
+
+                    Toast.makeText(v.getContext(), "Vui lòng nhập thông tin tìm kiếm!", Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+
                 String query = searchEditText.getText().toString();
                 Intent intent = new Intent(getActivity(), SanPhamListTimKiemActivity.class);
                 intent.putExtra("search_query", query);
@@ -130,7 +151,7 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             sanPhamList.clear();
             sanPhamList.addAll(result);
             monngonhomnayAdapter.notifyDataSetChanged();
-            danhMucSanPhamAdapter.notifyDataSetChanged();
+//            danhMucSanPhamAdapter.notifyDataSetChanged();
         }
     }
 }

@@ -78,34 +78,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/circle_shape_avatar"
-            android:padding="3dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/phone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/edit_text"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="54dp"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_edittext_changepass"
-            android:hint="Enter comment"
+            android:hint="Bạn đang nghĩ gì"
             android:maxLines="3"
             android:minHeight="80dp"
             android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_image"
-            app:layout_constraintStart_toEndOf="@+id/image_view"
+
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

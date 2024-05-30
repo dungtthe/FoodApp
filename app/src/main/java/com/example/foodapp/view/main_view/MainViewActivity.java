@@ -47,12 +47,12 @@ public class MainViewActivity extends AppCompatActivity {
 
         Thread thread = new Thread(new Runnable() {
             @Override
+
             public void run() {
                 ThamSoDA.updateParameters();
             }
         });
         thread.start();
-
 
         //chỉnh màu thanh trạng thái
         setUpMauChoThanhTrangThai();

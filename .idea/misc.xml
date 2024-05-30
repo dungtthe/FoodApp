@@ -3,47 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/bogoc_main_information.xml" value="0.1625" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnhome_btndonmua.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnoder.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnpurchase.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_btnselectall.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_cartfragment.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_constr_contentofcontent.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_item_cart.xml" value="0.2" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_item_cart_purchase_order.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_layout_contentofcontent.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/custom_purchase_order_bar.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.175" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.175" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/iconadd.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/drawable/rounded_view_content_corners_information.xml" value="0.19" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_danh_sach_san_pham_for_xemtatca.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_detail_san_pham_for_home.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_main_view.xml" value="0.1" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_notify.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_purchase.xml" value="0.264" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_purchase_order.xml" value="0.264" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/activity_voucher.xml" value="0.264" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/cardview_product.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment__cho_xac_nhan.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_cart.xml" value="0.2" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_choxacnhan.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_dagiao.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_dahuy.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_danggiao.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_home.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/fragment_information.xml" value="0.264" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_cart.xml" value="0.264" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_cart2.xml" value="0.20964912280701756" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_cart_of_purchase_order.xml" value="0.21052631578947367" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_cart_purchase_order.xml" value="0.20964912280701756" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/layout/item_voucher.xml" value="0.20964912280701756" />
-        <entry key="..\:/HK4/NhapMonDiDong/DoAN/app/src/main/res/menu/menu_bottom_nav.xml" value="0.20701754385964913" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/ic_baseline_arrow_back_24_for_home.xml" value="0.2605" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_changepassword.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_comment_list.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_danh_sach_san_pham.xml" value="0.5" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_danh_sach_san_pham_for_xemtatca.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_detail_san_pham_for_home.xml" value="0.5" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_diachi.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_favourite_items.xml" value="0.12158894645941278" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_login.xml" value="0.12158894645941278" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_main_view.xml" value="0.1796875" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_payment_history.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_sanpham_list.xml" value="0.67" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_sanpham_list_for_timkiem_home.xml" value="0.41388888888888886" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_them_dia_chi.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/card_view_sanpham_for_xemtatca.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/cardview_danhmucsp.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/cardview_favourite_item.xml" value="0.12158894645941278" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/cardview_product.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/cardview_sanpham.xml" value="0.33" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_cart.xml" value="0.1796875" />
-        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.20985401459854014" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_detail_san_pham.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.5" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_info.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_information.xml" value="0.1796875" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/fragment_setting.xml" value="0.1796875" />
@@ -57,12 +38,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.2" />
-      </ProjectState>
-    </option>
   </component>
 </project>

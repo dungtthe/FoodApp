@@ -10,6 +10,7 @@ public class SanPhamDTO {
     private int giaBan;
     private int soLuongTon;
     private Bitmap hinhAnh;
+    private int imageResourceId;
     private boolean daXoa;
     private String moTa;
     private boolean daThich;
@@ -43,6 +44,11 @@ public class SanPhamDTO {
         this.moTa = moTa;
 
         giaBan = (int) (ThamSoDTO.heSoBan * giaNhap);
+    }
+    public SanPhamDTO(int loai, int imageResourceId) {
+
+        this.loai = loai;
+        this.imageResourceId = imageResourceId;
     }
 
     // Getter và Setter cho các thuộc tính

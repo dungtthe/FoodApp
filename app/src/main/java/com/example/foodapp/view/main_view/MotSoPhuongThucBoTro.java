@@ -14,4 +14,9 @@ public class MotSoPhuongThucBoTro {
         }
         return formatted.reverse().toString()+" VND";
     }
+
+    public static boolean isAllWhitespace(String str) {
+        // Loại bỏ tất cả khoảng trắng ở đầu và cuối chuỗi và kiểm tra độ dài
+        return str.trim().isEmpty();
+    }
 }

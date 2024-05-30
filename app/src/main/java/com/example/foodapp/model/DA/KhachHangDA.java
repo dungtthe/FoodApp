@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.foodapp.R;
+
 public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
     private String query;
     private DatabaseCallback callback;
@@ -96,7 +97,6 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
         return khachHangDTOList;
     }
 
-
     @Override
     protected void onPostExecute(List<KhachHangDTO> result) {
         if (callback != null) {
@@ -106,6 +106,8 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
             callback.onQueryExecuted(query, result, isSuccess);
         }
     }
+
+
 
     public interface DatabaseCallback {
         void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess);
