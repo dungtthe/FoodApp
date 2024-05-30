@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import com.example.foodapp.R;
 import com.example.foodapp.model.DA.SanPhamDA;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
+import com.example.foodapp.view.main_view.setting.activity_changepassword;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +94,21 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
 //        danhMucSanPhamAdapter = new DanhMucSanPham_Adapter(sanPhamList);
 //        recyclerViewdanhmuc.setAdapter(danhMucSanPhamAdapter);
 
+
+        LinearLayout linearbanhmi = view.findViewById(R.id.linear_banhmi);
+        LinearLayout linearkebab = view.findViewById(R.id.linear_kebab);
+        LinearLayout linearpizza = view.findViewById(R.id.linear_pizza);
+        LinearLayout linearhamburger = view.findViewById(R.id.linear_hamburger);
+        LinearLayout linearnuocngot = view.findViewById(R.id.linear_nuocngot);
+        LinearLayout linearbimbimlang = view.findViewById(R.id.linear_bimbimlang);
+
+        linearbanhmi.setOnClickListener(v -> handledanhmucButtonClicked());
+        linearkebab.setOnClickListener(v -> handledanhmucButtonClicked());
+        linearpizza.setOnClickListener(v -> handledanhmucButtonClicked());
+        linearhamburger.setOnClickListener(v -> handledanhmucButtonClicked());
+        linearnuocngot.setOnClickListener(v -> handledanhmucButtonClicked());
+        linearbimbimlang.setOnClickListener(v -> handledanhmucButtonClicked());
+
         return view;
     }
 
@@ -147,5 +164,11 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             monngonhomnayAdapter.notifyDataSetChanged();
             //danhMucSanPhamAdapter.notifyDataSetChanged();
         }
+    }
+
+    private void handledanhmucButtonClicked() {
+
+        Intent intent = new Intent(requireContext(), danh_muc_san_pham.class);
+        startActivity(intent);
     }
 }
