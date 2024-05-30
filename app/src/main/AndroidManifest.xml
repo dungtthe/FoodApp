@@ -31,9 +31,13 @@
         <!-- android:exported="false" /> -->
          <activity
          android:name=".view.main_view.setting.activity_favourite_items"
-         android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".view.main_view.diachi" -->
-        <!-- android:exported="false" /> -->
+         android:exported="false" />
+        <activity
+            android:name=".view.main_view.setting.diachi"
+            android:exported="false" />
+        <activity
+         android:name=".view.main_view.setting.ThemDiaChi"
+         android:exported="false" />
         <!-- <activity -->
         <!-- android:name=".activity_favourite" -->
         <!-- android:exported="false" /> -->

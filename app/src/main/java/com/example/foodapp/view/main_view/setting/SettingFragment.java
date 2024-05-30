@@ -25,7 +25,7 @@ public class SettingFragment extends Fragment {
     private String mParam2;
 
     private Handler mHandler;
-    private LinearLayout linearLayout4, linearLayout5;
+    private LinearLayout linearLayout4, linearLayout5,linearLayout;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -62,6 +62,11 @@ public class SettingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
         // Tìm và lưu reference đến LinearLayout "Đã thích"
+        linearLayout = view.findViewById(R.id.linearLayout);
+        // Thiết lập sự kiện click cho LinearLayout "Đã thích"
+        linearLayout.setOnClickListener(v -> handleDiaChiButtonClicked());
+
+        // Tìm và lưu reference đến LinearLayout "Đã thích"
         linearLayout4 = view.findViewById(R.id.linearLayout4);
         // Thiết lập sự kiện click cho LinearLayout "Đã thích"
         linearLayout4.setOnClickListener(v -> handleLikeButtonClicked());
@@ -96,6 +101,11 @@ public class SettingFragment extends Fragment {
     private void handleLikeButtonClicked() {
         // Xử lý sự kiện click button "Đã thích"
         Intent intent = new Intent(requireContext(), activity_favourite_items.class);
+        startActivity(intent);
+    }
+    private void handleDiaChiButtonClicked() {
+        // Xử lý sự kiện click button "Đổi mk"
+        Intent intent = new Intent(requireContext(), diachi.class);
         startActivity(intent);
     }
     private void handleChangePassButtonClicked() {
