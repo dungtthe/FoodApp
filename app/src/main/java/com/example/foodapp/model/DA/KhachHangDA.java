@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.foodapp.R;
+
 public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
     private String query;
     private DatabaseCallback callback;
@@ -96,7 +97,6 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
         return khachHangDTOList;
     }
 
-
     @Override
     protected void onPostExecute(List<KhachHangDTO> result) {
         if (callback != null) {
@@ -105,6 +105,32 @@ public class KhachHangDA extends AsyncTask<Object, Void, List<KhachHangDTO>> {
             }
             callback.onQueryExecuted(query, result, isSuccess);
         }
+    }
+
+    public void changePassword(String tenTaiKhoan, String currentPassword, String newPassword) {
+        String query = "UPDATE KhachHang SET MatKhau = ? WHERE TenTaiKhoan = ? AND MatKhau = ?";
+
+        List<QueryParameter> queryParameters = new ArrayList<>();
+
+        queryParameters.add(new QueryParameter(1, newPassword));
+        queryParameters.add(new QueryParameter(2, tenTaiKhoan));
+        queryParameters.add(new QueryParameter(3, currentPassword));
+        Object[] params = new Object[queryParameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < queryParameters.size(); i++) {
+            params[i + 1] = queryParameters.get(i);
+        }
+
+        new KhachHangDA(new DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
+                if (isSuccess) {
+                    Toast.makeText(context, "Đổi mật khẩu thành công!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Đổi mật khẩu thất bại!"+tenTaiKhoan, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, context).execute(query, queryParameters.toArray());
     }
 
     public interface DatabaseCallback {
