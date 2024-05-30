@@ -10,12 +10,14 @@ public class VoucherDTO {
     private int giaTri;
     private int soLuong;
     private boolean daXoa;
+    private int loaiVoucher;
 
     // Constructors
     public VoucherDTO() {
     }
 
-    public VoucherDTO(int id, String tenVoucher, String chiTiet, Timestamp ngayBatDau, Timestamp ngayKetThuc, int giaTri, int soLuong, boolean daXoa) {
+
+    public VoucherDTO(int id, String tenVoucher, String chiTiet, Timestamp ngayBatDau, Timestamp ngayKetThuc, int giaTri, int soLuong, boolean daXoa, int loaiVoucher) {
         this.id = id;
         this.tenVoucher = tenVoucher;
         this.chiTiet = chiTiet;
@@ -24,6 +26,7 @@ public class VoucherDTO {
         this.giaTri = giaTri;
         this.soLuong = soLuong;
         this.daXoa = daXoa;
+        this.loaiVoucher = loaiVoucher;
     }
 
     // Getters and Setters
@@ -89,5 +92,12 @@ public class VoucherDTO {
 
     public void setDaXoa(boolean daXoa) {
         this.daXoa = daXoa;
+    }
+    public int getLoaiVoucher() {
+        return loaiVoucher;
+    }
+
+    public void setLoaiVoucher(int loaiVoucher) {
+        this.loaiVoucher = loaiVoucher;
     }
 }

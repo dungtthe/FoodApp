@@ -47,7 +47,15 @@
 <!--            android:name=".view.main_view.home.SanPhamListTimKiemActivity"-->
 <!--            android:exported="true" />-->
         <activity
-            android:name=".view.main_view.MainViewActivity"
+            android:name=".view.start.Login"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".view.start.ForgetPassword"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".view.start.WelcomActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,6 +63,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.start.SingupActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".view.main_view.MainViewActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

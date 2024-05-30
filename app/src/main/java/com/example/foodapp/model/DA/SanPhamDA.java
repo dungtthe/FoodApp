@@ -74,7 +74,6 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
                     sanPhamDTO.setSoLuongTon(resultSet.getInt("SoLuongTon"));
                     sanPhamDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
                     sanPhamDTO.setMoTa(resultSet.getString("MoTa"));
-                    sanPhamDTO.setDaThich(resultSet.getBoolean("daThich"));
                     byte[] imgBytes = resultSet.getBytes("HinhAnh");
                     if (imgBytes != null) {
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imgBytes);
