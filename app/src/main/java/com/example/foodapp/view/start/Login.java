@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.KhachHangDA;
 import com.example.foodapp.model.DA.QueryParameter;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.KhachHangDTO;
 import com.example.foodapp.view.main_view.MainViewActivity;
 
@@ -84,6 +85,9 @@ public class Login extends AppCompatActivity {
                 if (isSuccess && !result.isEmpty()) {
                     KhachHangDTO khachHangDTO = result.get(0);
                     Toast.makeText(context, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+
+                    DataCurrent.khachHangDTOCur=khachHangDTO;
+                    DataCurrent.danhSachSanPhamCoTrongGioHang=new ArrayList<>();
 
                     Intent intent = new Intent(Login.this, MainViewActivity.class);
                     startActivity(intent);
