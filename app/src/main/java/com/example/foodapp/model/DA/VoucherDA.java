@@ -3,16 +3,13 @@ package com.example.foodapp.model.DA;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.foodapp.model.DTO.VoucherDTO;
-import com.example.foodapp.view.main_view.MainViewActivity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +57,7 @@ public class VoucherDA extends AsyncTask<Object, Void, List<VoucherDTO>> {
                     voucherDTO.setGiaTri(resultSet.getInt("GiaTri"));
                     voucherDTO.setSoLuong(resultSet.getInt("SoLuong"));
                     voucherDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
+                    voucherDTO.setLoaiVoucher(resultSet.getInt("LoaiVoucher"));
                     voucherDTOList.add(voucherDTO);
                 }
                 isSuccess = !voucherDTOList.isEmpty();
@@ -116,9 +114,6 @@ public class VoucherDA extends AsyncTask<Object, Void, List<VoucherDTO>> {
             public void onQueryExecuted(String query, List<VoucherDTO> result, boolean isSuccess) {
                 if (isSuccess && !result.isEmpty()) {
 
-
-
-
                     // Xử lý danh sách các voucher lấy được ở đây nha
                     for (VoucherDTO voucher : result) {
                         Log.d("DTT",voucher.getTenVoucher()+"=="+voucher.getNgayBatDau()+"=="+voucher.getNgayKetThuc());
@@ -127,6 +122,5 @@ public class VoucherDA extends AsyncTask<Object, Void, List<VoucherDTO>> {
                 }
             }
         });
-
     }
 }
