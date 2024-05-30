@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,7 +54,7 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
             Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
             intent.putExtra("sanPhamId", sanpham.getId());
             intent.putExtra("daThich", sanpham.isDaThich());
-            v.getContext().startActivity(intent);
+            ((Activity) v.getContext()).startActivityForResult(intent, 1);
 
         });
 
@@ -74,7 +75,38 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         });
 
         holder.addToCartButton.setOnClickListener(v -> {
-            Toast.makeText(v.getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+            if(sanpham.getSoLuongTon()==0){
+                Toast.makeText(v.getContext(), "Sản phẩm đã hết", Toast.LENGTH_SHORT).show();
+            }
+            else{
+
+                if(DataCurrent.isCoTrongGioHang(sanpham.getId())){
+                    Toast.makeText(v.getContext(), "Sản phẩm đã có trong giỏ hàng!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                SanPhamDTO sanPhamDTO= new SanPhamDTO();
+                sanPhamDTO.setId(sanpham.getId());
+                sanPhamDTO.setTenSP(sanpham.getTenSP());
+                sanPhamDTO.setLoai(sanpham.getLoai());
+                sanPhamDTO.setGiaBan(sanpham.getGiaBan());
+                sanPhamDTO.setSoLuongTon(1);//đây hiểu là số lượng mua nhé
+                sanPhamDTO.setHinhAnh(sanpham.getHinhAnh());
+                sanPhamDTO.setDaXoa(sanpham.isDaXoa());
+                sanPhamDTO.setMoTa(sanpham.getMoTa());
+                sanPhamDTO.setDaThich(sanpham.isDaThich());
+
+                DataCurrent.danhSachSanPhamCoTrongGioHang.add(sanPhamDTO);
+                Toast.makeText(v.getContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
+            }
+
+
+
         });
     }
 
@@ -101,4 +133,7 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button_for_xemtatca);
         }
     }
+
+
+
 }
