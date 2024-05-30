@@ -9,14 +9,16 @@
     android:layout_marginEnd="4dp"
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="15dp"
-    app:cardElevation="3dp" >
+    app:cardElevation="3dp"
+    android:id="@+id/itemVoucherCurrent"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imgNutTichVoucher"
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:layout_marginEnd="10dp"
@@ -26,7 +28,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/iconselect" />
+            app:srcCompat="@drawable/icon_selectvoucher_false" />
 
         <ImageView
             android:id="@+id/img_HinhAnh"
@@ -40,7 +42,7 @@
             tools:srcCompat="@drawable/voucher_onsales" />
 
         <TextView
-            android:id="@+id/txtMenhGia"
+            android:id="@+id/txtTenVoucher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -51,7 +53,7 @@
             app:layout_constraintTop_toTopOf="@+id/img_HinhAnh" />
 
         <TextView
-            android:id="@+id/txtMoTa"
+            android:id="@+id/txtChiTiet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -59,8 +61,8 @@
             android:textColor="@color/black"
             android:textSize="13sp"
             app:layout_constraintBottom_toTopOf="@+id/txtHanSD"
-            app:layout_constraintStart_toStartOf="@+id/txtMenhGia"
-            app:layout_constraintTop_toBottomOf="@+id/txtMenhGia" />
+            app:layout_constraintStart_toStartOf="@+id/txtTenVoucher"
+            app:layout_constraintTop_toBottomOf="@+id/txtTenVoucher" />
 
         <TextView
             android:textColor="@color/black"
@@ -70,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="Hạn sử dụng: 29/5/2024"
             app:layout_constraintBottom_toBottomOf="@+id/img_HinhAnh"
-            app:layout_constraintStart_toStartOf="@+id/txtMoTa" />
+            app:layout_constraintStart_toStartOf="@+id/txtChiTiet" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

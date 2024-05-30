@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FF8F7B"
     android:layout_height="match_parent"
-    tools:context=".cart.activity_voucher">
+    android:background="#FF8F7B"
+    tools:context=".view.main_view.cart.activity_voucher">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ViewHeaderVoucher"
@@ -21,13 +21,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter_bold"
             android:gravity="center"
             android:text="Chọn voucher"
             android:textColor="@color/white"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,125 +47,133 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ViewContentVoucher"
-        android:background="@drawable/custom_layout_contentofcontent"
-        app:layout_constraintTop_toBottomOf="@+id/ViewHeaderVoucher"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:background="@drawable/custom_layout_contentofcontent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewHeaderVoucher">
+
         <ScrollView
             android:id="@+id/scvVoucher"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/ln_groupButtonDongY"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ln_groupButtonDongY"
+            app:layout_constraintTop_toTopOf="parent">
+
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:background="@drawable/custom_layout_contentofcontent"
                 android:id="@+id/xxx"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_layout_contentofcontent">
+
                 <TextView
-                    android:textSize="17sp"
-                    android:textColor="@color/black"
                     android:id="@+id/txtGiamGia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
                     android:text="Ưu đãi giảm giá"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/txtGiamGia"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/rcvListVoucherGiamGia"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtGiamGia" />
+
                 <LinearLayout
                     android:id="@+id/groupChuyenDoi"
-                    android:layout_marginTop="7dp"
-                    app:layout_constraintTop_toBottomOf="@+id/rcvListVoucherGiamGia"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rcvListVoucherGiamGia">
+
                     <TextView
                         android:id="@+id/xemthem"
-                        android:layout_marginEnd="2.5dp"
-                        android:gravity="center"
-                        android:background="#EBF4F1"
-                        android:textColor="@color/black"
-                        android:text="Xem thêm"
-                        android:textSize="14sp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2.5dp"
+                        android:background="#EBF4F1"
+                        android:gravity="center"
+                        android:text="Xem thêm"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
                     <TextView
                         android:id="@+id/icon_showItem"
-                        android:layout_marginStart="2.5dp"
                         android:layout_width="21dp"
                         android:layout_height="21dp"
+                        android:layout_marginStart="2.5dp"
                         android:background="@drawable/iconshow" />
                 </LinearLayout>
+
                 <TextView
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
                     android:id="@+id/txtVanChuyen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Ưu đãi phí vận chuyển"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/groupChuyenDoi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintTop_toBottomOf="@+id/groupChuyenDoi" />
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@id/txtVanChuyen"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/rcvListVoucherVanChuyen"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtVanChuyen" />
+
                 <LinearLayout
                     android:id="@+id/groupChuyenDoi2"
-                    android:layout_marginBottom="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/rcvListVoucherVanChuyen"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rcvListVoucherVanChuyen">
+
                     <TextView
                         android:id="@+id/xemthem2"
-                        android:layout_marginEnd="2.5dp"
-                        android:gravity="center"
-                        android:background="#EBF4F1"
-                        android:textColor="@color/black"
-                        android:text="Xem thêm"
-                        android:textSize="14sp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2.5dp"
+                        android:background="#EBF4F1"
+                        android:gravity="center"
+                        android:text="Xem thêm"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
                     <TextView
                         android:id="@+id/icon_showItem2"
-                        android:layout_marginStart="2.5dp"
                         android:layout_width="21dp"
                         android:layout_height="21dp"
+                        android:layout_marginStart="2.5dp"
                         android:background="@drawable/iconshow" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
         <LinearLayout
             android:id="@+id/ln_groupButtonDongY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
+            app:layout_constraintStart_toStartOf="parent">
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </LinearLayout>
             <Button
                 android:id="@+id/btnDongY"
                 android:layout_width="180dp"
@@ -173,6 +181,7 @@
                 android:background="@drawable/custom_btnoder"
                 android:text="Đồng ý"
                 android:textColor="@color/white" />
+
             <Button
                 android:id="@+id/btnBoChon"
                 android:layout_width="180dp"

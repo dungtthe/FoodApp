@@ -1,4 +1,7 @@
 package  com.example.foodapp.model.DTO;
+
+import android.graphics.Bitmap;
+
 import java.sql.Timestamp;
 
 public class VoucherDTO {
@@ -11,13 +14,14 @@ public class VoucherDTO {
     private int soLuong;
     private boolean daXoa;
     private int loaiVoucher;
+    private int hinhAnh;
 
     // Constructors
     public VoucherDTO() {
     }
 
 
-    public VoucherDTO(int id, String tenVoucher, String chiTiet, Timestamp ngayBatDau, Timestamp ngayKetThuc, int giaTri, int soLuong, boolean daXoa, int loaiVoucher) {
+    public VoucherDTO(int id, String tenVoucher, String chiTiet, Timestamp ngayBatDau, Timestamp ngayKetThuc, int giaTri, int soLuong, boolean daXoa, int loaiVoucher, Bitmap hinhAnh) {
         this.id = id;
         this.tenVoucher = tenVoucher;
         this.chiTiet = chiTiet;
@@ -27,6 +31,14 @@ public class VoucherDTO {
         this.soLuong = soLuong;
         this.daXoa = daXoa;
         this.loaiVoucher = loaiVoucher;
+    }
+
+    public int getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(int hinhAnh) {
+        this.hinhAnh = hinhAnh;
     }
 
     // Getters and Setters
