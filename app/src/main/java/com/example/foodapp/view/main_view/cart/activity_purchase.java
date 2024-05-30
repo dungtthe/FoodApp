@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.foodapp.model.DTO.DataCurrent;
 
 public class activity_purchase extends AppCompatActivity {
 
@@ -23,19 +21,8 @@ public class activity_purchase extends AppCompatActivity {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         rcvListItem.setLayoutManager(gridLayoutManager);
-        ProductAdapter adapter = new ProductAdapter(getListItem());
+        SanPhamAdapter adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
         rcvListItem.setAdapter(adapter);
     }
 
-
-
-    private List<Product> getListItem() {
-        List<Product> listProduct = new ArrayList<>();
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        listProduct.add(new Product("CoCa", 20000, R.drawable.coca, 2));
-        return listProduct;
-    }
 }

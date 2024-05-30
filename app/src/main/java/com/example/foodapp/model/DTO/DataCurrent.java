@@ -5,6 +5,8 @@ import java.util.List;
 
 public class DataCurrent {
     public static KhachHangDTO khachHangDTOCur;
+
+
     public static List<SanPhamDTO> danhSachSanPhamCoTrongGioHang;
 
 
@@ -20,5 +22,8 @@ public class DataCurrent {
             }
         }
         return false;
+    }
+    public static List<SanPhamDTO> getDanhSachSanPhamCoTrongGioHang() {
+        return danhSachSanPhamCoTrongGioHang;
     }
 }

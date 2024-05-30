@@ -73,10 +73,28 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
+
+        <activity
+            android:name=".view.main_view.cart.activity_voucher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".view.start.SingupActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.main_view.cart.activity_purchase"
             android:exported="false">
         </activity>
 

@@ -1,12 +1,12 @@
 package com.example.foodapp.view.main_view.cart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.R;
-import com.example.foodapp.model.DA.QueryParameter;
-import com.example.foodapp.model.DA.SanPhamDA;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 
 import java.util.ArrayList;
@@ -94,8 +93,8 @@ public class CartFragment extends Fragment {
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hành động khi btnPurchase được nhấn
-                // Code xử lý sự kiện khi btnPurchase được nhấn
+                Intent myIntent = new Intent(getActivity(),activity_purchase.class);
+                startActivity(myIntent);
             }
         });
 
@@ -107,29 +106,7 @@ public class CartFragment extends Fragment {
         rcvListItem.setLayoutManager(gridLayoutManager);
         sanPhamList = new ArrayList<>();
 
-        // Load sản phẩm từ cơ sở dữ liệu
-        String query = "SELECT * FROM SanPham WHERE DaXoa = FALSE";
-        List<QueryParameter> parameters = new ArrayList<>();
-        parameters.add(new QueryParameter(1,DaXoa));
-        Object[] params = new Object[parameters.size() + 1];
-        params[0] = query;
-        for (int i = 0; i < parameters.size(); i++) {
-            params[i + 1] = parameters.get(i);
-        }
-        SanPhamDA sanPhamDA = new SanPhamDA(new SanPhamDA.DatabaseCallback() {
-            @Override
-            public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
-                if (isSuccess && !result.isEmpty()) {
-                    sanPhamList.clear();
-                    sanPhamList.addAll(result);
-                }else{
-                    Toast.makeText(context,"Load data không thành công",Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, context);
-        sanPhamDA.execute(params);
-
-        SanPhamAdapter adapter = new SanPhamAdapter(sanPhamList);
+        SanPhamAdapter adapter = new SanPhamAdapter(DataCurrent.danhSachSanPhamCoTrongGioHang);
         rcvListItem.setAdapter(adapter);
     }
 }
