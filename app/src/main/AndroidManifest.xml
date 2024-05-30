@@ -15,9 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/my_themes"
         tools:targetApi="31">
-        <activity
-            android:name=".DanhSachSanPhamActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".DanhSachSanPhamActivity"-->
+<!--            android:exported="false" />-->
         <!-- <activity -->
         <!-- android:name=".view.main_view.home.sanpham_list" -->
         <!-- android:exported="false" /> -->
@@ -37,15 +37,15 @@
         <!-- <activity -->
         <!-- android:name=".activity_favourite" -->
         <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".activity_changepassword" -->
-        <!-- android:exported="false" /> -->
-        <activity android:name=".view.main_view.home.DanhSachSanPham_ForXemTatCa_Activity">
-            android:exported="true"
-        </activity>
-        <activity
-            android:name=".view.main_view.home.SanPhamListTimKiemActivity"
-            android:exported="true" />
+<!--         <activity-->
+<!--         android:name=".view.main_view.setting.activity_changepassword"-->
+<!--         android:exported="false" />-->
+<!--        <activity android:name=".view.main_view.home.DanhSachSanPham_ForXemTatCa_Activity">-->
+<!--            android:exported="true"-->
+<!--        </activity>-->
+<!--        <activity-->
+<!--            android:name=".view.main_view.home.SanPhamListTimKiemActivity"-->
+<!--            android:exported="true" />-->
         <activity
             android:name=".view.main_view.MainViewActivity"
             android:exported="true">
