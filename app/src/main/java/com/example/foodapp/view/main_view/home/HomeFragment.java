@@ -1,7 +1,10 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.SanPhamDA;
@@ -80,6 +86,42 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         recyclerViewdanhmuc.setAdapter(danhMucSanPhamAdapter);
 
         return view;
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+
+
+        // Tìm kiếm sản phẩm
+        EditText searchEditText = view.findViewById(R.id.search_edit_text);
+        ImageView searchIcon = view.findViewById(R.id.icon_search);
+        searchIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = searchEditText.getText().toString();
+                Intent intent = new Intent(getActivity(), SanPhamListTimKiemActivity.class);
+                intent.putExtra("search_query", query);
+                startActivity(intent);
+            }
+        });
+
+
+
+        //xem tất cả món ngon hôm nay
+        TextView tvXemTatCa=view.findViewById(R.id.tvXemTatCa);
+        tvXemTatCa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DanhSachSanPham_ForXemTatCa_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

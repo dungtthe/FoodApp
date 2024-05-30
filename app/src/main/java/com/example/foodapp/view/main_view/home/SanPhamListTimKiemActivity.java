@@ -14,13 +14,8 @@ import com.example.foodapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class sanpham_list extends AppCompatActivity {
+public class SanPhamListTimKiemActivity extends AppCompatActivity {
 
-
-
-    public sanpham_list() {
-        // Required empty public constructor
-    }
     private RecyclerView recyclerView;
     private SanPham_Adapter sanPhamAdapter;
     private List<SanPhamDTO> sanPhamList;
@@ -28,14 +23,17 @@ public class sanpham_list extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sanpham_list);
+        setContentView(R.layout.activity_sanpham_list_for_timkiem_home);
 
         recyclerView = findViewById(R.id.recycler_view_loaisp);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         sanPhamList = new ArrayList<>();
 
-        // Load sản phẩm từ cơ sở dữ liệu
+        // Nhận dữ liệu tìm kiếm từ Intent
+        String searchQuery = getIntent().getStringExtra("search_query");
+
+        // Load sản phẩm từ cơ sở dữ liệu với từ khóa tìm kiếm
         SanPhamDA sanPhamDA = new SanPhamDA(new SanPhamDA.DatabaseCallback() {
             @Override
             public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
@@ -47,27 +45,11 @@ public class sanpham_list extends AppCompatActivity {
             }
         }, this);
 
-        sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
+        // Thực hiện truy vấn với từ khóa tìm kiếm
+        String query = "SELECT * FROM SanPham WHERE DaXoa = FALSE";
+        sanPhamDA.execute(query);
 
         sanPhamAdapter = new SanPham_Adapter(sanPhamList);
         recyclerView.setAdapter(sanPhamAdapter);
-
-
-
-
-
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_favourite_items);
-//        List<favourite_product> favourite_itemList = new ArrayList<favourite_product>() ;
-//        favourite_itemList.add(new favourite_product(1,"Bánh mì",10000, R.drawable.banhmi));
-//        favourite_itemList.add(new favourite_product(1,"Bánh mì",10000, R.drawable.banhmi));
-//
-//
-//        recyclerView =findViewById(R.id.recycler_view);
-//        MyAdapter myAdapter = new MyAdapter(favourite_itemList);
-//        recyclerView.setAdapter(myAdapter);
-//        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
     }
-
-
 }

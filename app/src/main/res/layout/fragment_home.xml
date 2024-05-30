@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFA07A"
-    tools:context=".view.main_view.information.InformationFragment">
+    tools:context=".view.main_view.home.HomeFragment">
 
     <!-- Header with orange background -->
     <View
@@ -112,6 +112,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvXemTatCa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Xem tất cả"

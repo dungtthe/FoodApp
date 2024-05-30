@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.home;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.R;
 import com.example.foodapp.model.DTO.SanPhamDTO;
+import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
 
 
 import java.util.List;
@@ -42,8 +44,8 @@ public class SanPham_Adapter extends RecyclerView.Adapter<SanPham_Adapter.MyView
         holder.imageView.setImageBitmap(sanpham.getHinhAnh());
         holder.productname.setText(sanpham.getTenSP());
         //holder.producttype.setText(sanpham.getLoai());
-        //holder.productquantity.setText(sanpham.getSoLuongTon());
-       // holder.productprice.setText(sanpham.getGiaBan() + " VND");
+        holder.productquantity.setText(sanpham.getSoLuongTon()+"");
+        holder.productprice.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
 
     }
 

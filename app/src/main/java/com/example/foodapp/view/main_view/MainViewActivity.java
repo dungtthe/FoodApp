@@ -68,12 +68,7 @@ public class MainViewActivity extends AppCompatActivity {
                 Fragment fragmentDestination = null;
                 switch (item.getItemId()){
                     case R.id.action_home:
-                       // fragmentDestination = new HomeFragment();
-
-                        //fragmentDestination = new fragment_sanpham_list();
-
-                        fragmentDestination =new DetailSanPhamFragment();
-
+                        fragmentDestination = new HomeFragment();
                         break;
                     case R.id.action_info:
                         fragmentDestination = new InformationFragment();
