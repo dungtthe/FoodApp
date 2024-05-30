@@ -1,6 +1,5 @@
 package com.example.foodapp.view.main_view.cart;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,6 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     public VoucherAdapter(List<VoucherDTO> listVoucher) {
         this.fullListVoucher = listVoucher;
         this.partialList = new ArrayList<>();
-        Log.d("DTT",fullListVoucher.size()+"");
         for (int i = 0; i < Math.min(1, fullListVoucher.size()); i++) {
             partialList.add(fullListVoucher.get(i));
         }
