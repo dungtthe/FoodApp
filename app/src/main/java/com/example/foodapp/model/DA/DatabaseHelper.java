@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseHelper {
-    private static final String URL = "jdbc:mysql://10.0.137.53:3306/FoodApp";
+    private static final String URL = "jdbc:mysql://10.0.212.68:33066/FoodApp";
     private static final String USER = "foodapp";
     private static final String PASSWORD = "123456";
 
