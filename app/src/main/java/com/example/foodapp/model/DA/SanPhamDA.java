@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.foodapp.model.DTO.SanPhamDTO;
 
@@ -74,7 +75,6 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
                     sanPhamDTO.setSoLuongTon(resultSet.getInt("SoLuongTon"));
                     sanPhamDTO.setDaXoa(resultSet.getBoolean("DaXoa"));
                     sanPhamDTO.setMoTa(resultSet.getString("MoTa"));
-                    sanPhamDTO.setDaThich(resultSet.getBoolean("daThich"));
                     byte[] imgBytes = resultSet.getBytes("HinhAnh");
                     if (imgBytes != null) {
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imgBytes);
@@ -92,6 +92,7 @@ public class SanPhamDA extends AsyncTask<Object, Void, List<SanPhamDTO>> {
             }
 
         } catch (ClassNotFoundException | SQLException e) {
+            Log.d("DTT",e.getMessage());
             e.printStackTrace();
         } finally {
             try {

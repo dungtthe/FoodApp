@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.start.Login">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="765dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/img_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            app:srcCompat="@drawable/img_logo" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Food App"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtTenDangNhapLog"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/edittext_dangnhap"
+            android:ems="10"
+            android:hint="Tên đăng nhập"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/edtPasswordLog"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="32dp"
+            android:background="@drawable/edittext_dangnhap"
+            android:ems="10"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btnDangNhapLog"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_dangnhap"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDangKyLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_dangnhap"
+                android:backgroundTint="#fd7c2e"
+                android:text="Đăng ký"
+                android:textColor="@color/white"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btnQMKLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_dangnhap"
+                android:backgroundTint="#fd7c2e"
+                android:text="Quên mật khẩu"
+                android:textColor="@color/white"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

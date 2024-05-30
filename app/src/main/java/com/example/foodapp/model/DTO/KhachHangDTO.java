@@ -74,6 +74,17 @@ public class KhachHangDTO {
 
     }
 
+
+    public KhachHangDTO(int id,String hoTen, String sDT, String eMail, String tenTk, String matKhau ) {
+        this.id=id;
+        this.hoTen = hoTen;
+        this.sDT = sDT;
+        this.eMail = eMail;
+        this.tenTaiKhoan = tenTk;
+        this.matKhau = matKhau;
+        this.daXoa = false;
+    }
+
     //Thêm 1 user
     public KhachHangDTO(String hoTen, String sDT, String eMail, String tenTk, String matKhau ) {
         this.hoTen = hoTen;

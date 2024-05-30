@@ -4,10 +4,12 @@ import com.example.foodapp.model.DA.DatabaseHelper;
 import com.example.foodapp.model.DA.SanPhamThichDA;
 import com.example.foodapp.model.DA.ThamSoDA;
 import com.example.foodapp.model.DA.VoucherDA;
+import com.example.foodapp.model.DTO.KhachHangDTO;
 import com.example.foodapp.model.DTO.VoucherDTO;
 import com.example.foodapp.view.main_view.cart.CartFragment;
+import com.example.foodapp.view.main_view.home.DetailSanPhamFragment;
 import com.example.foodapp.view.main_view.home.HomeFragment;
-import com.example.foodapp.view.main_view.home.fragment_product_list;
+import com.example.foodapp.view.main_view.home.fragment_sanpham_list;
 import com.example.foodapp.view.main_view.information.InformationFragment;
 import com.example.foodapp.view.main_view.setting.SettingFragment;
 import com.example.foodapp.view.main_view.support.SupportFragment;
@@ -32,6 +34,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MainViewActivity extends AppCompatActivity {
+
 
 
 
@@ -67,10 +70,7 @@ public class MainViewActivity extends AppCompatActivity {
                 Fragment fragmentDestination = null;
                 switch (item.getItemId()){
                     case R.id.action_home:
-                     //   fragmentDestination = new HomeFragment();
-
-                        fragmentDestination = new fragment_product_list();
-
+                        fragmentDestination = new HomeFragment();
                         break;
                     case R.id.action_info:
                         fragmentDestination = new InformationFragment();

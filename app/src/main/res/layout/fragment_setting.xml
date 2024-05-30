@@ -3,17 +3,305 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFA07A"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.main_view.setting.SettingFragment"
-    android:background="#855799">
+    >
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cài đặt"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- Header với nền màu cam -->
+    <View
+        android:id="@+id/view_header"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:background="#FFA07A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_view_content_corners_setting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_header"
+        app:layout_constraintVertical_bias="0.0">
+
+    </View>
+    <!-- Cài đặt header -->
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cài đặt"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view_header" />
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header" />
+    <!-- Ảnh đại diện -->
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/circle_shape_avatar"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header" />
+    <!-- Tên -->
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Neil Amstrong"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+    <!-- Nút địa chỉ giao hàng -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="323dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/rounded_button_setting"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/address" />
+
+        <TextView
+            android:id="@+id/tv_adress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Địa chỉ giao hàng"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/next_page" />
+
+    </LinearLayout>
+    <!-- Nút đơn hàng -->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="323dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_setting"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/truck" />
+
+        <TextView
+            android:id="@+id/tv_DonHang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Đơn hàng"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/next_page" />
+
+    </LinearLayout>
+    <!-- Nút lịch sử thanh toán -->
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="323dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_setting"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/receipt_dollar" />
+
+        <TextView
+            android:id="@+id/tv_LichSuThanhToan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Lịch sử thanh toán"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/next_page" />
+
+    </LinearLayout>
+    <!-- Nút đã thích -->
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="323dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_setting"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/heart" />
+
+        <TextView
+            android:id="@+id/tv_DaThich"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Đã thích"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/next_page" />
+
+    </LinearLayout>
+    <!-- Nút đổi mật khẩu -->
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="323dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_setting"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/lock" />
+
+        <TextView
+            android:id="@+id/tv_DoiMatKhau"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Đổi mật khẩu"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/next_page" />
+
+    </LinearLayout>
+    <!-- Nút đăng xuất -->
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_setting"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/logout" />
+
+        <TextView
+            android:id="@+id/tv_DangXuat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Đăng xuất"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/next_page" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

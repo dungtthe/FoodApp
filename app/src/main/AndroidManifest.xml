@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.foodapp">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -17,14 +15,74 @@
         android:supportsRtl="true"
         android:theme="@style/my_themes"
         tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".DanhSachSanPhamActivity"-->
+<!--            android:exported="false" />-->
+        <!-- <activity -->
+        <!-- android:name=".view.main_view.home.sanpham_list" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.main_view.setting.comment_list" -->
+        <!-- android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt; -->
+        <!-- android:name=".view.main_view.setting.ThemDiaChi" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".view.main_view.setting.activity_payment_history" -->
+        <!-- android:exported="false" /> -->
+         <activity
+         android:name=".view.main_view.setting.activity_favourite_items"
+         android:exported="false" />
         <activity
-            android:name=".view.main_view.cart.activity_voucher"
+            android:name=".view.main_view.setting.diachi"
+            android:exported="false" />
+        <activity
+         android:name=".view.main_view.setting.ThemDiaChi"
+         android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".activity_favourite" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".activity_changepassword" -->
+        <!-- android:exported="false" /> -->
+
+        <activity android:name=".view.main_view.home.CommentListForDetailSanPhamActivity">
+            android:exported="true"
+        </activity>
+        <activity android:name=".view.main_view.home.Detail_SanPham_For_Home_Activity">
+            android:exported="true"
+        </activity>
+        <activity android:name=".view.main_view.home.DanhSachSanPham_ForXemTatCa_Activity">
+            android:exported="true"
+        </activity>
+        <activity
+            android:name=".view.main_view.home.SanPhamListTimKiemActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.start.Login"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".view.start.ForgetPassword"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".view.start.WelcomActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.start.SingupActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".view.main_view.MainViewActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
