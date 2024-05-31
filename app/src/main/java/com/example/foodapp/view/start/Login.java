@@ -1,14 +1,15 @@
 package com.example.foodapp.view.start;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.foodapp.R;
 import com.example.foodapp.model.DA.KhachHangDA;
 import com.example.foodapp.model.DA.QueryParameter;
@@ -88,7 +89,7 @@ public class Login extends AppCompatActivity {
 
                     DataCurrent.khachHangDTOCur=khachHangDTO;
                     DataCurrent.danhSachSanPhamCoTrongGioHang=new ArrayList<>();
-
+                    DataCurrent.danhSachSanPhamCoTrongHoaDon=new ArrayList<>();
                     Intent intent = new Intent(Login.this, MainViewActivity.class);
                     startActivity(intent);
 

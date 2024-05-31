@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ItemCartCurrent"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/imgNutTichItemCart"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_TenHienThi"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_selectvoucher_false" />
+
+        <ImageView
+            android:id="@+id/img_HinhAnh"
+            android:layout_width="130dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/coca" />
+
+        <TextView
+            android:id="@+id/tv_TenHienThi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="CoCa CoLa"
+            android:textSize="14sp"
+
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/img_HinhAnh"
+            app:layout_constraintTop_toTopOf="@+id/img_HinhAnh" />
+
+        <TextView
+            android:id="@+id/tv_Gia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+
+            android:textColor="@color/black"
+            android:text="20.000 VND"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_TenHienThi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_TenHienThi" />
+
+        <TextView
+            android:id="@+id/tv_GiaTien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="40.000 VND"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/img_HinhAnh"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/img_HinhAnh"
+            app:layout_constraintStart_toStartOf="@+id/tv_Gia">
+
+            <TextView
+                android:id="@+id/btn_GiamSoLuong"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/icon_decrease"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/btn_TangSoLuong"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/icon_increase"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="0dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tv_SoLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_TangSoLuong"
+                app:layout_constraintStart_toEndOf="@+id/btn_GiamSoLuong"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

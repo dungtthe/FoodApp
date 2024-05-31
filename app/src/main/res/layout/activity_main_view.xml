@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.main_view.MainViewActivity">
+    tools:context="com.example.foodapp.view.main_view.MainViewActivity">
 
     <FrameLayout
         android:id="@+id/frame_contain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav"
-        android:layout_marginBottom="-9dp"></FrameLayout>
+        android:layout_above="@id/bottom_nav"></FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

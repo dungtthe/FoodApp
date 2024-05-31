@@ -1,4 +1,4 @@
-package com.example.foodapp.view.main_view.support;
+package com.example.foodapp.view.main_view.cart.purchase_order;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,10 +11,10 @@ import com.example.foodapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SupportFragment#newInstance} factory method to
+ * Use the {@link Fragment_DaHuy#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SupportFragment extends Fragment {
+public class Fragment_DaHuy extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +25,7 @@ public class SupportFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SupportFragment() {
+    public Fragment_DaHuy() {
         // Required empty public constructor
     }
 
@@ -35,11 +35,11 @@ public class SupportFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SupportFragment.
+     * @return A new instance of fragment Fragment_ChoXacNhan.
      */
     // TODO: Rename and change types and number of parameters
-    public static SupportFragment newInstance(String param1, String param2) {
-        SupportFragment fragment = new SupportFragment();
+    public static Fragment_DaHuy newInstance(String param1, String param2) {
+        Fragment_DaHuy fragment = new Fragment_DaHuy();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,6 +60,6 @@ public class SupportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_support, container, false);
+        return inflater.inflate(R.layout.fragment_dahuy, container, false);
     }
 }

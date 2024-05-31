@@ -3,4 +3,3 @@
     <item android:color="@color/item_not_select_bottom_nav" android:state_checked="false"></item>
     <item android:color="@color/item_selected_bottom_nav" android:state_checked="true"></item>
 </selector>
-
