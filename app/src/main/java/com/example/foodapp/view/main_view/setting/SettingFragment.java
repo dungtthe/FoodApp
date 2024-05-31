@@ -1,5 +1,7 @@
 package com.example.foodapp.view.main_view.setting;
 
+import static com.example.foodapp.model.DTO.DataCurrent.khachHangDTOCur;
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -13,8 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.example.foodapp.R;
 import com.example.foodapp.view.main_view.setting.activity_favourite_items;
+import com.example.foodapp.view.start.Login;
 
 public class SettingFragment extends Fragment {
 
@@ -25,7 +30,8 @@ public class SettingFragment extends Fragment {
     private String mParam2;
 
     private Handler mHandler;
-    private LinearLayout linearLayout4, linearLayout5,linearLayout;
+    private LinearLayout linearLayout4, linearLayout5,linearLayout, btn_dangxuat;
+    private TextView amstrong;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -61,6 +67,7 @@ public class SettingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
+
         // Tìm và lưu reference đến LinearLayout "Đã thích"
         linearLayout = view.findViewById(R.id.linearLayout);
         // Thiết lập sự kiện click cho LinearLayout "Đã thích"
@@ -76,6 +83,10 @@ public class SettingFragment extends Fragment {
         // Thiết lập sự kiện click cho LinearLayout "Đổi mật khẩu"
         linearLayout5.setOnClickListener(v -> handleChangePassButtonClicked());
 
+        btn_dangxuat = view.findViewById(R.id.btn_dangxuat);
+        // Thiết lập sự kiện click cho LinearLayout "Đổi mật khẩu"
+        btn_dangxuat.setOnClickListener(v -> handleDangXuatButtonClicked());
+
 
         return view;
     }
@@ -84,6 +95,8 @@ public class SettingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Do something else with the view
+        amstrong = view.findViewById(R.id.tv_name_caidat);
+        amstrong.setText(khachHangDTOCur.getHoTen());
     }
 
     private void hideNavigationBar() {
@@ -111,6 +124,12 @@ public class SettingFragment extends Fragment {
     private void handleChangePassButtonClicked() {
         // Xử lý sự kiện click button "Đổi mk"
         Intent intent = new Intent(requireContext(), activity_changepassword.class);
+        startActivity(intent);
+    }
+
+    private void handleDangXuatButtonClicked() {
+        // Xử lý sự kiện click button "Đổi mk"
+        Intent intent = new Intent(requireContext(), Login.class);
         startActivity(intent);
     }
 }

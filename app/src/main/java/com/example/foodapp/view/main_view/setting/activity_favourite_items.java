@@ -15,11 +15,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodapp.R;
 import com.example.foodapp.view.main_view.home.SanPhamAdapter_For_TimKiem;
 import com.example.foodapp.view.main_view.home.SanPhamAdapter_For_XemTatCa;
+import com.example.foodapp.view.start.Login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,7 @@ public class activity_favourite_items extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SanPhamThich_Adapter sanPhamAdapter;
     private List<SanPhamDTO> sanPhamList;
+    private ImageView btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +51,15 @@ public class activity_favourite_items extends AppCompatActivity {
 
 
         getAllSanPhamThich(activity_favourite_items.this,DataCurrent.khachHangDTOCur.getId());
+
+        btn_back = findViewById(R.id.icon_back_dathich);
+        // Thiết lập sự kiện click cho LinearLayout "Đã thích"
+        btn_back.setOnClickListener(v -> handleBackButtonClicked());
     }
-
-
+    private void handleBackButtonClicked() {
+        // Xử lý sự kiện click button "Đổi mk"
+        finish();
+    }
 
     private void getAllSanPhamThich(Context context,int khachHangId){
 

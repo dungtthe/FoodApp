@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
-    android:id="@+id/cardview"
+    android:id="@+id/cardview_comment"
     app:cardElevation="4dp">
 
     <RelativeLayout
@@ -15,31 +15,31 @@
         android:padding="4dp">
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/icon_comment"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/shop_icon"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar" />
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/user_name_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
-            android:layout_toEndOf="@id/icon"
+            android:layout_toEndOf="@id/icon_comment"
             android:text="Dũng TT"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/user_comment"
+            android:id="@+id/noidungcomment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/user_name"
-            android:layout_toEndOf="@id/icon"
+            android:layout_below="@id/user_name_comment"
+            android:layout_toEndOf="@id/icon_comment"
             android:layout_marginStart="8dp"
             android:layout_marginTop="3dp"
             android:text="Mlem Mlem Mlem Mlem Mlem "
@@ -50,7 +50,7 @@
             android:id="@+id/time_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_comment"
+            android:layout_below="@+id/user_name_comment"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="47dp"
@@ -62,8 +62,8 @@
             android:id="@+id/icon_sent"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_below="@+id/user_comment"
-            android:layout_alignEnd="@+id/user_comment"
+            android:layout_below="@+id/user_name_comment"
+            android:layout_alignEnd="@+id/user_name_comment"
             android:layout_alignParentRight="true"
             android:layout_marginTop="14dp"
             android:layout_marginEnd="1dp"

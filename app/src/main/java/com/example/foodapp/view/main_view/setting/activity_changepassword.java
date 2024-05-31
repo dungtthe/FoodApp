@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.foodapp.R;
@@ -22,6 +23,7 @@ import java.util.List;
 public class activity_changepassword extends AppCompatActivity {
     private Button btnHoanThanh;
     private EditText edtMkcu, edtMkmoi, edtXacnhanmk;
+    private ImageView btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,13 @@ public class activity_changepassword extends AppCompatActivity {
                 }
             }
         });
+        btn_back = findViewById(R.id.icon_back_doimatkhau);
+        // Thiết lập sự kiện click cho LinearLayout "Đã thích"
+        btn_back.setOnClickListener(v -> handleBackButtonClicked());
+    }
+    private void handleBackButtonClicked() {
+        // Xử lý sự kiện click button "Đổi mk"
+        finish();
     }
 
     private boolean validatePasswordInput(String currentPassword, String newPassword, String confirmPassword) {

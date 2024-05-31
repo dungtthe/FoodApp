@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,6 +25,7 @@ import java.util.List;
 public class diachi extends AppCompatActivity {
 
     RadioGroup groupDiachi;
+    private ImageView btn_back;
     List<DiaChiGiaoHangDTO> diaChiList = new ArrayList<>();
 
     @Override
@@ -63,6 +65,13 @@ public class diachi extends AppCompatActivity {
                 }
             }
         });
+        btn_back = findViewById(R.id.icon_back_diachi);
+        // Thiết lập sự kiện click cho LinearLayout "Đã thích"
+        btn_back.setOnClickListener(v -> handleBackButtonClicked());
+    }
+    private void handleBackButtonClicked() {
+        // Xử lý sự kiện click button "Đổi mk"
+        finish();
     }
 
     public void hienThiDiaChi(int id, RadioGroup group, Context context) {

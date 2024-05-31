@@ -7,7 +7,7 @@ public class KhachHangDTO {
     private String hoTen;
     private String sDT;
     private String eMail;
-    private boolean daXoa;
+    private Boolean daXoa;
     private String tenTaiKhoan;
     private String matKhau;
     private Bitmap hinhAnh;
@@ -38,13 +38,13 @@ public class KhachHangDTO {
         return eMail;
     }
     public void setMail(String eMail) {
-        this.hoTen = eMail;
+        this.eMail = eMail;
     }
 
     public boolean isDaXoa() {
         return daXoa;
     }
-    public void setDaXoa(boolean daXoa) {
+    public void setDaXoa(Boolean daXoa) {
         this.daXoa = daXoa;
     }
 

@@ -50,7 +50,6 @@
          android:exported="false" />
 
 
-
         <activity android:name=".view.main_view.home.CommentListForDetailSanPhamActivity">
             android:exported="true"
         </activity>
