@@ -109,44 +109,14 @@
                 android:layout_weight="2"
                 android:background="@drawable/rounded_edittext_information"
                 android:padding="12dp"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:clickable="false"
                 android:inputType="textPersonName"/>
         </LinearLayout>
 
-        <!-- Ngày sinh -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ngày sinh"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_NgaySinhThongTinCaNhan"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="@drawable/rounded_edittext_information"
-                android:padding="12dp"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical"
-                android:clickable="false"
-                android:focusableInTouchMode="false"
-                android:focusable="false" />
-        </LinearLayout>
 
         <!-- Điện thoại -->
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -167,9 +137,6 @@
                 android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:clickable="false"
                 android:background="@drawable/rounded_edittext_information"
                 android:padding="12dp" />
         </LinearLayout>
@@ -178,6 +145,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
@@ -196,40 +164,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:inputType="textPersonName"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:clickable="false"
                 android:background="@drawable/rounded_edittext_information"
                 android:padding="12dp" />
         </LinearLayout>
 
-        <!-- Địa chỉ -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Địa chỉ"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/et_addressTTCN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:inputType="textPersonName"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:clickable="false"
-                android:background="@drawable/rounded_edittext_information"
-                android:padding="12dp" />
-        </LinearLayout>
     </LinearLayout>
 
     <!-- Nút Lưu -->
