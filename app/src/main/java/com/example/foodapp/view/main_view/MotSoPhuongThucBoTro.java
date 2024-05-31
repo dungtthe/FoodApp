@@ -21,15 +21,28 @@ public class MotSoPhuongThucBoTro {
         // Loại bỏ tất cả khoảng trắng ở đầu và cuối chuỗi và kiểm tra độ dài
         return str.trim().isEmpty();
     }
-    public static int tinhTongTienHoaDon(){
+    public static int tinhTongTienHoaDonTruocVoucher(){
         int sum=0;
         for(int i=0;i< DataCurrent.danhSachSanPhamCoTrongHoaDon.size();i++){
             sum+=DataCurrent.danhSachSanPhamCoTrongHoaDon.get(i).getGiaBan()*DataCurrent.danhSachSanPhamCoTrongHoaDon.get(i).getSoLuongTon();
         }
         return sum;
     }
-    public static int tinhGiaTriHoaDon(){
-        return 0;
+    public static int tinhGiaTriHoaDonSauVoucher(){
+        int sum = tinhTongTienHoaDonTruocVoucher();
+        int TongChiPhiGiamGia = 0;
+        for(int i=0;i<DataCurrent.danhSachVoucherApDungChoHoaDon.size();i++){
+            TongChiPhiGiamGia+=DataCurrent.danhSachVoucherApDungChoHoaDon.get(i).getGiaTri();
+        }
+        sum -= TongChiPhiGiamGia;
+        return sum;
+    }
+    public static int TongGiaTriVoucher(){
+        int TongChiPhiGiamGia = 0;
+        for(int i=0;i<DataCurrent.danhSachVoucherApDungChoHoaDon.size();i++){
+            TongChiPhiGiamGia+=DataCurrent.danhSachVoucherApDungChoHoaDon.get(i).getGiaTri();
+        }
+        return TongChiPhiGiamGia;
     }
     public static String getTenLoaiSanPham(int loaiSp) {
         switch (loaiSp) {

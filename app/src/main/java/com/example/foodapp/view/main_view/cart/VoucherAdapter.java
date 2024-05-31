@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.R;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.VoucherDTO;
 
 import java.util.ArrayList;
@@ -59,10 +60,25 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
             @Override
             public void onClick(View v) {
                 // Cập nhật selectedPosition và thông báo cho adapter
-                if (selectedPosition == holder.getAdapterPosition() ) {
+                if (selectedPosition == holder.getAdapterPosition()) {
                     selectedPosition = -1; // Bỏ chọn nếu cùng vị trí được click lại
+                    if (DataCurrent.danhSachVoucherApDungChoHoaDon.contains(voucher)) {
+                        DataCurrent.danhSachVoucherApDungChoHoaDon.remove(voucher);
+
+                    }
                 } else {
                     selectedPosition = holder.getAdapterPosition();
+                    if (!DataCurrent.danhSachVoucherApDungChoHoaDon.contains(voucher)) {
+                        if (voucher.getLoaiVoucher() == 0 || voucher.getLoaiVoucher() == 1) {
+                            for(int i=0;i<DataCurrent.danhSachVoucherApDungChoHoaDon.size();i++){
+                                if(DataCurrent.danhSachVoucherApDungChoHoaDon.get(i).getLoaiVoucher()==voucher.getLoaiVoucher()){
+                                    DataCurrent.danhSachVoucherApDungChoHoaDon.remove(DataCurrent.danhSachVoucherApDungChoHoaDon.get(i));
+                                }
+                            }
+                            DataCurrent.danhSachVoucherApDungChoHoaDon.add(voucher);
+
+                        }
+                    }
                 }
                 notifyDataSetChanged(); // Thông báo thay đổi để cập nhật giao diện
             }
@@ -82,6 +98,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     public boolean isShowingAll() {
         return showAll;
     }
+
     public void clearSelection() {
         selectedPosition = -1;
         notifyDataSetChanged();
