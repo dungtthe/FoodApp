@@ -5,47 +5,43 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.foodapp.R;
 import com.example.foodapp.model.DA.QueryParameter;
 import com.example.foodapp.model.DA.SanPhamDA;
 import com.example.foodapp.model.DA.SanPhamThichDA;
 import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.foodapp.R;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
+import com.example.foodapp.view.main_view.setting.ThemDiaChi;
+import com.example.foodapp.view.main_view.setting.diachi;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SanPhamListTimKiemActivity extends AppCompatActivity {
+public class danh_muc_san_pham extends AppCompatActivity {
 
-
+    private int loaiSp=7;
 
     private RecyclerView recyclerView;
-    private SanPhamAdapter_For_TimKiem sanPhamAdapter;
+    private SanPhamAdapter_For_DanhMucSP sanPhamAdapter;
     private List<SanPhamDTO> sanPhamList;
+    private List<SanPhamDTO> sanPhamListDaLocTheoLoaiSP;
+    private TextView tv_LoaiSanPham_danh_muc_san_pham;
 
-    private List<SanPhamDTO> sanPhamListDaTimKiem;
-
-    private TextView tv_LoaiSanPham_for_timkiemsanpham_home;//hiển thị nội dung chuỗi tìm kiếm
-    private EditText search_edit_text_fortimkiem_home;//chuỗi để nhập phục vụ tìm kiếm
-    private  ImageView icon_search_for_timkiemsanpham_home;//img nút tìm kiếm
-
-    private String chuoiTimKiem="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sanpham_list_for_timkiem_home);
+        setContentView(R.layout.activity_danh_muc_san_pham);
+
+
         //toàn màn hình
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -55,8 +51,19 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
 
 
 
+
+
+        loaiSp=getIntent().getIntExtra("loadSp",7);
+
+
+
+
+        tv_LoaiSanPham_danh_muc_san_pham=findViewById(R.id.tv_LoaiSanPham_danh_muc_san_pham);
+        tv_LoaiSanPham_danh_muc_san_pham.setText(MotSoPhuongThucBoTro.getTenLoaiSanPham(loaiSp));
+
+
         //nút back
-        ImageView imageView = findViewById(R.id.icon_back_button_for_timkiemsanpham_home);
+        ImageView imageView = findViewById(R.id.icon_back_button_for_danh_muc_san_pham);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,63 +73,22 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
 
 
 
-        //
-        tv_LoaiSanPham_for_timkiemsanpham_home=findViewById(R.id.tv_LoaiSanPham_for_timkiemsanpham_home);
-        search_edit_text_fortimkiem_home=findViewById(R.id.search_edit_text_fortimkiem_home);
-        icon_search_for_timkiemsanpham_home=findViewById(R.id.icon_search_for_timkiemsanpham_home);
-
-
-        icon_search_for_timkiemsanpham_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                try {
-                    if (search_edit_text_fortimkiem_home.getText().toString() == null || search_edit_text_fortimkiem_home.getText().toString().equals("") || MotSoPhuongThucBoTro.isAllWhitespace(search_edit_text_fortimkiem_home.getText().toString())) {
-
-                        Toast.makeText(v.getContext(), "Vui lòng nhập thông tin tìm kiếm!", Toast.LENGTH_SHORT).show();
-
-                        return;
-                    }
-
-                    chuoiTimKiem = search_edit_text_fortimkiem_home.getText().toString();
-
-                    sanPhamListDaTimKiem = timKiem(sanPhamList, chuoiTimKiem);
-
-                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
-                    getAllSanPhamThich(SanPhamListTimKiemActivity.this, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
-
-                    sanPhamAdapter = new SanPhamAdapter_For_TimKiem(sanPhamListDaTimKiem);
-                    recyclerView.setAdapter(sanPhamAdapter);
-
-                    sanPhamAdapter.notifyDataSetChanged();
-
-                }
-                catch (Exception e){}
-
-            }
-        });
 
 
 
-        chuoiTimKiem = getIntent().getStringExtra("search_query");
-
-
-        //hiển thị danh sách sản phẩm tìm kiếm
-
-        recyclerView = findViewById(R.id.recycler_view_loaisp_for_timkiemsanpham_home);
+        recyclerView = findViewById(R.id.recycler_view_danh_muc_san_pham);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         sanPhamList = new ArrayList<>();
 
-        danhSachSanPham_ForTimKiem(SanPhamListTimKiemActivity.this);
+        danhSachSanPham_ForDanhMucSanPham(danh_muc_san_pham.this);
 
 
 
     }
 
 
-    public void danhSachSanPham_ForTimKiem(Context context) {
+    public void danhSachSanPham_ForDanhMucSanPham(Context context) {
         String query = "SELECT * FROM SanPham WHERE DaXoa = false";
         List<QueryParameter> parameters = new ArrayList<>();
 
@@ -140,11 +106,11 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
 
                     sanPhamList=result;
 
-                    sanPhamListDaTimKiem=timKiem(sanPhamList,chuoiTimKiem);
+                    sanPhamListDaLocTheoLoaiSP=locTheoLoai(sanPhamList,loaiSp);
 
 
 
-                    sanPhamAdapter = new SanPhamAdapter_For_TimKiem(sanPhamListDaTimKiem);
+                    sanPhamAdapter = new SanPhamAdapter_For_DanhMucSP(sanPhamListDaLocTheoLoaiSP);
                     recyclerView.setAdapter(sanPhamAdapter);
 
                     sanPhamAdapter.notifyDataSetChanged();
@@ -158,8 +124,6 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
         sanPhamDA.execute(params);
 
     }
-
-
 
     public void getAllSanPhamThich(Context context, int khachHangId, List<SanPhamDTO> allSanPhamList) {
         SanPhamThichDA sanPhamThichDA = new SanPhamThichDA(new SanPhamThichDA.DatabaseCallback() {
@@ -190,6 +154,19 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
     }
 
 
+    private List<SanPhamDTO> locTheoLoai(List<SanPhamDTO>listSanPham,int loaiSp){
+
+        List<SanPhamDTO> ketQua = new ArrayList<>();
+        for (SanPhamDTO sanPham : listSanPham) {
+            if (sanPham.getLoai()==loaiSp) {
+                ketQua.add(sanPham);
+            }
+        }
+
+        return ketQua;
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -200,8 +177,8 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
                 boolean daThich = data.getBooleanExtra("daThich", false);
 
                 // Cập nhật sản phẩm bị thay đổi trong danh sách
-                for (int i = 0; i < sanPhamListDaTimKiem.size(); i++) {
-                    SanPhamDTO sanPham = sanPhamListDaTimKiem.get(i);
+                for (int i = 0; i < sanPhamListDaLocTheoLoaiSP.size(); i++) {
+                    SanPhamDTO sanPham = sanPhamListDaLocTheoLoaiSP.get(i);
                     if (sanPham.getId() == sanPhamId) {
                         sanPham.setDaThich(daThich);
                         sanPhamAdapter.notifyItemChanged(i);
@@ -213,23 +190,4 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
             }
         }
     }
-
-
-    private List<SanPhamDTO> timKiem(List<SanPhamDTO>listSanPham,String noidung){
-        tv_LoaiSanPham_for_timkiemsanpham_home.setText(noidung);
-        if(noidung.equals("")||noidung.isEmpty()){
-            return listSanPham;
-        }
-
-        List<SanPhamDTO> ketQua = new ArrayList<>();
-        for (SanPhamDTO sanPham : listSanPham) {
-            if (sanPham.getTenSP().toLowerCase().contains(noidung.toLowerCase())) {
-                ketQua.add(sanPham);
-            }
-        }
-
-        return ketQua;
-
-    }
-
 }

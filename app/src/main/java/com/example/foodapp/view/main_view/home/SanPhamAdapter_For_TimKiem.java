@@ -48,7 +48,7 @@ public class SanPhamAdapter_For_TimKiem extends RecyclerView.Adapter<SanPhamAdap
         holder.productName.setText(sanpham.getTenSP());
         holder.productQuantity.setText(String.valueOf(sanpham.getSoLuongTon()));
         holder.productPrice.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
-
+        holder.product_type_for_xemtatca.setText(MotSoPhuongThucBoTro.getTenLoaiSanPham(sanpham.getLoai()));
         holder.imageView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
             intent.putExtra("sanPhamId", sanpham.getId());
@@ -104,6 +104,7 @@ public class SanPhamAdapter_For_TimKiem extends RecyclerView.Adapter<SanPhamAdap
         private TextView productName;
         private TextView productPrice;
         private TextView productQuantity;
+        private TextView product_type_for_xemtatca;
         ImageButton favouriteButton;
         ImageButton addToCartButton;
 
@@ -116,6 +117,7 @@ public class SanPhamAdapter_For_TimKiem extends RecyclerView.Adapter<SanPhamAdap
             productPrice = itemView.findViewById(R.id.price_for_xemtatca);
             favouriteButton = itemView.findViewById(R.id.favourite_button_for_xemtatca);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button_for_xemtatca);
+            product_type_for_xemtatca=itemView.findViewById(R.id.product_type_for_xemtatca);
         }
     }
 }
