@@ -7,6 +7,7 @@ import com.example.foodapp.model.DA.VoucherDA;
 import com.example.foodapp.model.DTO.KhachHangDTO;
 import com.example.foodapp.model.DTO.VoucherDTO;
 import com.example.foodapp.view.main_view.cart.CartFragment;
+import com.example.foodapp.view.main_view.cart.purchase_order.Fragment_ChoXacNhan;
 import com.example.foodapp.view.main_view.home.DetailSanPhamFragment;
 import com.example.foodapp.view.main_view.home.HomeFragment;
 import com.example.foodapp.view.main_view.home.fragment_sanpham_list;
@@ -79,7 +80,12 @@ public class MainViewActivity extends AppCompatActivity {
                         fragmentDestination = new CartFragment();
                         break;
                     case R.id.action_chat:
-                        fragmentDestination = new SupportFragment();
+
+
+                        fragmentDestination= new Fragment_ChoXacNhan();
+
+
+                       // fragmentDestination = new SupportFragment();
                         break;
                     case R.id.action_setting:
                         fragmentDestination= new SettingFragment();

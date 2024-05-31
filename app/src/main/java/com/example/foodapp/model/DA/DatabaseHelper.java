@@ -1,13 +1,16 @@
 package com.example.foodapp.model.DA;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseHelper {
-    private static final String URL = "jdbc:mysql://172.30.235.83:33066/FoodApp";
+    private static final String URL = "jdbc:mysql://192.168.43.200:33066/FoodApp";
     private static final String USER = "foodapp";
     private static final String PASSWORD = "123456";
+
+
 
     public static  String insert="INSERT";
     public static  String update="UPDATE";
