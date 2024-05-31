@@ -8,12 +8,25 @@
     tools:context=".view.main_view.information.InformationFragment">
 
     <!-- Header với nền màu cam -->
+
+    <Button
+        android:id="@+id/btnEdit_ThongTinCaNhan"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_pencil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/view_header"
         android:layout_width="0dp"
         android:layout_height="170dp"
         android:background="#FFA07A"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +59,7 @@
     <!-- Ảnh đại diện -->
 
     <ImageView
-        android:id="@+id/iv_avatar"
+        android:id="@+id/iv_avatarTTCN"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="24dp"
@@ -89,14 +102,17 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/et_name"
+            <EditText
+                android:id="@+id/et_nameThongTinCaNhan"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:background="@drawable/rounded_edittext_information"
                 android:padding="12dp"
-                android:text="Xin Chào" />
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
+                android:inputType="textPersonName"/>
         </LinearLayout>
 
         <!-- Ngày sinh -->
@@ -116,13 +132,17 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/et_dob"
+                android:id="@+id/tv_NgaySinhThongTinCaNhan"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:background="@drawable/rounded_edittext_information"
                 android:padding="12dp"
-                android:text="19/09/1999" />
+                android:textColor="@android:color/black"
+                android:gravity="center_vertical"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false" />
         </LinearLayout>
 
         <!-- Điện thoại -->
@@ -141,14 +161,17 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/et_phone"
+            <EditText
+                android:id="@+id/et_phoneTTCN"
                 android:layout_width="0dp"
+                android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
                 android:background="@drawable/rounded_edittext_information"
-                android:padding="12dp"
-                android:text="909321322" />
+                android:padding="12dp" />
         </LinearLayout>
 
         <!-- Email -->
@@ -167,14 +190,17 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/et_email"
+            <EditText
+                android:id="@+id/et_emailTTCN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:inputType="textPersonName"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
                 android:background="@drawable/rounded_edittext_information"
-                android:padding="12dp"
-                android:text="nguyenvana@gmail.com" />
+                android:padding="12dp" />
         </LinearLayout>
 
         <!-- Địa chỉ -->
@@ -192,20 +218,23 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/et_address"
+            <EditText
+                android:id="@+id/et_addressTTCN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:inputType="textPersonName"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
                 android:background="@drawable/rounded_edittext_information"
-                android:padding="12dp"
-                android:text="19/09/1999" />
+                android:padding="12dp" />
         </LinearLayout>
     </LinearLayout>
 
     <!-- Nút Lưu -->
     <Button
-        android:id="@+id/btn_save"
+        android:id="@+id/btn_saveThongTinCaNhan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"

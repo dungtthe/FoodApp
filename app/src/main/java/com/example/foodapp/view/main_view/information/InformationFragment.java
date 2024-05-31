@@ -1,5 +1,6 @@
 package com.example.foodapp.view.main_view.information;
 
+import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -10,9 +11,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.foodapp.R;
+
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link InformationFragment#newInstance} factory method to
@@ -24,6 +32,10 @@ public class InformationFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private TextView tvNgaySinh;
+    Button btnLuu, btnSua;
+    EditText hoTen, sDT,eMail,diaChi;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,11 +84,65 @@ public class InformationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        tvNgaySinh = view.findViewById(R.id.tv_NgaySinhThongTinCaNhan);
+        btnSua = view.findViewById(R.id.btnEdit_ThongTinCaNhan);
+        btnLuu = view.findViewById(R.id.btn_saveThongTinCaNhan);
+        hoTen = view.findViewById(R.id.et_nameThongTinCaNhan);
+        sDT = view.findViewById(R.id.et_phoneTTCN);
+        eMail = view.findViewById(R.id.et_emailTTCN);
+        diaChi = view.findViewById(R.id.et_addressTTCN);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ImageView imageView=getView().findViewById(R.id.iv_avatar);
+            ImageView imageView=getView().findViewById(R.id.iv_avatarTTCN);
             imageView.setClipToOutline(true);
         }
 
+        //Phong ấn ngày sinh
+        tvNgaySinh.setClickable(false);
+        //Hàm giúp chọn ngày cho textview
+
+        tvNgaySinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
+
+        //Hàm giúp nút sửa giải phong ấn
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                tvNgaySinh.setClickable(true);
+                tvNgaySinh.setFocusable(true);
+
+
+            }
+        });
+
+    }
+
+
+
+    private void showDatePickerDialog() {
+        // Get the current date
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Display the DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                getContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
+                        // Set the selected date into the TextView
+                        tvNgaySinh.setText(selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear);
+                    }
+                },
+                year, month, day);
+        datePickerDialog.show();
     }
 }
