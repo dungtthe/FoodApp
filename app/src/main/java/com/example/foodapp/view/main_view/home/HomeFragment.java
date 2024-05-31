@@ -102,12 +102,12 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         LinearLayout linearnuocngot = view.findViewById(R.id.linear_nuocngot);
         LinearLayout linearbimbimlang = view.findViewById(R.id.linear_bimbimlang);
 
-        linearbanhmi.setOnClickListener(v -> handledanhmucButtonClicked());
-        linearkebab.setOnClickListener(v -> handledanhmucButtonClicked());
-        linearpizza.setOnClickListener(v -> handledanhmucButtonClicked());
-        linearhamburger.setOnClickListener(v -> handledanhmucButtonClicked());
-        linearnuocngot.setOnClickListener(v -> handledanhmucButtonClicked());
-        linearbimbimlang.setOnClickListener(v -> handledanhmucButtonClicked());
+        linearbanhmi.setOnClickListener(v -> handledanhmucButtonClicked(1));
+        linearkebab.setOnClickListener(v -> handledanhmucButtonClicked(2));
+        linearpizza.setOnClickListener(v -> handledanhmucButtonClicked(3));
+        linearhamburger.setOnClickListener(v -> handledanhmucButtonClicked(4));
+        linearnuocngot.setOnClickListener(v -> handledanhmucButtonClicked(5));
+        linearbimbimlang.setOnClickListener(v -> handledanhmucButtonClicked(6));
 
         return view;
     }
@@ -166,9 +166,9 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
         }
     }
 
-    private void handledanhmucButtonClicked() {
-
-        Intent intent = new Intent(requireContext(), danh_muc_san_pham.class);
+    private void handledanhmucButtonClicked(int loaiSp) {
+        Intent intent = new Intent(getActivity(), danh_muc_san_pham.class);
+        intent.putExtra("loadSp", loaiSp);
         startActivity(intent);
     }
 }

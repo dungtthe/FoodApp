@@ -20,20 +20,20 @@ import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.view.main_view.MainViewActivity;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
-import  com.example.foodapp.R;
+
 import java.util.List;
 
-public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAdapter_For_XemTatCa.MyViewHolder> {
+public class SanPhamAdapter_For_DanhMucSP extends RecyclerView.Adapter<SanPhamAdapter_For_DanhMucSP.MyViewHolder> {
     private List<SanPhamDTO> listItem;
 
-    public SanPhamAdapter_For_XemTatCa(List<SanPhamDTO> listItem){
+    public SanPhamAdapter_For_DanhMucSP(List<SanPhamDTO> listItem){
         this.listItem = listItem;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_sanpham_for_xemtatca, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_sanpham_for_danhmucsp, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -49,14 +49,12 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         holder.productName.setText(sanpham.getTenSP());
         holder.productQuantity.setText(String.valueOf(sanpham.getSoLuongTon()));
         holder.productPrice.setText(MotSoPhuongThucBoTro.formatTienSangVND(sanpham.getGiaBan()));
-        holder.product_type_for_xemtatca.setText(MotSoPhuongThucBoTro.getTenLoaiSanPham(sanpham.getLoai()));
-
+        holder.product_type_for_danhmucsanpham.setText(MotSoPhuongThucBoTro.getTenLoaiSanPham(sanpham.getLoai()));
         holder.imageView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), Detail_SanPham_For_Home_Activity.class);
             intent.putExtra("sanPhamId", sanpham.getId());
             intent.putExtra("daThich", sanpham.isDaThich());
             ((Activity) v.getContext()).startActivityForResult(intent, 1);
-
         });
 
         if (sanpham.isDaThich()) {
@@ -76,27 +74,20 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         });
 
         holder.addToCartButton.setOnClickListener(v -> {
-
-
-
-
-
-            if(sanpham.getSoLuongTon()==0){
+            if (sanpham.getSoLuongTon() == 0) {
                 Toast.makeText(v.getContext(), "Sản phẩm đã hết", Toast.LENGTH_SHORT).show();
-            }
-            else{
-
-                if(DataCurrent.isCoTrongGioHang(sanpham.getId())){
+            } else {
+                if (DataCurrent.isCoTrongGioHang(sanpham.getId())) {
                     Toast.makeText(v.getContext(), "Sản phẩm đã có trong giỏ hàng!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                SanPhamDTO sanPhamDTO= new SanPhamDTO();
+                SanPhamDTO sanPhamDTO = new SanPhamDTO();
                 sanPhamDTO.setId(sanpham.getId());
                 sanPhamDTO.setTenSP(sanpham.getTenSP());
                 sanPhamDTO.setLoai(sanpham.getLoai());
                 sanPhamDTO.setGiaBan(sanpham.getGiaBan());
-                sanPhamDTO.setSoLuongTon(1);//đây hiểu là số lượng mua nhé
+                sanPhamDTO.setSoLuongTon(1); //đây hiểu là số lượng mua nhé
                 sanPhamDTO.setHinhAnh(sanpham.getHinhAnh());
                 sanPhamDTO.setDaXoa(sanpham.isDaXoa());
                 sanPhamDTO.setMoTa(sanpham.getMoTa());
@@ -105,14 +96,8 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
                 DataCurrent.danhSachSanPhamCoTrongGioHang.add(sanPhamDTO);
                 Toast.makeText(v.getContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
             }
-
-
-
         });
     }
-
-
-
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
@@ -120,23 +105,20 @@ public class SanPhamAdapter_For_XemTatCa extends RecyclerView.Adapter<SanPhamAda
         private TextView productName;
         private TextView productPrice;
         private TextView productQuantity;
+        private TextView product_type_for_danhmucsanpham;
         ImageButton favouriteButton;
         ImageButton addToCartButton;
-        private TextView product_type_for_xemtatca;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.cardview_loaisp_for_xemtatca);
-            imageView = itemView.findViewById(R.id.product_image_for_xemtatca);
-            productName = itemView.findViewById(R.id.product_name_for_xemtatca);
-            productQuantity = itemView.findViewById(R.id.product_quantity_for_xemtatca);
-            productPrice = itemView.findViewById(R.id.price_for_xemtatca);
-            favouriteButton = itemView.findViewById(R.id.favourite_button_for_xemtatca);
-            addToCartButton = itemView.findViewById(R.id.add_to_cart_button_for_xemtatca);
-            product_type_for_xemtatca=itemView.findViewById(R.id.product_type_for_xemtatca);
+            cardView = itemView.findViewById(R.id.cardview_loaisp_for_danhmucsanpham);
+            imageView = itemView.findViewById(R.id.product_image_for_danhmucsanpham);
+            productName = itemView.findViewById(R.id.product_name_for_danhmucsanpham);
+            productQuantity = itemView.findViewById(R.id.product_quantity_for_danhmucsanpham);
+            productPrice = itemView.findViewById(R.id.price_for_danhmucsanpham);
+            favouriteButton = itemView.findViewById(R.id.favourite_button_for_danhmucsanpham);
+            addToCartButton = itemView.findViewById(R.id.add_to_cart_button_for_danhmucsanpham);
+            product_type_for_danhmucsanpham=itemView.findViewById(R.id.product_type_for_danhmucsanpham);
         }
     }
-
-
-
 }

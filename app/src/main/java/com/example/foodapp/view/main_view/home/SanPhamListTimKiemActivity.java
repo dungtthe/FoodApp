@@ -198,8 +198,8 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
                 boolean daThich = data.getBooleanExtra("daThich", false);
 
                 // Cập nhật sản phẩm bị thay đổi trong danh sách
-                for (int i = 0; i < sanPhamList.size(); i++) {
-                    SanPhamDTO sanPham = sanPhamList.get(i);
+                for (int i = 0; i < sanPhamListDaTimKiem.size(); i++) {
+                    SanPhamDTO sanPham = sanPhamListDaTimKiem.get(i);
                     if (sanPham.getId() == sanPhamId) {
                         sanPham.setDaThich(daThich);
                         sanPhamAdapter.notifyItemChanged(i);

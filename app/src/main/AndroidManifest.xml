@@ -29,6 +29,10 @@
         <!-- <activity -->
         <!-- android:name=".view.main_view.setting.activity_payment_history" -->
         <!-- android:exported="false" /> -->
+
+        <activity
+            android:name=".view.main_view.home.danh_muc_san_pham"
+            android:exported="false" />
          <activity
          android:name=".view.main_view.setting.activity_favourite_items"
          android:exported="false" />
