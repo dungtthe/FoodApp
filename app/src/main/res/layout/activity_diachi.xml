@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/group_diachi">
 
         <ImageView
             android:layout_width="24dp"
@@ -123,32 +123,12 @@
     </LinearLayout>
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/group_diachi"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#FFFFFF"
-            android:drawablePadding="50dp"
-            android:lineSpacingExtra="10dp"
-            android:text="Tiền Thế Dũng | (84+)012345678 Cổng sau,Ký túc xá khu B Phường Đông Hòa, Thành Phố Dĩ An,Tỉnh Bình Dương" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:drawablePadding="50dp"
-            android:lineSpacingExtra="10dp"
-            android:layout_height="100dp"
-            android:background="#FFFFFF"
-            android:layout_marginTop="5dp"
-            android:text="Tiền Thế Dũng | (84+)012345678 Cổng sau,Ký túc xá khu B Phường Đông Hòa, Thành Phố Dĩ An,Tỉnh Bình Dương" />
-    </RadioGroup>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
