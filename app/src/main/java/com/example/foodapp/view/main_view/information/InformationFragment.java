@@ -25,6 +25,7 @@ import com.example.foodapp.R;
 import com.example.foodapp.model.DA.KhachHangDA;
 import com.example.foodapp.model.DA.QueryParameter;
 import com.example.foodapp.model.DTO.KhachHangDTO;
+import com.example.foodapp.view.start.SingupActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -104,13 +105,90 @@ public class InformationFragment extends Fragment {
 
         LoadThongTin(getContext());
 
+        //Hiện thưc
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cho phép chỉnh sửa các EditText
+                hoTen.setEnabled(true);
+                sDT.setEnabled(true);
+                eMail.setEnabled(true);
+
+                // Hiển thị nút Lưu
+                btnLuu.setVisibility(View.VISIBLE);
+            }
+        });
+
+        //Lưu thông tin thay đổi
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hoTenMoi = hoTen.getText().toString().trim();
+                String sDTMoi = sDT.getText().toString().trim();
+                String eMailMoi = eMail.getText().toString().trim();
+                if(hoTenMoi.isEmpty() || sDTMoi.isEmpty() || eMailMoi.isEmpty())
+                {
+                    Toast.makeText(getContext(), "Thông tin không đầy đủ", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                // Kiểm tra email có chứa ký tự '@'
+                if (!eMailMoi.contains("@")) {
+                    Toast.makeText(getContext(), "Email không hợp lệ, vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+                    eMail.requestFocus();
+                    eMail.selectAll();
+                    return;
+                }
+                UpdateThongTin(hoTenMoi,sDTMoi,eMailMoi,getContext());
+                // Sau khi lưu thông tin, các EditText trở lại trạng thái không thể chỉnh sửa
+                hoTen.setEnabled(false);
+                sDT.setEnabled(false);
+                eMail.setEnabled(false);
+
+                // Ẩn nút Lưu
+                btnLuu.setVisibility(View.GONE);
+
+            }
+        });
+
     }
 
     private void LoadThongTin(Context context)
     {
-      hoTen.setText(khachHangDTOCur.getHoTen());
-      sDT.setText(khachHangDTOCur.getsDT());
-      eMail.setText(khachHangDTOCur.getMail());
+        hoTen.setText(khachHangDTOCur.getHoTen());
+        sDT.setText(khachHangDTOCur.getsDT());
+        eMail.setText(khachHangDTOCur.getMail());
     }
+
+
+
+
+    private void UpdateThongTin(String hoten, String sDt, String eMail , Context context) {
+        int id = khachHangDTOCur.getId();
+        String query = "UPDATE KhachHang SET HoTen = ?, SoDienThoai = ?, Email = ? WHERE ID = ?";
+        List<QueryParameter> parameters = new ArrayList<>();
+        parameters.add(new QueryParameter(1, hoten));
+        parameters.add(new QueryParameter(2, sDt));
+        parameters.add(new QueryParameter(3, eMail));
+        parameters.add(new QueryParameter(4, id));
+
+        Object[] params = new Object[parameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < parameters.size(); i++) {
+            params[i + 1] = parameters.get(i);
+        }
+
+        KhachHangDA khachHangDA = new KhachHangDA(new KhachHangDA.DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
+                if (isSuccess) {
+                    Toast.makeText(context, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Cập nhật thông tin thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, context);
+        khachHangDA.execute(params);
+    }
+
 
 }
