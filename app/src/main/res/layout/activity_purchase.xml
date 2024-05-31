@@ -277,7 +277,7 @@
 
                     <TextView
                         android:textColor="#3A3737"
-                        android:id="@+id/txtGia1"
+                        android:id="@+id/txtTongTienHoaDonTruocVoucher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -289,34 +289,34 @@
 
                     <TextView
                         android:textColor="#3A3737"
-                        android:id="@+id/txtGia2"
+                        android:id="@+id/txtGiaDichVuVanChuyen"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="50.000 VND"
-                        app:layout_constraintEnd_toEndOf="@+id/txtGia1"
+                        app:layout_constraintEnd_toEndOf="@+id/txtTongTienHoaDonTruocVoucher"
 
 
-                        app:layout_constraintTop_toBottomOf="@+id/txtGia1" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtTongTienHoaDonTruocVoucher" />
                     <TextView
                         android:textColor="#3A3737"
-                        android:id="@+id/txtGia3"
+                        android:id="@+id/txtChiPhiGiamGiaa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="-20.000 VND"
-                        app:layout_constraintEnd_toEndOf="@+id/txtGia2"
+                        app:layout_constraintEnd_toEndOf="@+id/txtGiaDichVuVanChuyen"
 
 
-                        app:layout_constraintTop_toBottomOf="@+id/txtGia2" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtGiaDichVuVanChuyen" />
                     <TextView
                         android:textColor="#FF8F7B"
-                        android:id="@+id/txtGia4"
+                        android:id="@+id/txtTongTienHoaDonSauVoucher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="121.000 VND"
-                        app:layout_constraintEnd_toEndOf="@+id/txtGia3"
+                        app:layout_constraintEnd_toEndOf="@+id/txtChiPhiGiamGiaa"
 
                         app:layout_constraintTop_toBottomOf="@+id/Line" />
 
