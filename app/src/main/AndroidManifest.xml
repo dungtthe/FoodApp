@@ -93,13 +93,20 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:name=".view.main_view.cart.purchase_order.activity_PurchaseOrder"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".view.start.SingupActivity"
             android:exported="false">
         </activity>
         <activity
             android:name=".view.main_view.cart.activity_purchase"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.main_view.cart.activity_notify"
             android:exported="false">
         </activity>
 
