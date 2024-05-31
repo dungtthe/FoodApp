@@ -1,6 +1,7 @@
 package com.example.foodapp.view.main_view.home;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -23,15 +24,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodapp.R;
+import com.example.foodapp.model.DA.QueryParameter;
 import com.example.foodapp.model.DA.SanPhamDA;
+import com.example.foodapp.model.DA.SanPhamThichDA;
+import com.example.foodapp.model.DTO.DataCurrent;
 import com.example.foodapp.model.DTO.SanPhamDTO;
 import com.example.foodapp.view.main_view.MotSoPhuongThucBoTro;
 import com.example.foodapp.view.main_view.setting.activity_changepassword;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback {
+public class HomeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -62,10 +67,10 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
 
     }
 
+
+
     private RecyclerView recyclerViewmonngon;
-    //private RecyclerView recyclerViewdanhmuc;
     private monngonhomnay_Adapter monngonhomnayAdapter;
-    //private DanhMucSanPham_Adapter danhMucSanPhamAdapter;
     private List<SanPhamDTO> sanPhamList;
 
     @Override
@@ -73,26 +78,18 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerViewmonngon = view.findViewById(R.id.recycler_view_monngonhomnay);
-        recyclerViewmonngon.setLayoutManager(new GridLayoutManager(getContext(), 2));
+//        recyclerViewmonngon = view.findViewById(R.id.recycler_view_monngonhomnay);
+//        recyclerViewmonngon.setLayoutManager(new GridLayoutManager(getContext(), 2));
+//
+//        //recyclerViewdanhmuc = view.findViewById(R.id.recycler_view_danhmucsp);
+//        //recyclerViewdanhmuc.setLayoutManager(new GridLayoutManager(getContext(), 2));
+//
+//        sanPhamList = new ArrayList<>();
+//
+//        // Load sản phẩm từ cơ sở dữ liệu
 
-        //recyclerViewdanhmuc = view.findViewById(R.id.recycler_view_danhmucsp);
-        //recyclerViewdanhmuc.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        sanPhamList = new ArrayList<>();
 
-        // Load sản phẩm từ cơ sở dữ liệu
-        SanPhamDA sanPhamDA = new SanPhamDA(this, getContext());
-        sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
-
-        monngonhomnayAdapter = new monngonhomnay_Adapter(sanPhamList);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewmonngon.setLayoutManager(layoutManager);
-        recyclerViewmonngon.setAdapter(monngonhomnayAdapter);
-
-        //
-//        danhMucSanPhamAdapter = new DanhMucSanPham_Adapter(sanPhamList);
-//        recyclerViewdanhmuc.setAdapter(danhMucSanPhamAdapter);
 
 
         LinearLayout linearbanhmi = view.findViewById(R.id.linear_banhmi);
@@ -154,17 +151,120 @@ public class HomeFragment extends Fragment implements SanPhamDA.DatabaseCallback
             }
         });
 
+
+
+
+        recyclerViewmonngon = view.findViewById(R.id.recycler_view_monngonhomnay);
+        recyclerViewmonngon.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        sanPhamList = new ArrayList<>();
+
+        danhSachSanPham_ForMonNgonHomNay(getContext());
+
+
     }
 
-    @Override
-    public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
-        if (isSuccess && result != null) {
-            sanPhamList.clear();
-            sanPhamList.addAll(result);
-            monngonhomnayAdapter.notifyDataSetChanged();
-            //danhMucSanPhamAdapter.notifyDataSetChanged();
+    private List<SanPhamDTO> sanPhamListRandom;
+
+    public void danhSachSanPham_ForMonNgonHomNay(Context context) {
+        String query = "SELECT * FROM SanPham WHERE DaXoa = false";
+        List<QueryParameter> parameters = new ArrayList<>();
+
+        Object[] params = new Object[parameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < parameters.size(); i++) {
+            params[i + 1] = parameters.get(i);
         }
+
+        SanPhamDA sanPhamDA = new SanPhamDA(new SanPhamDA.DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
+                if (isSuccess && !result.isEmpty()) {
+                    sanPhamList.clear();
+
+                    sanPhamList=result;
+
+                    sanPhamListRandom=getListRanDom(sanPhamList);
+
+
+                    monngonhomnayAdapter = new monngonhomnay_Adapter(sanPhamListRandom);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                    recyclerViewmonngon.setLayoutManager(layoutManager);
+                    recyclerViewmonngon.setAdapter(monngonhomnayAdapter);
+
+                    monngonhomnayAdapter.notifyDataSetChanged();
+
+                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
+                    getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
+
+                }
+            }
+        }, context);
+
+        sanPhamDA.execute(params);
+
     }
+
+    public void getAllSanPhamThich(Context context, int khachHangId, List<SanPhamDTO> allSanPhamList) {
+        SanPhamThichDA sanPhamThichDA = new SanPhamThichDA(new SanPhamThichDA.DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
+                if (isSuccess) {
+                    // Thiết lập thuộc tính daThich cho các sản phẩm yêu thích
+                    for (SanPhamDTO likedProduct : result) {
+                        for (SanPhamDTO product : allSanPhamList) {
+                            if (product.getId() == likedProduct.getId()) {
+                                product.setDaThich(true);
+                                break;
+                            }
+                        }
+                    }
+                    // Cập nhật lại adapter để hiển thị
+                    monngonhomnayAdapter.notifyDataSetChanged();
+                } else {
+                }
+            }
+
+            @Override
+            public void onModifyExecuted(String query, Boolean result, boolean isSuccess) {
+            }
+        }, context, SanPhamThichDA.ActionType.GET_LIKED_PRODUCTS);
+
+        sanPhamThichDA.execute(khachHangId);
+    }
+
+//    @Override
+//    public void onQueryExecuted(String query, List<SanPhamDTO> result, boolean isSuccess) {
+//        if (isSuccess && result != null) {
+//            sanPhamList.clear();
+//            sanPhamList.addAll(result);
+//            monngonhomnayAdapter.notifyDataSetChanged();
+//        }
+//    }
+//SanPhamDA sanPhamDA = new SanPhamDA(this, getContext());
+//        sanPhamDA.execute("SELECT * FROM SanPham WHERE DaXoa = FALSE");
+//
+//    monngonhomnayAdapter = new monngonhomnay_Adapter(sanPhamList);
+//    LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//        recyclerViewmonngon.setLayoutManager(layoutManager);
+//        recyclerViewmonngon.setAdapter(monngonhomnayAdapter);
+//
+
+
+
+
+
+    private List<SanPhamDTO> getListRanDom(List<SanPhamDTO> listSanPham) {
+        List<SanPhamDTO> ketQua = new ArrayList<>(listSanPham);
+
+        // Xáo trộn danh sách
+        Collections.shuffle(ketQua);
+
+        return ketQua;
+    }
+
+
+
+
 
     private void handledanhmucButtonClicked(int loaiSp) {
         Intent intent = new Intent(getActivity(), danh_muc_san_pham.class);

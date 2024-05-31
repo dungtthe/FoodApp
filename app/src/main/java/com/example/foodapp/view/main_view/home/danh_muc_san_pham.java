@@ -108,13 +108,15 @@ public class danh_muc_san_pham extends AppCompatActivity {
 
                     sanPhamListDaLocTheoLoaiSP=locTheoLoai(sanPhamList,loaiSp);
 
-                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
-                    getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
+
 
                     sanPhamAdapter = new SanPhamAdapter_For_DanhMucSP(sanPhamListDaLocTheoLoaiSP);
                     recyclerView.setAdapter(sanPhamAdapter);
 
                     sanPhamAdapter.notifyDataSetChanged();
+
+                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
+                    getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
                 }
             }
         }, context);

@@ -142,13 +142,15 @@ public class SanPhamListTimKiemActivity extends AppCompatActivity {
 
                     sanPhamListDaTimKiem=timKiem(sanPhamList,chuoiTimKiem);
 
-                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
-                    getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
+
 
                     sanPhamAdapter = new SanPhamAdapter_For_TimKiem(sanPhamListDaTimKiem);
                     recyclerView.setAdapter(sanPhamAdapter);
 
                     sanPhamAdapter.notifyDataSetChanged();
+
+                    // Gọi phương thức để thiết lập thuộc tính daThich cho các sản phẩm
+                    getAllSanPhamThich(context, DataCurrent.khachHangDTOCur.getId(), sanPhamList);
                 }
             }
         }, context);
