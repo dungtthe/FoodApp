@@ -1,6 +1,9 @@
 package com.example.foodapp.view.main_view.information;
 
+import static com.example.foodapp.model.DTO.DataCurrent.khachHangDTOCur;
+
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -16,10 +19,16 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodapp.R;
+import com.example.foodapp.model.DA.KhachHangDA;
+import com.example.foodapp.model.DA.QueryParameter;
+import com.example.foodapp.model.DTO.KhachHangDTO;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +41,6 @@ public class InformationFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private TextView tvNgaySinh;
     Button btnLuu, btnSua;
     EditText hoTen, sDT,eMail,diaChi;
 
@@ -84,65 +92,58 @@ public class InformationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tvNgaySinh = view.findViewById(R.id.tv_NgaySinhThongTinCaNhan);
         btnSua = view.findViewById(R.id.btnEdit_ThongTinCaNhan);
         btnLuu = view.findViewById(R.id.btn_saveThongTinCaNhan);
         hoTen = view.findViewById(R.id.et_nameThongTinCaNhan);
         sDT = view.findViewById(R.id.et_phoneTTCN);
         eMail = view.findViewById(R.id.et_emailTTCN);
-        diaChi = view.findViewById(R.id.et_addressTTCN);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ImageView imageView=getView().findViewById(R.id.iv_avatarTTCN);
             imageView.setClipToOutline(true);
         }
 
-        //Phong ấn ngày sinh
-        tvNgaySinh.setClickable(false);
-        //Hàm giúp chọn ngày cho textview
-
-        tvNgaySinh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePickerDialog();
-            }
-        });
-
-
-        //Hàm giúp nút sửa giải phong ấn
-        btnSua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                tvNgaySinh.setClickable(true);
-                tvNgaySinh.setFocusable(true);
-
-
-            }
-        });
+        LoadThongTin(getContext());
 
     }
 
+    private void LoadThongTin(Context context) {
+        // Lấy ID của khách hàng hiện tại
+        int id = khachHangDTOCur.getId();
 
+        // Chuẩn bị câu truy vấn
+        String query = "SELECT * FROM KhachHang WHERE ID = ?";
+        List<QueryParameter> parameters = new ArrayList<>();
+        parameters.add(new QueryParameter(1, id));
 
-    private void showDatePickerDialog() {
-        // Get the current date
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        // Tạo mảng tham số để truyền vào khối lệnh cơ sở dữ liệu
+        Object[] params = new Object[parameters.size() + 1];
+        params[0] = query;
+        for (int i = 0; i < parameters.size(); i++) {
+            params[i + 1] = parameters.get(i);
+        }
 
-        // Display the DatePickerDialog
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                getContext(),
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-                        // Set the selected date into the TextView
-                        tvNgaySinh.setText(selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear);
-                    }
-                },
-                year, month, day);
-        datePickerDialog.show();
+        // Tạo đối tượng KhachHangDA để thực hiện truy vấn
+        KhachHangDA khachHangDA = new KhachHangDA(new KhachHangDA.DatabaseCallback() {
+            @Override
+            public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
+                if (isSuccess && !result.isEmpty()) {
+                    // Nếu truy vấn thành công và có kết quả, cập nhật thông tin lên các view
+                    KhachHangDTO khachHangDTO = result.get(0);
+                    hoTen.setText(khachHangDTO.getHoTen());
+                    sDT.setText(khachHangDTO.getsDT());
+                    eMail.setText(khachHangDTO.getMail());
+                } else {
+                    // Ví dụ: Hiển thị thông báo lỗi hoặc để trống các view
+                    hoTen.setText("");
+                    sDT.setText("");
+                    eMail.setText("");
+                    Toast.makeText(context, "Không thể tải thông tin khách hàng", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, context);
+
+        // Thực thi truy vấn
+        khachHangDA.execute(params);
     }
+
 }
