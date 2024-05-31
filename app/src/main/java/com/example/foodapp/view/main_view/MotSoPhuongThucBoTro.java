@@ -31,4 +31,22 @@ public class MotSoPhuongThucBoTro {
     public static int tinhGiaTriHoaDon(){
         return 0;
     }
+    public static String getTenLoaiSanPham(int loaiSp) {
+        switch (loaiSp) {
+            case 1:
+                return "Bánh mì";
+            case 2:
+                return "Kebab";
+            case 3:
+                return "Pizza";
+            case 4:
+                return "Hamburger";
+            case 5:
+                return "Nước ngọt";
+            case 6:
+                return "Bim bim lạng";
+            default:
+                return "Khác";
+        }
+    }
 }
