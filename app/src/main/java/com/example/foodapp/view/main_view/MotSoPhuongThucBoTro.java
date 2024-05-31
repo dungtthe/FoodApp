@@ -1,5 +1,7 @@
 package com.example.foodapp.view.main_view;
 
+import com.example.foodapp.model.DTO.DataCurrent;
+
 public class MotSoPhuongThucBoTro {
     public static String formatTienSangVND(long value) {
         String numStr = Long.toString(value);
@@ -18,5 +20,15 @@ public class MotSoPhuongThucBoTro {
     public static boolean isAllWhitespace(String str) {
         // Loại bỏ tất cả khoảng trắng ở đầu và cuối chuỗi và kiểm tra độ dài
         return str.trim().isEmpty();
+    }
+    public static int tinhTongTienHoaDon(){
+        int sum=0;
+        for(int i=0;i< DataCurrent.danhSachSanPhamCoTrongHoaDon.size();i++){
+            sum+=DataCurrent.danhSachSanPhamCoTrongHoaDon.get(i).getGiaBan()*DataCurrent.danhSachSanPhamCoTrongHoaDon.get(i).getSoLuongTon();
+        }
+        return sum;
+    }
+    public static int tinhGiaTriHoaDon(){
+        return 0;
     }
 }

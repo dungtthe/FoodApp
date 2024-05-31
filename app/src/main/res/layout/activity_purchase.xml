@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cart.activity_purchase">
+    tools:context=".view.main_view.cart.activity_purchase">
     <!--  header of Pay  -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ViewHeaderPay"
@@ -32,6 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@+id/btnBack"
             android:layout_width="32dp"
             android:layout_height="26dp"
             android:layout_marginEnd="80dp"
