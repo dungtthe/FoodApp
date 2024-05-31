@@ -106,44 +106,11 @@ public class InformationFragment extends Fragment {
 
     }
 
-    private void LoadThongTin(Context context) {
-        // Lấy ID của khách hàng hiện tại
-        int id = khachHangDTOCur.getId();
-
-        // Chuẩn bị câu truy vấn
-        String query = "SELECT * FROM KhachHang WHERE ID = ?";
-        List<QueryParameter> parameters = new ArrayList<>();
-        parameters.add(new QueryParameter(1, id));
-
-        // Tạo mảng tham số để truyền vào khối lệnh cơ sở dữ liệu
-        Object[] params = new Object[parameters.size() + 1];
-        params[0] = query;
-        for (int i = 0; i < parameters.size(); i++) {
-            params[i + 1] = parameters.get(i);
-        }
-
-        // Tạo đối tượng KhachHangDA để thực hiện truy vấn
-        KhachHangDA khachHangDA = new KhachHangDA(new KhachHangDA.DatabaseCallback() {
-            @Override
-            public void onQueryExecuted(String query, List<KhachHangDTO> result, boolean isSuccess) {
-                if (isSuccess && !result.isEmpty()) {
-                    // Nếu truy vấn thành công và có kết quả, cập nhật thông tin lên các view
-                    KhachHangDTO khachHangDTO = result.get(0);
-                    hoTen.setText(khachHangDTO.getHoTen());
-                    sDT.setText(khachHangDTO.getsDT());
-                    eMail.setText(khachHangDTO.getMail());
-                } else {
-                    // Ví dụ: Hiển thị thông báo lỗi hoặc để trống các view
-                    hoTen.setText("");
-                    sDT.setText("");
-                    eMail.setText("");
-                    Toast.makeText(context, "Không thể tải thông tin khách hàng", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, context);
-
-        // Thực thi truy vấn
-        khachHangDA.execute(params);
+    private void LoadThongTin(Context context)
+    {
+      hoTen.setText(khachHangDTOCur.getHoTen());
+      sDT.setText(khachHangDTOCur.getsDT());
+      eMail.setText(khachHangDTOCur.getMail());
     }
 
 }
