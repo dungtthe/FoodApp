@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudio/DoAn/app/src/main/res/layout/fragment_information.xml" value="0.25" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_changepassword.xml" value="0.2210144927536232" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_diachi.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/activity_favourite_items.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/card_view_sanpham_for_xemtatca.xml" value="0.12715298885511653" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/FoodApp/app/src/main/res/layout/fragment_setting.xml" value="0.12715298885511653" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/drawable/ic_baseline_arrow_back_24_for_home.xml" value="0.2605" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_changepassword.xml" value="0.12222222222222222" />
         <entry key="..\:/Users/DELL/DTTAndroidStudioProject/FoodApp/app/src/main/res/layout/activity_comment_list.xml" value="0.1" />
